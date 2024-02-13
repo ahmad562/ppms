@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Project Performance Monitoring System</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+      <meta name="description" content="Phoenixcoded">
+      <meta name="keywords" content=", Flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+      <meta name="author" content="Phoenixcoded">
+      <!-- Favicon icon -->
+      <link rel="icon" href="<?php echo base_url()?>assets/images/favicon.ico" type="image/x-icon">
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url()?>img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url()?>img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url()?>img/favicon/favicon-16x16.png">
+<link rel="manifest" href="<?php echo base_url()?>img/favicon/site.webmanifest">
+<link rel="mask-icon" href="<?php echo base_url()?>img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/bootstrap/css/bootstrap.min.css">
+      <!-- themify icon -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/icon/themify-icons/themify-icons.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/icon/icofont/css/icofont.css">
+      <!-- flag icon framework css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/flag-icon/flag-icon.min.css">
+      <!-- Menu-Search css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/menu-search/css/component.css">
+      <!-- Horizontal-Timeline css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/dashboard/horizontal-timeline/css/style.css">
+      <!-- amchart css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/dashboard/amchart/css/amchart.css">
+      <!-- flag icon framework css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/flag-icon/flag-icon.min.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/style.css">
+      <!--color css-->
+
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/timeline/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/linearicons.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/simple-line-icons.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/ionicons.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/jquery.mCustomScrollbar.css">
+
+
+       <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    <style>
+.raised-menu {
+    background-color: #1ABC9C;
+    border: 1px solid yellow;
+    padding: 10px; /* Adjust padding as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Add a smooth transition effect */
+    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+}
+
+.raised-menu:hover {
+    background-color: #128C7E; /* Change the background color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust the hover shadow */
+    transform: translateY(-2px); /* Add a subtle lift effect on hover */
+}
+.hover-effect:hover {
+    color: #fff; /* Change the text color on hover */
+    background-color: #128C7E; /* Change the background color on hover */
+    /* Add any other styles you want to apply on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust the hover shadow */
+    transform: translateY(-2px); /* Add a subtle lift effect on hover */
+}
+.bordered {
+    border: 2px solid ##2c3e50; /* Set the border properties: width, style, and color */
+}
+
+.bordered:hover {
+    color: #fff; /* Change the text color on hover */
+    background-color: #128C7E; /* Change the background color on hover */
+    /* Add any other styles you want to apply on hover */
+    font-size: 20px;
+}
+</style>
+
+  </head>
