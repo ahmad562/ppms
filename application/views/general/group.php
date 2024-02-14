@@ -38,6 +38,7 @@
                                                 <th>Serial#</th>
                                                 <th>Group Name</th>
                                                 <th>Permission</th>
+                                                <th>UserPermission</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                                
@@ -52,6 +53,12 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $done->group_name;?></td>
                      <td align="center"><a href="<?php echo base_url('Welcome/permission/')?><?php echo $done->group_id;?>">
+                      <button class="btn btn-danger">Permissions </button></a>
+                      
+                       </td>
+
+                       
+                     <td align="center"><a href="<?php echo base_url('Welcome/user_permission/')?>">
                       <button class="btn btn-danger">Permissions </button></a>
                       
                        </td>

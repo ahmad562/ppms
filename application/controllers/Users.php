@@ -96,7 +96,7 @@ public function checkUsers()
 		  
 		  $this->session->set_userdata('groupid', $check->group_id);
 		  $this->session->set_userdata('cityid', $check->city_id);
-		  
+		  //////////////////////////////////////////////////////////////////
 		  date_default_timezone_set("Asia/Karachi");
 		  $login_date=date('Y-m-d H:i:s');
 		  //$logout_date=date('Y-m-d H:S:I');
@@ -124,14 +124,12 @@ $this->session->set_userdata('login_id', $last_insert_id);
 	////////////////////logout///////////////////////////////
 	public function logout()
  {
-     $id=$this->session->userdata('login_id');
+	$id=$this->session->userdata('login_id');
 	 date_default_timezone_set("Asia/Karachi");
 		  $login_date=date('Y-m-d H:i:s');
 	 if($id){	  
 	$this->db->query("update login_logs set flag_id=0,timestamp_logout='$login_date' where id=$id");
 	 }
-    
-	
 	 $this->session->sess_destroy();
 	 redirect(base_url());
 	 

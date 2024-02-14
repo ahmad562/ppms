@@ -149,7 +149,19 @@ class Dropdown extends CI_Model{
     
         return $response;
       }
-
+      function get_sub_project_city_wise($postData){
+        $response = array();
+     
+        // Select record
+        $this->db->select('subproject_id,subproject_name,project_name');
+        $this->db->where('city_id', $postData['city_id']);
+        $this->db->from('ppms_subproject');
+        $this->db->join('ppms_project','ppms_project.project_id=ppms_subproject.project_id','inner');
+        $q=$this->db->get();
+        $response = $q->result_array();
+    
+        return $response;
+      }
       function get_sub_projects_sites($postData){
         $response = array();
      

@@ -1053,9 +1053,18 @@ ppms_ipac_file where ipac_id=$ipc_iddd and ipac_user_id=$remarkss->emp_id and ip
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
-                                                        ?>    
+                                                        ?> 
+                     <?php 
+                    // echo $orgName->organization_id;
+
+                     if($orgName->designation_id==15){
+                      echo "You Are Not Eligible for Entries";  
+                     }else{?>   
                     <input type="checkbox" value="1" onchange="enable_inputs(this,<?php echo $ipc_iddd;?>,<?php echo $subID;?>,<?php echo $subsubID;?>,'<?php echo $item->ipc_no;?>')" id="enable_summary" class="form-control"></td>
-                <?php }?>
+                <?php
+                      
+                     }
+            }?>
                 </tr>
                                                         </table>
                                                         <?php 
@@ -1508,7 +1517,11 @@ $checked="checked";
 ///////////////////////////////////
 
 if($itemss->organization_id==$orgiiiiii){
-$dis="";
+    if($orgName->designation_id == 15 ){
+        $dis="disabled"; 
+    }else{
+        $dis="";  
+    }
 }else{
 $dis="disabled";
 }
@@ -1519,6 +1532,7 @@ $dis="disabled";
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
+
                                                         ?> 
                                                             <input type="checkbox" <?php echo $dis;?>
                                                                 id="item_ids<?php echo $itemss->item_id;?>"

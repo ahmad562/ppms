@@ -35,12 +35,14 @@
                                     
                                 <table width="100%" border="1">
             <tr>
-              <td><b>Group:</b></td>
+              <td><b>Designation:</b></td>
               <td><select name="group" id="group" class="form-control " placeholder="Enter Category" onChange="get_sub_category(this.value)" tabindex="9">
                   <?php 
-                  $group=$this->db->query("select * from usr_group where group_id=$PermID")->row();
+                  $groups=$this->db->query("select * from designation")->result();
+                  foreach($groups as $groups){
        ?>
-                  <option value="<?php echo $group->group_id; ?>"> <?php echo $group->group_name; ?></option>
+                  <option value="<?php echo $groups->designation_id; ?>"> <?php echo $groups->designation_name; ?></option>
+               <?php }?>
                 </select></td>
             </tr>
           </table>
@@ -49,7 +51,7 @@
 		  $parent=$this->db->query("SELECT * FROM menu_admin WHERE parent_id=0  order by sort_order asc")->result();
          foreach($parent as $parent){?>
           <?php 
-				$grpID=$this->db->query("SELECT * FROM permission WHERE menu_id=$parent->menu_id and group_id=$PermID and flag_id=1")->row();?>
+				$grpID=$this->db->query("SELECT * FROM user_permission WHERE menu_id=$parent->menu_id and group_id=$PermID and flag_id=1")->row();?>
           <table width="100%" border="1">
             <tbody>
               <tr style="background-color:#000000; color:#fff">

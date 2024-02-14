@@ -210,7 +210,41 @@ $('#sub_project_idss').change(function() {
                                     }
                                 });
                             });
+/////////////////////////////////////////////////////////////////////////////////
 
+$('#city_id').change(function() {
+                                var city_id = $(this).val();
+
+                                // AJAX request
+                                $.ajax({
+                                    url: '<?=base_url()?>Dropdowns/display_sub_project_city_wise',
+                                    method: 'post',
+                                    data: {
+                                        city_id: city_id
+                                    },
+                                    dataType: 'json',
+                                    success: function(response) {
+
+                                        // Remove options
+                                        $('#sub_project_idss').find('option').not(':first')
+                                            .remove();
+
+                                        // Add options
+                                        $.each(response, function(index, data) {
+                                            $('#sub_project_idss').append(
+'<option value="' + data['subproject_id'] + '">'+ data['project_name'] + ' ' + '/'+ ' ' +data['subproject_name'] + '</option>');
+                                        });
+                                    }
+                                });
+                            });
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
 
 
 
@@ -273,7 +307,7 @@ else{
          
      ///$("#display_sub_sub_project_ipc").html(page_response);	
      //alert(page_response);
-     alert("Item Status Changed");
+     alert("Item added Successfully");
      // window.location.reload();
      
      }else if(page_response==0){
@@ -300,6 +334,7 @@ else{
       );
      
     }
+    
     function delete_item(id)
  {
    

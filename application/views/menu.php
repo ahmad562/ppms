@@ -9,7 +9,7 @@
 
     <?php 
     $empID=$this->session->userdata('empid');
-    $unameee=$this->db->query("SELECT e.emp_id,e.emp_name,d.designation_name,e.emp_pic
+    $unameee=$this->db->query("SELECT e.emp_id,e.emp_name,d.designation_name,e.emp_pic,e.organization_id
     FROM
     emp AS e,designation AS d
     WHERE e.designation_id=d.designation_id and e.emp_id=$empID")->row();
@@ -177,82 +177,55 @@
                                 </li>
                             </ul>
                             <ul class="nav-right">
-                                <li class="header-notification lng-dropdown">
-                                    <a href="#" id="dropdown-active-item">
-                                        <i class="flag-icon flag-icon-gb m-r-5"></i> English
-                                    </a>
-                                    <?php /*?><ul class="show-notification">
-                                        <li>
-                                            <a href="#" data-lng="en">
-                                                <i class="flag-icon flag-icon-gb m-r-5"></i> English
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-lng="es">
-                                                <i class="flag-icon flag-icon-es m-r-5"></i> Spanish
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-lng="pt">
-                                                <i class="flag-icon flag-icon-pt m-r-5"></i> Portuguese
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-lng="fr">
-                                                <i class="flag-icon flag-icon-fr m-r-5"></i> French
-                                            </a>
-                                        </li>
-                                    </ul>
-                                   
-                                </li>
+<?php $totkifipaki=$this->db->query("select count(*) as tot_ipc from ppms_ipac_forward where organization_id=$unameee->organization_id and flag_id=1 and (status_id=0 or status_id=2)")->row();?>
                                 <li class="header-notification">
                                     <a href="#!">
-                                        <i class="ti-bell"></i>
-                                        <span class="badge">5</span>
+                                        <i class="ti-bell"> New IPC's</i>
+                                        <span class="badge blinking-text"><?php echo $totkifipaki->tot_ipc;?></span>
                                     </a>
-                                    <ul class="show-notification">
+                                    
+<ul class="show-notification">
+<?php $totkifipaki2=$this->db->query("select * from ppms_ipac as pi,ppms_ipac_forward as pif
+ where pi.ipac_id=pif.ipac_id and pif.organization_id=$unameee->organization_id and pif.flag_id=1 and (pif.status_id=0 or pif.status_id=2)")->result();
+ foreach($totkifipaki2 as $totkifipaki2){
+ ?>
+  
                                         <li>
-                                            <h6>Notifications</h6>
-                                            <label class="label label-danger">New</label>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                    <table class="table">
+       
+                                        <tr>
+                                            <?php /*?><td>        
+                    <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/').$totkifipaki2->ipac_id?>">
+                    <?php echo $totkifipaki2->ipac_id;?></a></td>
+                    <?php */?>
+                    <td>
+                        
+                    <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/').$totkifipaki2->ipac_id?>">
+                    <?php echo $totkifipaki2->ipc_no;?></a></td>
+                    <td>
+
                                                 <div class="media-body">
-                                                    <h5 class="notification-user">John Doe</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
+            <h5 class="notification-user"> <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/').$totkifipaki2->ipac_id?>">
+             <?php echo number_format($totkifipaki2->ipac_amount,2);?></a></h5></td>
+            <td>
+           
+            <span class="notification-time"> <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/').$totkifipaki2->ipac_id?>">
+            <?php echo $totkifipaki2->ipac_forward_date;?></a></span></td>
+                                        </tr>
+                        </a>
+                                            </table>
+                                                
                                         </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">Joseph William</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
-                                                <div class="media-body">
-                                                    <h5 class="notification-user">Sara Soudein</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                                    <span class="notification-time">30 minutes ago</span>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        
+                                      <?php }?> 
+
                                     </ul>
+
+
+
+
                                 </li>
-                                <li class="header-notification">
-                                    <a href="#!" class="displayChatbox">
-                                        <i class="ti-comments"></i>
-                                        <span class="badge">9</span>
-                                    </a>
-                                </li> <?php */?>
+                                
                                 <li class="user-profile header-notification">
                                     <a href="#!">
                                         
@@ -268,7 +241,7 @@
 
 ?>    
 </span>
-                                        <i class="ti-angle-down"></i>
+ <i class="ti-angle-down"></i>
                                     </a>
                                     <ul class="show-notification profile-notification">
                                         
@@ -286,6 +259,10 @@
                                     </ul>
                                 </li>
                             </ul>
+
+
+
+                            
                             <!-- search -->
                             <div id="morphsearch" class="morphsearch">
                                 <form class="morphsearch-form">
@@ -764,6 +741,19 @@ and pa.group_id=$grpID and pa.flag_id=1")->result();
         margin-left: auto;
         font-size: 12px;
     }
+
+
+    @keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blinking-text {
+  animation: blink 1s infinite;
+}
+
+
 </style>
 
 

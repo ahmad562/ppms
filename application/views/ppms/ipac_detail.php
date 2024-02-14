@@ -53,55 +53,76 @@ $cityID=$this->session->userdata('cityid');
 
                                 </div>
                                 <div class="card-block">
-                            <form method="post" action="<?php echo base_url('Welcome/display_ipc_detail')?>">
-                                    <?php if($groupID == 5 or $groupID == 6 or $groupID == 1){?>
-                                    <table class="table">
+                                    <form method="post" action="<?php echo base_url('Welcome/display_ipc_detail')?>">
+                                        <?php if($groupID == 5 or $groupID == 6 or $groupID == 1){?>
+                                        <table class="table">
 
-                                        <tr style="background-color:#1ABC9C;; color:#fff">
-                                            <td colspan="10">
-                                                <font size="+1">Search By Project & SubProject Detail</font>
-                                            </td>
-                                        </tr>
-                                        <tr>
+                                            <tr style="background-color:#1ABC9C;; color:#fff">
+                                                <td colspan="10">
+                                                    <font size="+1">Search By Project & SubProject Detail</font>
+                                                </td>
+                                            </tr>
+                                            <?php /*?>
+                                            <tr>
 
-                                            <td>Sectors</td>
-                                            <td>
-                                                <select class="form-control" name="sectors_id" id="sectors_id">
-                                                    <option value="">Select Sectors</option>
-                                                    <?php $sectors=$this->db->query("select * from ppms_sector")->result();
+                                                <td>Sectors</td>
+                                                <td>
+                                                    <select class="form-control" name="sectors_id" id="sectors_id">
+                                                        <option value="">Select Sectors</option>
+                                                        <?php $sectors=$this->db->query("select * from ppms_sector")->result();
                                                              foreach($sectors as $sectorss){?>
-                                                    <option value="<?php echo $sectorss->sector_id?>">
-                                                        <?php echo $sectorss->sector_name?></option>
-                                                    <?php }?>
+                                                        <option value="<?php echo $sectorss->sector_id?>">
+                                                            <?php echo $sectorss->sector_name?></option>
+                                                        <?php }?>
 
-                                                </select>
+                                                    </select>
 
 
 
-                                            </td>
+                                                </td>
 
-                                            <td>Projects</td>
-                                            <td>
-                                                <select name="project_id" id="project_id" class="form-control">
+                                                <td>Projects</td>
+                                                <td>
+                                                    <select name="project_id" id="project_id" class="form-control">
 
-                                                    <option value="">Select Project</option>
-                                                    <?php /*?><?php $done=$this->db->query("select project_id,project_name from ppms_project")->result();
+                                                        <option value="">Select Project</option>
+                                                        <?php /*?><?php $done=$this->db->query("select project_id,project_name from ppms_project")->result();
 foreach($done as $desig){
 ?>
-                                                    <option value="<?php echo $desig->project_id;?>">
-                                                        <?php echo $desig->project_name;?></option>
-                                                    <?php }?><?php */?>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sub Project</td>
-                                            <td>
-                                                <select name="sub_project_id" id="sub_project_idss" class="form-control"
-                                                     onChange="display_subprject(this.value)">
+                                                        <option value="<?php echo $desig->project_id;?>">
+                                                            <?php echo $desig->project_name;?></option>
+                                                        <?php }?>
+                                                    </select>
+                                                    ==
+                                                </td>
+                                                =
+                                            </tr><?php */?>
 
-                                                    <option value="">Select Sub Project List</option>
-                                                    <?php 
+
+                                            <tr>
+                                                <td>City</td>
+                                                <td>
+
+                                                    <select name="city_id" id="city_id" class="form-control">
+
+                                                        <option value="">Select City</option>
+                                                        <?php $cityID420=$this->db->query("select * from city")->result();
+ foreach($cityID420 as $cityID420){?>
+                                                        <option value="<?php echo $cityID420->city_id;?>">
+                                                            <?php echo $cityID420->city_name;?>
+                                                        </option>
+                                                        <?php }?>
+                                                    </select>
+
+                                                </td>
+                                           
+                                                <td>Sub Project</td>
+                                                <td>
+                                                    <select name="sub_project_id" id="sub_project_idss"
+                                                        class="form-control" onChange="display_subprject(this.value)">
+
+                                                        <option value="">Select Sub Project List</option>
+                                                        <?php 
             if($orgName->designation_id==8){
                 $subProject=$this->db->query("SELECT * FROM ppms_subproject AS ps,assign_regional AS ar
                 WHERE ps.`subproject_id`=ar.`subproject_id` and ar.emp_id=$empiD")->result();
@@ -109,56 +130,56 @@ foreach($done as $desig){
             $subProject=$this->db->query("select * from ppms_subproject where city_id=$cityID")->result();
             }
                                                              foreach($subProject as $subProject){?>
-                                                    <option value="<?php echo $subProject->subproject_id?>">
-                                                        <?php echo $subProject->subproject_name?></option>
-                                                    <?php }?>
-                                                </select>
-                                            </td>
-                                            <td>Certificate Type</td>
-                                            <td>
-                                                <select name="certificate_type" class="form-control">
-                                                    <option value="">Select Option</option>
-                                                    <option value="IPA/IPC">IPA/IPC</option>
-                                                    <option value="Mobilization">Mobilization</option>
+                                                        <option value="<?php echo $subProject->subproject_id?>">
+                                                            <?php echo $subProject->subproject_name?></option>
+                                                        <?php }?>
+                                                    </select>
+                                                </td>
+                                                </tr>
+                                            <tr>
+                                                <td>Certificate Type</td>
+                                                <td>
+                                                    <select name="certificate_type" class="form-control">
+                                                        <option value="">Select Option</option>
+                                                        <option value="IPA/IPC">IPA/IPC</option>
+                                                        <option value="Mobilization">Mobilization</option>
 
-                                                </select>
-
-
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-
-                                                <input type="submit" class="btn btn-block btn-outline btn-danger"
-                                                    id="seacrh" name="seacrh" value="Search Record">
-                                            </td>
-                                        </tr>
-
-                                    </table>
-                                                           
-                                    <?php }?>
-                                    </table>
-                    </form>
+                                                    </select>
 
 
-                                  
-                <div class="dt-responsive table-responsive">
+                                                </td>
+                                            
+                                                <td>
+
+                                                    <input type="submit" class="btn btn-block btn-outline btn-danger"
+                                                        id="seacrh" name="seacrh" value="Search Record">
+                                                </td>
+                                            </tr>
+
+                                        </table>
+
+                                        <?php }?>
+                                        </table>
+                                    </form>
+
+
+
+                                    <div class="dt-responsive table-responsive">
                                         <table id="simpletable" class="table  table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>IPC No.</th>
+                                                    <th>IPCNo.</th>
                                                     <th>Package Name</th>
-                                                    <th>Certificate Type</th>
-                                                    <th>Contractor Name</th>
+                                                    
+                                                   <?php /*?> <th>Contractor Name</th><?php */?>
 
-                                                    <th>Submitted Amount(in PKR) 
-                                                        </th>
+                                                    <th>Submitted <br>Amount<br>(in PKR)
+                                                    </th>
                                                     <th>Internal</th>
                                                     <th>Status</th>
                                                     <th>Submission date</th>
                                                     <th>Due date</th>
-                                                    <th>Forward IPC</td>
+                                                   <?php /*?> <th>Forward IPC</td><?php */?>
                                                     <th>Payment Status</td>
                                                     <th>Remarks</th>
 
@@ -212,29 +233,27 @@ $j=1;
                    
                    ?>
                                                 <tr class="gradeX">
-                                                    <td><?php echo $item->ipc_no;?></td>
+                                                    <td>
+                                                    <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/'.$item->ipac_id)?>">    
+                                                    <?php echo $item->ipc_no;?></a></td>
 
                                                     <td>
-                                                        <?php /*?><a href="<?php echo base_url('Welcome/mobilization_advance/').$item->ipac_id;?>"><?php */?>
-                                                            <?php echo $item->project_name."-".$item->subproject_name;?>
-                                                    <td>
-                                                    <?php /*?><a
-                                                            href="<?php echo base_url('Welcome/payment_certificat/').$item->ipac_id;?>"> </a><?php */?>
-                                                            <?php echo $item->certificate_type;?>
-                                                       
-                                                    </td>
-                                                    </td>
-                                                    <td>
+                                                        <?php /*?><a
+                                                            href="<?php echo base_url('Welcome/mobilization_advance/').$item->ipac_id;?>"><?php */?>
+                                            <a href="<?php echo base_url('Welcome/new_ipc_detail_popup/'.$item->ipac_id)?>">  
+                                           <?php echo " <font color='red'><b>(".$item->project_name."-".$item->subproject_name;?>)<br>
+                                                           <font color="black"><b>(<?php echo $item->certificate_type;?>)</b></font>
+                  </br>
 
                                                         <?php 
                                         $cidnew1 = $this->db->query("SELECT emp_id,emp_name FROM ppms_subproject_assign AS psa,emp AS e
                                         WHERE psa.`contractor_id`=e.`emp_id` and subproject_id=$item->subproject_id")->result();
                                         $z1=1;
                                         foreach($cidnew1 as $cidnew1){
-                                            echo $cidnew1->emp_name." - ";
+                                            echo "<font color='blue'><b>(".$cidnew1->emp_name.") ";
                                         //echo "(".$z1.") "."<br>";
                                         $z1++;
-                                        }?>
+                                        }?></a>
 
 
 
@@ -245,7 +264,7 @@ $j=1;
 
                                                     <td><?php echo number_format($item->ipac_amount,2);?></td>
 
-                                                    <td align="center">
+         <td align="center">
                                                         <?php //if($tracs->status_id==2){
                                     if($orgName->organization_id==$tracs->organization_id){
                                         if($tracs->status_id==2){
@@ -261,7 +280,7 @@ $j=1;
                                                             class="form-control"
                                                             onChange="forward_internal(this.value,<?php echo $item->ipac_id?>,<?php echo $tracs->organization_id;?>)">
 
-                                                        <?php 
+                                                            <?php 
                                                          if($done2){
                                                         ?>
                                                             <option value="<?php echo $done2->designation_id;?>">
@@ -294,7 +313,7 @@ foreach($desig as $desig){
                                                         <br>
 
 
-
+                                                        <?php /*?>
 
                                                         <a href="" data-toggle="modal"
                                                             data-target="#Modal-tab<?php echo $item->ipac_id?>">
@@ -302,22 +321,22 @@ foreach($desig as $desig){
                                                                 <label class="label label-danger">Check File Log</label>
                                                             </span>
                                                         </a>
+                                                        <?php */?>
                                                         <br>
                                                         <?php  if($done2){?>
-                                                        <?php /*?><span align="center" style="font-weight:700;">
+                                                        <span align="center" style="font-weight:700;">
                                                             <label class="label label-success"><?php 
                                                 
                                                     echo $desig->designation_name;
                                                
                                                 ?></label>
                                                         </span>
-                                                        <?php */?>
 
                                                         <?php
                                                           }
 }else{
    
- echo "<label class='label label-success'>Internal Files Log</label>"; 
+ echo "<label class='label label-success'>Not in PMU</label>"; 
       
     
 }?>
@@ -360,7 +379,7 @@ $logeee = $this->db->query($logee)->result();
                                                                                                         style="color:red;"><?php 
                                                                                                         echo $logeee->designation_name;
                                                                                                         ?><br>
- <?php echo $logeee->forward_date;
+                                                                                                        <?php echo $logeee->forward_date;
                                                                                                         ?>
                                                                                                     </span><br />
                                                                                                     <span></span>
@@ -559,7 +578,8 @@ if($kifi1){
 }else{
 if($woweekends >= 0){
    if($tdateeee >= $nextDate){?>
-                        <?php /*?><img src="<?php echo base_url('img/days_pass.gif')?>" width="100px" height="70px"><br><?php */?>
+                        <?php /*?><img src="<?php echo base_url('img/days_pass.gif')?>" width="100px"
+                            height="70px"><br><?php */?>
                         <?php
                                                        
 echo "<label class='label label-danger'>".$woweekends." Days Above</label>";
@@ -570,17 +590,15 @@ echo "<label class='label label-success'>".$woweekends." Days Remaining</label>"
 
 }
 }
+/*
 ?>
-                    <td align="center">
+        <td align="center">
                         <?php 
                                                   if($orgName->organization_id==$tracs->organization_id){
                                                     if($orgName->organization_id==4){?>
                         <select name="status_ids" id="status_ids<?php echo $item->ipac_id?>" class="form-control"
                             width="20px">
-                            <?php /*?><option value="0">Recieved</option>
-                            <option value="1">Forwarded</option>
-                            <option value="2">In Progress</option>
-                            <?php */?>
+                           
                             <option value="3">Cancel</option>
                             <option value="4">Approved</option>
                             <option value="5">Returned</option>
@@ -611,7 +629,7 @@ echo "<label class='label label-success'>".$woweekends." Days Remaining</label>"
 
 
 /////////////////////////////////////////////////////////
- $sqlORG = "SELECT COUNT(*) AS total_items FROM items WHERE organization_id = $orgName->organization_id";
+$sqlORG = "SELECT COUNT(*) AS total_items FROM items WHERE organization_id = $orgName->organization_id";
 $sqlORG1 = $this->db->query($sqlORG)->row();
 
 
@@ -627,30 +645,31 @@ if ($sqlORG1->total_items == $sqlChecked1->selected_items) {
                             <img src="<?php echo base_url('img/next.png')?>" width="30px" height="30px">
                         </a>
 
-         <select name="org_id" id="org_id<?php echo $item->ipac_id?>" style="width:80px;" class="form-control">
-         <option value="">Organization </option>
-         <?php 
+                        <select name="org_id" id="org_id<?php echo $item->ipac_id?>" style="width:80px;"
+                            class="form-control">
+                            <option value="">Organization </option>
+                            <?php 
 
 $orgiiCity = $this->db->query("SELECT organization_id,organization_name from organization where city_id=$cityID and organization_id not in(3,4)")->result();
 foreach( $orgiiCity as $orgiiCity){
 ?>
-                                                           <option value="<?php echo $orgiiCity->organization_id;?>">
-                                                               <?php echo  $orgiiCity->organization_name;?></option>
-                                                           <?php }?>                                       
-                                                           
+                            <option value="<?php echo $orgiiCity->organization_id;?>">
+                                <?php echo  $orgiiCity->organization_name;?></option>
+                            <?php }?>
 
-                                                            <?php 
+
+                            <?php 
 
  $orgii = $this->db->query("SELECT organization_id,organization_name from organization where organization_id in(3,4)")->result();
 foreach( $orgii as  $orgii){
 ?>
-                                                            <option value="<?php echo $orgii->organization_id;?>">
-                                                                <?php echo  $orgii->organization_name;?></option>
-                                                            <?php }?>
+                            <option value="<?php echo $orgii->organization_id;?>">
+                                <?php echo  $orgii->organization_name;?></option>
+                            <?php }?>
 
-                                                        </select>
-                        
-            <?php 
+                        </select>
+
+                        <?php 
                     
                     } else {
                         echo "First Complete Your Check list";
@@ -658,14 +677,14 @@ foreach( $orgii as  $orgii){
                     
                     }else{?>
 
-    <label class='label label-warning'>Not Recieved</label>
+                        <label class='label label-warning'>Not Recieved</label>
 
-    <?php }?>  
-                        
-                        
-                        
-                        
-                        
+                        <?php }?>
+
+
+
+
+
                         <?php }?>
 
 
@@ -673,6 +692,10 @@ foreach( $orgii as  $orgii){
                                                     echo "<label class='label label-warning'>Forwarded</label>";
                                                     }?>
                     </td>
+<?php */?>
+
+
+
                     <td align="center">
                         <?php
                                                         //echo "Pak";
@@ -919,7 +942,7 @@ echo $remarkss->ipac_remark;?>
                                    	
 	?>
 
- <script type="text/javascript">
+    <script type="text/javascript">
     function forward(id, oid) {
 
 
@@ -933,7 +956,7 @@ echo $remarkss->ipac_remark;?>
                 ipac_id: id,
                 oid: oid,
                 status_ids: status_ids,
-                org_id:org_id
+                org_id: org_id
 
             }, function(page_response) {
 

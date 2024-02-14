@@ -96,8 +96,7 @@ public function spare()
 		$this->load->view('general/user');
 		$this->load->view('footer');
 	}
-	
-	public function users_log(){
+public function users_log(){
 
 	$this->load->view('header');
 	$this->load->view('menu');
@@ -106,7 +105,8 @@ public function spare()
 
 
 }
-	
+
+
 	public function edit_user($id)
 	{
 		extract($_POST);
@@ -134,7 +134,15 @@ public function permission($id){
 	$this->load->view('footer');
 		
 	}
-
+	public function user_permission(){
+		error_reporting(0);
+		$this->load->view('header');
+		$this->load->view('menu');
+			
+		$this->load->view('general/user_permission');
+		$this->load->view('footer');
+			
+		}
 public function bill_summary_detail($id)
 	{
 		extract($_POST);
@@ -144,9 +152,14 @@ public function bill_summary_detail($id)
 		$this->load->view('ppms/bill_summary_detail',$data);
 		$this->load->view('footer');
 	}
-	
+	public function get_bill_summary_percent(){
+	extract($_POST);
+	$data["sub_project_id"]=$id;
+	$data["sub_sub_project_id"]=$ssu;
+	$this->load->view("ppms/get_bill_summary_percent",$data);
 	
 
+}
 
 	public function insert_sub_menu(){
 			
@@ -189,10 +202,7 @@ echo 1;
 
 }
 		
-		
-		
-		
-		////////////////////////////////
+	////////////////////////////////
 
 public function insert_main_menu(){
 			extract($_POST);
@@ -472,7 +482,6 @@ public function boq_amount_percent($id){
 	$this->load->view('footer');
 
 }
-//////////////////////////////////////////////////////////////////////
 public function get_bill_summary(){
 	extract($_POST);
 	$data["sub_project_id"]=$sub_project_idss;
@@ -481,6 +490,7 @@ public function get_bill_summary(){
 	
 
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -1083,7 +1093,7 @@ $x++;
 		   foreach($sms as $sms){
 
 		   $mobileNumber = $sms->phone_no;
-		    $emailID = $sms->email_id;
+		   $emailID = $sms->email_id;
 
 		   // Remove leading zeros
 		   $mobileNumber = ltrim($mobileNumber, '0');
@@ -1126,25 +1136,43 @@ $x++;
 					   //	print_r($resultBulkSMS);
 					   
 					   //exit;
-					   ////////////////////////////////////////////////////////////////////////////////////////////////
-					   
 					   //////////////////////email sending///////////////
-					  //$to = $emailID;
+$to =  $emailID;
 $subject = "IPC Created";
 
-$message = "New IPC is Created.";
+$message = "
+<html>
+<head>
+<title>HTML email</title>
+</head>
+<body>
+<p>This email contains HTML Tags!</p>
+<table>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>
+<tr>
+<td>John</td>
+<td>Doe</td>
+</tr>
+</table>
+</body>
+</html>
+";
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <mis@kpcip.pk>' . "\r\n";
+$headers .= 'From: <kifayatullahkhan2051@gmail.com>' . "\r\n";
 //$headers .= 'Cc: myboss@example.com' . "\r\n";
 
-mail($emailID,$subject,$message,$headers);
+mail($to,$subject,$message,$headers);
+
 			 
-															}
+			}
 		   
 			 
 	  ///////////////////////////////////////////////////////////////
@@ -1289,8 +1317,10 @@ public function display_ipc_detail(){
 	extract($_POST);
 	//echo $sectors_id;
 	//exit;
-	$data['sectors_id']=$sectors_id;
+	/*$data['sectors_id']=$sectors_id;
 	$data['project_id']=$project_id;
+	*/
+	$data["cityID"]=$city_id;
 	$data['sub_project_id']=$sub_project_id;
 	$data['certificate_type']=$certificate_type;
 	$this->load->view('header');

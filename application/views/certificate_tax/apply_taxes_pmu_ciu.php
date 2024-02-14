@@ -58,7 +58,7 @@ $cityID=$this->session->userdata('cityid');
                             <div class="card">
                                 <div class="card-header">
                                     <div class="dt-responsive table-responsive" align="center">
-                                        
+
 
 
                                         <?php /*?><button class="btn btn-danger"><a
@@ -75,12 +75,14 @@ $cityID=$this->session->userdata('cityid');
                                             <thead>
                                                 <tr>
 
-                                                <td align="center">
-<a href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/ipc_detail.png')?>" width="70px" height="70px"><br>
-<b>IPC Detail</b>
-</a>
-</td>
+                                                    <td align="center">
+                                                        <a
+                                                            href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $id?>">
+                                                            <img src="<?php echo base_url('img/ipc/ipc_detail.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>IPC Detail</b>
+                                                        </a>
+                                                    </td>
                                                     <td align="center">
                                                         <a
                                                             href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $id?>">
@@ -185,6 +187,12 @@ $cityID=$this->session->userdata('cityid');
                                                                 <th>PKR</th>
                                                                 <th>Remarks</th>
                                                             </tr>
+                                                            <?php if($orgName->designation_id ==15){
+                                                                echo $dis="disabled";
+                                                                }else{
+                                                                    $dis="";  
+                                                                    
+                                                                }?>
                                                             <tr>
 
                                                                 <td>Amount Claimed by Contractor of Escation Payment
@@ -193,14 +201,17 @@ $cityID=$this->session->userdata('cityid');
                                                                 </td>
                                                                 <td align="center">-</td>
                                                                 <td>
-                                                                    <input type="text"
+                                                               
+
+                                                                    <input type="text" <?php echo $dis;?>
                                                                         value="<?php echo number_format($result2->ipa_amount,2); ?>"
                                                                         onBlur="update_ipc_amount(<?php echo $id?>,1)"
                                                                         class="form-control" id="ipc_amt_orginal"
-                                                                        name="ipc_amt_orginal"  onblur="formatInput(this.value)" onkeyup="formatInput(this.value)">
-                                                                    <font color="red"><b><span
-                                                                                id="display_updated_msg">
-                                                                            
+                                                                        name="ipc_amt_orginal"
+                                                                        onblur="formatInput(this.value)"
+                                                                        onkeyup="formatInput(this.value)">
+                                                                    <font color="red"><b><span id="display_updated_msg">
+
                                                                             </span></b>
                                                                     </font>
                                                                 </td>
@@ -218,11 +229,12 @@ $cityID=$this->session->userdata('cityid');
                                                                     By the Engineer</td>
                                                                 <td align="center">-</td>
                                                                 <td>
-                                                                    <input type="text"
+                                                                    <input type="text" <?php echo $dis;?>
                                                                         onBlur="update_ipc_amount(<?php echo $id?>,2)"
                                                                         value="<?php echo number_format($result2->ipac_amount,2); ?>"
                                                                         class="form-control" id="ipc_amt_engineer"
-                                                                        name="ipc_amt_engineer"  onblur="formatInput1(this.value)" >
+                                                                        name="ipc_amt_engineer"
+                                                                        onblur="formatInput1(this.value)">
                                                                     <font color="red"><b><span
                                                                                 id="display_updated_msg1"></span></b>
                                                                     </font>
@@ -317,8 +329,7 @@ foreach($doneee as $row){
                                                                         name="tax_amount" class="form-control"
                                                                         value="<?php echo number_format($row->gross_payment,2); ?>"
                                                                         onblur="update_record(<?php echo $row->ppms_payment_id;?>,1),formatInput2(this.value,<?php echo $row->ppms_payment_id;?>)"
-                                                                        onkeyup="formatInput2(this.value,<?php echo $row->ppms_payment_id;?>)" 
-                                                                        >
+                                                                        onkeyup="formatInput2(this.value,<?php echo $row->ppms_payment_id;?>)">
                                                                 </td>
                                                                 <td align="left" style="width:40%">
                                                                     <textarea name="remarks"
@@ -336,9 +347,11 @@ foreach($doneee as $row){
                                                 $kifi1=$kifi1+$kifi11;
 $x++;
 }?>
-<?php /*?><tr><td colspan="2"><b>Gross Amount</b></td>
-<td ><b><?php echo number_format($kifi1,2);?></b></td></tr>
-<?php */?>
+                                                            <?php /*?><tr>
+                                                                <td colspan="2"><b>Gross Amount</b></td>
+                                                                <td><b><?php echo number_format($kifi1,2);?></b></td>
+                                                            </tr>
+                                                            <?php */?>
                                                             <tr style="background-color:#000;color:#fff">
                                                                 <td colspan="2"><strong>Gross Amount Payable of this
                                                                         IPC
@@ -427,8 +440,7 @@ foreach($doneeeL as $rowL){
                                                                         id="tax_amount<?php echo $rowL->ppms_payment_id;?>"
                                                                         name="tax_amount" class="form-control"
                                                                         value="<?php echo number_format($rowL->gross_payment,2); ?>"
-                                                                        onblur="update_record(<?php echo $rowL->ppms_payment_id;?>,1),formatInput2(this.value,<?php echo $rowL->ppms_payment_id;?>)"
-                                                                        >
+                                                                        onblur="update_record(<?php echo $rowL->ppms_payment_id;?>,1),formatInput2(this.value,<?php echo $rowL->ppms_payment_id;?>)">
                                                                 </td>
                                                                 <td align="left" style="width:40%">
                                                                     <textarea name="remarks"
@@ -667,9 +679,9 @@ foreach($doneeeL1 as $rowL1){
                                                                         name="tax_amount" class="form-control"
                                                                         value="<?php echo number_format($rowL1->gross_payment,2); ?>"
                                                                         onblur="update_record(<?php echo $rowL1->ppms_payment_id;?>,2),formatInput2(this.value,<?php echo $rowL1->ppms_payment_id;?>)"
-                                                                         onkeyup="formatInput2(this.value,<?php echo $rowL1->ppms_payment_id;?>)"">
+                                                                        onkeyup="formatInput2(this.value,<?php echo $rowL1->ppms_payment_id;?>)"">
                                                                 </td>
-                                                                <td align="left" style="width:40%">
+                                                                <td align=" left" style="width:40%">
                                                                     <textarea name="remarks"
                                                                         id="remarks<?php echo $rowL1->ppms_payment_id;?>"
                                                                         onblur="update_record(<?php echo $rowL1->ppms_payment_id;?>,2),"
@@ -797,29 +809,55 @@ echo 1;
 
 
                                                                     </td>
-                                                                    <td><input type="submit" name="save" id="save"
+                                       
+                                        <td>
+                                        <?php if($orgName->designation_id ==15 ){
+
+echo "";
+                                        }else{
+                                            ?>    
+                                        
+                                        <input type="submit" name="save" id="save"
                                                                             value="Add New Record"
                                                                             class="btn btn-danger btn-round">
+                                                                    <?php }?>
+                                        </td>
                                                                 </tr>
                                                             </table>
 
-</form>
-<table table="table table-bordered"><tr><td>
+                                                        </form>
+                                                        <?php if($orgName->designation_id ==15){
+                                                            
+                                                            echo "";
+                                                            
+                                                            
+                                                        }else{?>
 
-                                            <button class="btn btn-warning btn-round"><a
-                                                href="<?php echo base_url('Certificate_tax')?>" target="_new">
-                                                <font color="white">View Taxes</font>
-                                            </a></button>
-</td>
-<td>
-                                        <button class="btn btn-success btn-round"><a
-                                                href="<?php echo base_url('Certificate_tax/tax_detail')?>" target="_new">
-                                                <font color="white">Add New Tax</font>
-                                            </a></button>
 
-</td>
-</tr>
-</table>
+                                                            
+                                                        <table table="table table-bordered">
+                                                            <tr>
+                                                                <td>
+
+                                                                    <button class="btn btn-warning btn-round"><a
+                                                                            href="<?php echo base_url('Certificate_tax')?>"
+                                                                            target="_new">
+                                                                            <font color="white">View Taxes</font>
+                                                                        </a></button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-success btn-round"><a
+                                                                            href="<?php echo base_url('Certificate_tax/tax_detail')?>"
+                                                                            target="_new">
+                                                                            <font color="white">Add New Tax</font>
+                                                                        </a></button>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <?php 
+                                                        
+                                                    }?>
                                                         <script>
                                                         function get_tax_amount1111() {
                                                             var taxVal = $("#tax").val();
@@ -965,80 +1003,80 @@ echo 1;
                                                         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                         </script>
 
-<script>
-    function formatInput(value) {
+                                                        <script>
+                                                        function formatInput(value) {
 
- //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
- var inputValue = value.replace(/[^\d.]/g, '');
+                                                            //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
+                                                            var inputValue = value.replace(/[^\d.]/g, '');
 
-// Allow only one dot for decimal
-var dotCount = inputValue.split('.').length - 1;
-if (dotCount > 1) {
-  inputValue = inputValue.replace(/\.+$/, '');
-}
+                                                            // Allow only one dot for decimal
+                                                            var dotCount = inputValue.split('.').length - 1;
+                                                            if (dotCount > 1) {
+                                                                inputValue = inputValue.replace(/\.+$/, '');
+                                                            }
 
-// Format as a number with two decimal places
-var formattedValue = Number(inputValue).toLocaleString('en-US', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}
-);
+                                                            // Format as a number with two decimal places
+                                                            var formattedValue = Number(inputValue).toLocaleString(
+                                                                'en-US', {
+                                                                    minimumFractionDigits: 2,
+                                                                    maximumFractionDigits: 2
+                                                                }
+                                                            );
 
-// Update the input value
-$("#ipc_amt_orginal").val(formattedValue);
+                                                            // Update the input value
+                                                            $("#ipc_amt_orginal").val(formattedValue);
 
-}
+                                                        }
+                                                        </script>
 
-</script>
+                                                        <script>
+                                                        function formatInput1(value) {
 
-<script>
-    function formatInput1(value) {
+                                                            //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
+                                                            var inputValue = value.replace(/[^\d.]/g, '');
 
- //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
- var inputValue = value.replace(/[^\d.]/g, '');
+                                                            // Allow only one dot for decimal
+                                                            var dotCount = inputValue.split('.').length - 1;
+                                                            if (dotCount > 1) {
+                                                                inputValue = inputValue.replace(/\.+$/, '');
+                                                            }
 
-// Allow only one dot for decimal
-var dotCount = inputValue.split('.').length - 1;
-if (dotCount > 1) {
-  inputValue = inputValue.replace(/\.+$/, '');
-}
+                                                            // Format as a number with two decimal places
+                                                            var formattedValue = Number(inputValue).toLocaleString(
+                                                                'en-US', {
+                                                                    minimumFractionDigits: 2,
+                                                                    maximumFractionDigits: 2
+                                                                }
+                                                            );
 
-// Format as a number with two decimal places
-var formattedValue = Number(inputValue).toLocaleString('en-US', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}
-);
+                                                            // Update the input value
+                                                            $("#ipc_amt_engineer").val(formattedValue);
 
-// Update the input value
-$("#ipc_amt_engineer").val(formattedValue);
+                                                        }
+                                                        </script>
 
-}
+                                                        <script>
+                                                        function formatInput2(value, id) {
 
-</script>
+                                                            //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
+                                                            var inputValue = value.replace(/[^\d.]/g, '');
 
-<script>
-    function formatInput2(value,id) {
+                                                            // Allow only one dot for decimal
+                                                            var dotCount = inputValue.split('.').length - 1;
+                                                            if (dotCount > 1) {
+                                                                inputValue = inputValue.replace(/\.+$/, '');
+                                                            }
 
- //let inputValue = value.replace(/[^0-9.,]/g, ''); // Remove unwanted characters
- var inputValue = value.replace(/[^\d.]/g, '');
+                                                            // Format as a number with two decimal places
+                                                            var formattedValue = Number(inputValue).toLocaleString(
+                                                                'en-US', {
+                                                                    minimumFractionDigits: 2,
+                                                                    maximumFractionDigits: 2
+                                                                }
+                                                            );
 
-// Allow only one dot for decimal
-var dotCount = inputValue.split('.').length - 1;
-if (dotCount > 1) {
-  inputValue = inputValue.replace(/\.+$/, '');
-}
+                                                            // Update the input value
+                                                            $("#tax_amount" + id).val(formattedValue);
 
-// Format as a number with two decimal places
-var formattedValue = Number(inputValue).toLocaleString('en-US', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-}
-);
-
-// Update the input value
-$("#tax_amount"+id).val(formattedValue);
-
-}
-
-</script>
+                                                        }
+                                                        </script>

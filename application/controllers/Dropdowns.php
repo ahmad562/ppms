@@ -60,6 +60,16 @@ public function get_projects(){
     $data = $this->dropdown->get_projects($postData);
     echo json_encode($data); 
 }
+
+public function display_sub_project_city_wise(){
+    $city_id = $this->input->post('city_id');
+    $postData = $this->input->post();
+    // load model 
+    $this->load->model('dropdown');
+    // get data 
+    $data = $this->dropdown->get_sub_project_city_wise($postData);
+    echo json_encode($data); 
+}
 /////////////////////////////////////////////////
 public function display_log(){
    extract($_POST);
@@ -362,7 +372,7 @@ $doneeee4="insert into ppms_ipac_forward set flag_id=1,status_id=2,ipac_id=$ipac
 
  $this->db->from('hr_ipc_sms');
  $this->db->join('organization', 'hr_ipc_sms.org_id = organization.organization_id', 'left'); // Adjust the join conditions
- //$this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
+ $this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
  $this->db->join('sms_group', 'hr_ipc_sms.sms_group_id = sms_group.sms_group_id', 'left');
  $this->db->where('hr_ipc_sms.sms_group_id', $doneee->sms_group_id);
  $sms=$this->db->get()->result();
@@ -402,12 +412,12 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                                                          'ShortCodePrefered'=>'n',
                                                          'NumberCsv'=>'923369205958,'.$mobileNumber1.''
                                                      )));
-                
-                ///////////////////////////////////////////////////////////////////email sending/////////////////////////////
-                
-                
-$subject = "IPC Forward to CIU";
+   ////////////////////////////////////////////////////////////////////////////
+   
+   $subject = "IPC Forward to CIU";
+
 $message = "IPC Forward So please Check it and Take Necessary Action.";
+
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -415,9 +425,13 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 // More headers
 $headers .= 'From: <mis@kpcip.pk>' . "\r\n";
 //$headers .= 'Cc: myboss@example.com' . "\r\n";
+
 mail($email_id,$subject,$message,$headers);
-                
-}
+
+
+   ////////////////////////////////////////////////////////////////////
+   
+                                                  }
 
 
 
@@ -456,7 +470,7 @@ $SubprojectsID=$this->db->query("select subproject_id from ppms_ipac where ipac_
  $doneee=$this->db->query("select * from sms_group where organization_id=$oid")->row();
 
  $this->db->from('hr_ipc_sms');
-// $this->db->join('organization', 'hr_ipc_sms.org_id = organization.organization_id', 'left'); // Adjust the join conditions
+ $this->db->join('organization', 'hr_ipc_sms.org_id = organization.organization_id', 'left'); // Adjust the join conditions
  $this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
  $this->db->join('sms_group', 'hr_ipc_sms.sms_group_id = sms_group.sms_group_id', 'left');
  $this->db->where('hr_ipc_sms.sms_group_id', $doneee->sms_group_id);
@@ -464,7 +478,6 @@ $SubprojectsID=$this->db->query("select subproject_id from ppms_ipac where ipac_
  foreach($sms as $sms){
 
  $mobileNumber = $sms->phone_no;
- $email_id = $sms->hr_email_id;
 
  // Remove leading zeros
  $mobileNumber = ltrim($mobileNumber, '0');
@@ -497,19 +510,6 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                                                          'ShortCodePrefered'=>'n',
                                                          'NumberCsv'=>'923369205958,'.$mobileNumber1.''
                                                      )));
-                                                     ///////////////////////////////
-                                                     
-                                                     
- $subject = "IPC Forward to PMU";
-$message = "IPC Forward So please Check it and Take Necessary Action.";
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <mis@kpcip.pk>' . "\r\n";
-//$headers .= 'Cc: myboss@example.com' . "\r\n";
-mail($email_id,$subject,$message,$headers);
                 
    
                                                   }
@@ -569,8 +569,23 @@ $done4=$this->db->query($doneeee4);
      ///echo $this->db->last_query();
      
     
-    $doneeee4="insert into ppms_ipac_forward set status_id=2,ipac_id=$ipac_id,ipac_forward_date='$tdate',organization_id=4,flag_id=1,user_id=$empID";
-     $done4=$this->db->query($doneeee4); 
+     $doneeee4="insert into ppms_ipac_forward set status_id=2,ipac_id=$ipac_id,ipac_forward_date='$tdate',organization_id=4,flag_id=1,user_id=$empID";
+     $done4=$this->db->query($doneeee4);
+     //////////////////////////////////////////////////////////////////
+    if($status_ids==4){
+     $doneeee="insert into ppms_ipac_forward set status_id=$status_ids,ipac_id=$ipac_id,ipac_forward_date='$tdate',organization_id=$oid,flag_id=0,user_id=$empID";
+    $done3=$this->db->query($doneeee);
+    ///echo $this->db->last_query();
+    
+    //$nextOID=$oid+1;
+ $doneeee4="insert into ppms_ipac_forward set status_id=$status_ids,ipac_id=$ipac_id,ipac_forward_date='$tdate',organization_id=3,flag_id=1,user_id=$empID";
+    $done4=$this->db->query($doneeee4);	
+		/// $done=$this->db->last_query();
+
+        $doneeeepaymentU="update ipc_payment set status_id=1,ipc_payment_date='$tdate' where ipac_id=$ipac_id";
+        $doneeeepaymentU=$this->db->query($doneeeepaymentU);
+    }
+
 /////////////////////sms integration///////////////////////////////////////////////////
 
 $SubprojectsID=$this->db->query("select subproject_id from ppms_ipac where ipac_id=$ipac_id")->row();
@@ -589,14 +604,13 @@ $SubprojectsID=$this->db->query("select subproject_id from ppms_ipac where ipac_
 
  $this->db->from('hr_ipc_sms');
  $this->db->join('organization', 'hr_ipc_sms.org_id = organization.organization_id', 'left'); // Adjust the join conditions
- //$this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
+ $this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
  $this->db->join('sms_group', 'hr_ipc_sms.sms_group_id = sms_group.sms_group_id', 'left');
  $this->db->where('hr_ipc_sms.sms_group_id', $doneee->sms_group_id);
  $sms=$this->db->get()->result();
  foreach($sms as $sms){
 
  $mobileNumber = $sms->phone_no;
- $email_id = $sms->hr_email_id;
 
  // Remove leading zeros
  $mobileNumber = ltrim($mobileNumber, '0');
@@ -629,19 +643,6 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                                                          'ShortCodePrefered'=>'n',
                                                          'NumberCsv'=>'923369205958,'.$mobileNumber1.''
                                                      )));
-                
-                ////////////////////////////////////////////////////////////////////
-                $subject = "IPC Forward to PMU";
-$message = "IPC Forward So please Check it and Take Necessary Action.";
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <mis@kpcip.pk>' . "\r\n";
-//$headers .= 'Cc: myboss@example.com' . "\r\n";
-mail($email_id,$subject,$message,$headers);  
-                
                 
    
                                                   }

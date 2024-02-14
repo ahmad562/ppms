@@ -289,10 +289,9 @@ if(isset($_POST['add'])){
 
                                                                     </td>
                                                                     <td>
-                                                                        <table class="table">
+                     <table class="table">
                     <?php $dipee = $this->db->query("select * from bill_summary_amount where billsummary_id=$item->billsummary_id")->result();
-                           
-                            ?>
+                           ?>
 
                                                                             <tr>
                                                                                 <?php $x=1;

@@ -43,10 +43,10 @@ function __construct(){
     public function add() {
       
             $data = array(
-                 'emp_id' => $this->input->post('emp_id'),
-                 'hr_email_id' => $this->input->post('email_id'),
-                 'phone_no' => $this->input->post('phone_no'),
-                 'sms_group_id' => $this->input->post('sms_group_id')
+                'emp_id' => $this->input->post('emp_id'),
+                'hr_email_id' => $this->input->post('email_id'),
+                'phone_no' => $this->input->post('phone_no'),
+                'sms_group_id' => $this->input->post('sms_group_id')
             );
             $this->hr_ipc_sms_model->insert($data);
             redirect(base_url('Hr_ipc_sms'));

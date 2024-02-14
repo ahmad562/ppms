@@ -11,7 +11,6 @@ class Hr_ipc_sms_model extends CI_Model {
         //$this->db->join('organization', 'hr_ipc_sms.org_id = organization.organization_id', 'left'); // Adjust the join conditions
         $this->db->join('ppms_service_tbl', 'hr_ipc_sms.emp_id = ppms_service_tbl.service_id', 'left'); // Adjust the join conditions
         $this->db->join('sms_group', 'hr_ipc_sms.sms_group_id = sms_group.sms_group_id', 'left');
-        //echo $this->db->last_query();
         return $this->db->get()->result();
     }
 

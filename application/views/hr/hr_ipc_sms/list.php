@@ -38,7 +38,7 @@
             <th>Group</th>
             <th>Action</th>
         </tr>
-        <?php
+        <?php 
         $i=1;
         foreach ($records as $record): ?>
             <tr>
@@ -53,8 +53,8 @@
                 </td>
             </tr>
         <?php 
-        $i++;
-        endforeach; ?>
+    $i++;
+    endforeach; ?>
     </table>
                                     </div>
                                 </div>

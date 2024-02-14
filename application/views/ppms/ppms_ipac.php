@@ -401,19 +401,31 @@ echo $remarkss->ipac_remark;?>
                                                     </td>
 
                                                     <td><?php echo number_format($item->ipac_amount,2);?></td>
-                                                    <td align="center"><a
+                                                    <td align="center">
+                                                    <?php 
+                                                  if($orgName->organization_id==$tracs->organization_id){?>     
+                                                    
+                                                    <a
                                                             href="<?php echo base_url()?>Welcome/edit_ppms_ipc/<?php echo $item->ipac_id;?>">
                                                             <img src="<?php echo base_url()?>img/edit.PNG" width="30px"
                                                                 height="30px" />
                                                         </a>
+                                               <?php }else{
+                                                echo "You Can't Edit";
+                                                
+                                               }?>         
                                                     </td>
                                                     <td class="action-icon">
-
+                                                    <?php 
+                                                  if($orgName->organization_id==$tracs->organization_id){?>  
                                                         <a href="#!" class="text-muted" data-toggle="tooltip"
                                                             data-placement="top" title=""
                                                             data-original-title="Delete"><i
                                                                 class="icofont icofont-delete-alt"></i></a>
-
+                                                                <?php }else{
+                                                echo "You Can't Delet";
+                                                
+                                               }?>  
 
                                                     </td>
 

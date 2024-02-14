@@ -62,7 +62,7 @@ $cityID=$this->session->userdata('cityid');
                                                 <font size="+1">Search By Project & SubProject Detail</font>
                                             </td>
                                         </tr>
-                                        <tr>
+                                       <?php /*?> <tr>
 
                                             <td>Sectors</td>
                                             <td>
@@ -91,10 +91,28 @@ foreach($done as $desig){
                                                     <option value="<?php echo $desig->project_id;?>">
                                                         <?php echo $desig->project_name;?></option>
                                                     <?php }?><?php */?>
+                                                    <?php /*?>
                                                 </select>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <?php */?>
+                                         <tr>
+                                                <td>City</td>
+                                                <td>
+
+                                                    <select name="city_id" id="city_id" class="form-control">
+
+                                                        <option value="">Select City</option>
+                                                        <?php $cityID420=$this->db->query("select * from city")->result();
+ foreach($cityID420 as $cityID420){?>
+                                                        <option value="<?php echo $cityID420->city_id;?>">
+                                                            <?php echo $cityID420->city_name;?>
+                                                        </option>
+                                                        <?php }?>
+                                                    </select>
+
+                                                </td>
+                                           
                                             <td>Sub Project</td>
                                             <td>
                                                 <select name="sub_project_id" id="sub_project_idss" class="form-control"
@@ -114,6 +132,8 @@ foreach($done as $desig){
                                                     <?php }?>
                                                 </select>
                                             </td>
+                                            </tr>
+                                        <tr>
                                             <td>Certificate Type</td>
                                             <td>
                                                 <select name="certificate_type" class="form-control">
@@ -125,9 +145,7 @@ foreach($done as $desig){
 
 
                                             </td>
-                                        </tr>
-
-                                        <tr>
+                                        
                                             <td>
 
                                                 <input type="submit" class="btn btn-block btn-outline btn-danger"
@@ -149,10 +167,9 @@ foreach($done as $desig){
                                                 <tr>
                                                     <th>IPC No.</th>
                                                     <th>Package Name</th>
-                                                    <th>Certificate Type</th>
-                                                    <th>Contractor Name</th>
+                                                    
 
-                                                    <th>Amount(in PKR) <br>Million</th>
+                                                    <th>Amount(in PKR)</th>
                                                     <th>Internal</th>
                                                     <th>Status</th>
                                                     <th>Submission date</th>
@@ -167,11 +184,17 @@ foreach($done as $desig){
                                                 <?php
 			   error_reporting(0);
 			   
+                   /*
                    if(!empty($sectors_id)){
                     $sectors_id="and ppsec.`sector_id`=$sectors_id";
                    }
                    if(!empty($project_id)){
                     $project_id="and ppp.`project_id`=$project_id";
+                   }
+                   */
+                  
+                  if(!empty($cityID)){
+                    $cityID="and ppsp.`city_id`=$cityID";
                    }
                    if(!empty($sub_project_id)){
                     $sub_project_id="and ppi.`subproject_id`=$sub_project_id";
@@ -179,6 +202,8 @@ foreach($done as $desig){
                    if(!empty($certificate_type)){
                     $certificate_type="and ppi.`certificate_type`='$certificate_type'";
                    }
+                   /* $sectors_id
+                                        $project_id*/
                    if($groupID == 5 or $groupID == 6 or $groupID == 1){
                     $result1 = $this->db->query("
                     SELECT * FROM 
@@ -188,8 +213,8 @@ foreach($done as $desig){
                                         WHERE ppi.subproject_id=ppsp.subproject_id
                                         AND ppsp.project_id=ppp.project_id
                                         AND ppp.`sector_id`=ppsec.`sector_id`
-                                        $sectors_id
-                                        $project_id
+                                        $cityID
+                                       
                                         $sub_project_id
                                         $certificate_type
 
@@ -232,23 +257,18 @@ $j=1;
                                                     <td><?php echo $item->ipc_no;?></td>
 
                                                     <td>
-                                                        <a href="<?php echo base_url('Welcome/mobilization_advance/').$item->ipac_id;?>">  
-                                                        <?php echo $item->project_name."-".$item->subproject_name;?></a>
-                                                    <td>
-                                                        <a
-                                                            href="<?php echo base_url('Welcome/payment_certificat/').$item->ipac_id;?>">
-                                                            <?php echo $item->certificate_type;?>
-                                                        </a>
-                                                    </td>
-                                                    </td>
-                                                    <td>
+                                                        <?php /*?><a
+                                                            href="<?php echo base_url('Welcome/mobilization_advance/').$item->ipac_id;?>"><?php */?>
+                                            <?php echo " <font color='red'><b>(".$item->project_name."-".$item->subproject_name;?>)<br>
+                                                           <font color="black"><b>(<?php echo $item->certificate_type;?>)</b></font>
+                  </br>
 
                                                         <?php 
                                         $cidnew1 = $this->db->query("SELECT emp_id,emp_name FROM ppms_subproject_assign AS psa,emp AS e
                                         WHERE psa.`contractor_id`=e.`emp_id` and subproject_id=$item->subproject_id")->result();
                                         $z1=1;
                                         foreach($cidnew1 as $cidnew1){
-                                            echo $cidnew1->emp_name." - ";
+                                            echo "<font color='blue'><b>(".$cidnew1->emp_name.") ";
                                         //echo "(".$z1.") "."<br>";
                                         $z1++;
                                         }?>
@@ -256,6 +276,7 @@ $j=1;
 
 
                                                         <?php //echo $cid->emp_name;?></td>
+
 
 
 
@@ -572,7 +593,7 @@ if($kifi1){
 }else{
 if($woweekends >= 0){
    if($tdateeee >= $nextDate){?>
-                        <img src="<?php echo base_url('img/days_pass.gif')?>" width="100px" height="70px"><br>
+                        <?php /*?><img src="<?php echo base_url('img/days_pass.gif')?>" width="100px" height="70px"><br><?php */?>
                         <?php
                                                        
 echo "<label class='label label-danger'>".$woweekends." Days Above</label>";

@@ -138,11 +138,9 @@ public function create_tax()
     {
        
         $data = array(
-            //'ctp_flag' => $this->input->post('ctp_flag'),
-            'ctp_option' => $this->input->post('ctp_option'),
-            //'ctp_attribute' => $this->input->post('ctp_attribute'),
-            //'add_less' => $this->input->post('add_less'),
-            //'dpr' => $this->input->post('dpr')
+          
+            'ctp_option' => $this->input->post('ctp_option')
+            
             // Add more fields as required
         );
 
