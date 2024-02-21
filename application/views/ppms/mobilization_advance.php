@@ -35,57 +35,73 @@
 
 
  <div class="dt-responsive table-responsive">
-<table  class="table  table-bordered nowrap">
-<thead>
+ <table class="table  table-bordered nowrap">
+
 <tr>
+    <td style="text-align: center;
+vertical-align: middle; !important">
+        <a
+            href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
+            <img src="<?php echo base_url('img/ipc/ipc_detail.png')?>"
+                width="70px" height="70px"><br>
+            <b>IPC Detail</b>
+        </a>
+    </td>
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/ipc_detail.png')?>" width="70px" height="70px"><br>
-<b>IPC Detail</b>
-</a>
-</td>
+    <td style="text-align: center;
+vertical-align: middle; !important">
+        <a
+            href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
+            <img src="<?php echo base_url('img/ipc/ipc_payment.png')?>"
+                width="70px" height="70px"><br>
+            <b>IPC'S Payment Detail</b>
+        </a>
+    </td>
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $id?>">
-<img src="<?php echo base_url('img/ipc/ipc_payment.png')?>" width="70px" height="70px"><br>
-<b>IPC'S Payment Detail</b>
-</a>
-</td>
+    <td style="text-align: center;
+vertical-align: middle; !important"> <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
+            <img src="<?php echo base_url('img/ipc/mobilization.png')?>"
+                width="70px" height="70px"><br>
+            <b>Mobilization Detail</b>
+        </a>
+    </td>
 
-<td align="center"> <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $id?>">
-<img src="<?php echo base_url('img/ipc/mobilization.png')?>" width="70px" height="70px"><br>
-<b>Mobilization Detail</b>
-</a>
-</td>
-
-<td align="center">
-<a href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $id?>">
-<img src="<?php echo base_url('img/ipc/bill.png')?>" width="70px" height="70px"><br>
-<b>Bill Summary Detail</b>
-</a>
-</td>
-
-
-<td align="center">
-<a href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $id?>">
-<img src="<?php echo base_url('img/ipc/progress.png')?>" width="70px" height="70px"><br>
-<b>Financial Progress</b>
-</a>
-</td>
-
-
-<td align="center">
-<a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $id?>" target="parent">
-<img src="<?php echo base_url('img/ipc/certificate.png')?>" width="70px" height="70px"><br>
-<b>Payment Certificate</b>
-</a>
-</td>
+    <td style="text-align: center;
+vertical-align: middle; !important">
+        <a
+            href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
+            <img src="<?php echo base_url('img/ipc/bill.png')?>"
+                width="70px" height="70px"><br>
+            <b>Bill Summary Detail</b>
+        </a>
+    </td>
 
 
-                                                </tr>
-                                            </thead>
-                                    </table>
+    <td style="text-align: center;
+vertical-align: middle; !important">
+        <a
+            href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
+            <img src="<?php echo base_url('img/ipc/progress.png')?>"
+                width="70px" height="70px"><br>
+            <b>Financial Progress</b>
+        </a>
+    </td>
+
+
+    <td style="text-align: center;
+vertical-align: middle; !important">
+        <a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>"
+            target="parent">
+            <img src="<?php echo base_url('img/ipc/certificate.png')?>"
+                width="70px" height="70px"><br>
+            <b>Payment Certificate</b>
+        </a>
+    </td>
+
+
+</tr>
+</thead>
+</table>
 
 
                 </div>
@@ -171,3 +187,36 @@ echo number_format($totiii - $taxiii1,2);
 ?></b>
 
 </td></tr>
+
+<style>
+                                            /* Table CSS */
+                                            table {
+                                                border-collapse: collapse;
+                                                width: 100%;
+                                            }
+
+                                            th,
+                                            td {
+                                                border: 1px solid #000;
+                                                padding: 8px;
+                                                text-align: left;
+                                            }
+
+                                            /* Beveled Cell Data */
+                                            td {
+                                                background-color: #fff;
+                                                border-top: 1px solid #000;
+                                                border-left: 1px solid #000;
+                                                box-shadow: inset 0 0 5px #888;
+                                                color: #000
+                                            }
+
+                                            /* Beveled Header Cells */
+                                            th {
+                                                background-color: #218559;
+                                                color: #fff;
+                                                border-top: 1px solid #fff;
+                                                border-left: 1px solid #fff;
+                                                box-shadow: inset 0 0 5px #888;
+                                            }
+                                            </style>
