@@ -54,177 +54,194 @@ and e.emp_id=$empiD")->row();
                 <!-- Page-header end -->
                 <!-- Page-body start -->
                 <div class="page-body">
-               <?php /*?> <button class="btn btn-danger" style="border-radius:10px">
-                    <a
-                                href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
-                                <font color="white">IPC'S Payment Detail</font></a></button>
-                 <button class="btn btn-success" style="border-radius:10px">
-                 <a
-                                href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
-                                <font color="white">   
-                 Mobilization Detail</font></button></a>
-                 
-                 <button class="btn btn-danger" style="border-radius:10px">
-                 <a
-                                href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
-                                <font color="white">   
-                 Bill Summary Detail</font></button>
-                </a>
-                
-                <button class="btn btn-primary" style="border-radius:10px">
-                 <a
-                                href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
-                                <font color="white">   
-                 Physical Progress</font>
-                </a>
-</button>
+                    <?php /*?> <button class="btn btn-danger" style="border-radius:10px">
+                        <a href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
+                            <font color="white">IPC'S Payment Detail</font>
+                        </a></button>
+                    <button class="btn btn-success" style="border-radius:10px">
+                        <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
+                            <font color="white">
+                                Mobilization Detail</font></button></a>
+
+                    <button class="btn btn-danger" style="border-radius:10px">
+                        <a
+                            href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
+                            <font color="white">
+                                Bill Summary Detail</font></button>
+                    </a>
+
+                    <button class="btn btn-primary" style="border-radius:10px">
+                        <a href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
+                            <font color="white">
+                                Physical Progress</font>
+                        </a>
+                    </button>
 
 
-<button class="btn btn-warning" style="border-radius:10px">
-                 <a
-                                href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>" target="parent">
-                                <font color="white">   
-                 Payment Certificate</font>
-                </a>
-</button>
-<?php */?>
- 
+                    <button class="btn btn-warning" style="border-radius:10px">
+                        <a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>"
+                            target="parent">
+                            <font color="white">
+                                Payment Certificate</font>
+                        </a>
+                    </button>
+                    <?php */?>
+
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- Zero config.table start -->
                             <div class="card">
-                                
+
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <!------------------infrastructur engineer check here-------->
-                    <?php 
+                                        <?php 
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
-                                                        ?> 
-<table  class="table  table-bordered nowrap">
+                                                        ?>
+                                        <table class="table  table-bordered nowrap">
                                             <thead>
                                                 <?php /*?><tr>
-<td align="center">
-<img src="<?php echo base_url('img/ipc/detail.png')?>">
-<br>
-IPC Detail
-</td>
+                                                    <td align="center">
+                                                        <img src="<?php echo base_url('img/ipc/detail.png')?>">
+                                                        <br>
+                                                        IPC Detail
+                                                    </td>
 
-<td align="center">
-<img src="<?php echo base_url('img/ipc/timeline.png')?>">
-<br>
-TimeLine
-</td>
+                                                    <td align="center">
+                                                        <img src="<?php echo base_url('img/ipc/timeline.png')?>">
+                                                        <br>
+                                                        TimeLine
+                                                    </td>
 
-<td align="center">
-<img src="<?php echo base_url('img/ipc/remarks.png')?>">
-<br>
-Remarks
-</td>
+                                                    <td align="center">
+                                                        <img src="<?php echo base_url('img/ipc/remarks.png')?>">
+                                                        <br>
+                                                        Remarks
+                                                    </td>
 
-<td align="center">
-<img src="<?php echo base_url('img/ipc/payment.png')?>">
-<br>
-Add Payments
+                                                    <td align="center">
+                                                        <img src="<?php echo base_url('img/ipc/payment.png')?>">
+                                                        <br>
+                                                        Add Payments
 
-</td>
-                                                
-<td align="center">
-<img src="<?php echo base_url('img/ipc/checklist.png')?>">
-<br>
-Checklist
-</td>
-</tr>
-<?php */?>
-<tr >
-<td align="center">
-<a href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/ipc_detail.png')?>" width="70px" height="70px"><br>
-<b>IPC Detail</b>
-</a>
-</td>
+                                                    </td>
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/ipc_payment.png')?>" width="70px" height="70px"><br>
-<b>IPC'S Payment Detail</b>
-</a>
-</td>
+                                                    <td align="center">
+                                                        <img src="<?php echo base_url('img/ipc/checklist.png')?>">
+                                                        <br>
+                                                        Checklist
+                                                    </td>
+                                                </tr>
+                                                <?php */?>
+                                                <tr>
+                                                    <td style="text-align: center;
+vertical-align: middle; !important">
+                                                        <a
+                                                            href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
+                                                            <img src="<?php echo base_url('img/ipc/ipc_detail.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>IPC Detail</b>
+                                                        </a>
+                                                    </td>
 
-<td align="center"> <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/mobilization.png')?>" width="70px" height="70px"><br>
-<b>Mobilization Detail</b>
-</a>
-</td>
+                                                    <td style="text-align: center;
+vertical-align: middle; !important">
+                                                        <a
+                                                            href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
+                                                            <img src="<?php echo base_url('img/ipc/ipc_payment.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>IPC'S Payment Detail</b>
+                                                        </a>
+                                                    </td>
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/bill.png')?>" width="70px" height="70px"><br>
-<b>Bill Summary Detail</b>
-</a>
-</td>
+                                                    <td style="text-align: center;
+vertical-align: middle; !important"> <a
+                                                            href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
+                                                            <img src="<?php echo base_url('img/ipc/mobilization.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>Mobilization Detail</b>
+                                                        </a>
+                                                    </td>
+
+                                                    <td style="text-align: center;
+vertical-align: middle; !important">
+                                                        <a
+                                                            href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
+                                                            <img src="<?php echo base_url('img/ipc/bill.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>Bill Summary Detail</b>
+                                                        </a>
+                                                    </td>
 
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
-<img src="<?php echo base_url('img/ipc/progress.png')?>" width="70px" height="70px"><br>
-<b>Financial Progress</b>
-</a>
-</td>
+                                                    <td style="text-align: center;
+vertical-align: middle; !important">
+                                                        <a
+                                                            href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
+                                                            <img src="<?php echo base_url('img/ipc/progress.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>Financial Progress</b>
+                                                        </a>
+                                                    </td>
 
 
-<td align="center">
-<a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>" target="parent">
-<img src="<?php echo base_url('img/ipc/certificate.png')?>" width="70px" height="70px"><br>
-<b>Payment Certificate</b>
-</a>
-</td>
+                                                    <td style="text-align: center;
+vertical-align: middle; !important">
+                                                        <a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>"
+                                                            target="parent">
+                                                            <img src="<?php echo base_url('img/ipc/certificate.png')?>"
+                                                                width="70px" height="70px"><br>
+                                                            <b>Payment Certificate</b>
+                                                        </a>
+                                                    </td>
 
 
                                                 </tr>
                                             </thead>
-                                    </table>
-                                    <?php }?>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- Material tab card start -->
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>IPC File Details</h5>
-                                    <div class="card-header-right">
-                                        <i class="icofont icofont-rounded-down"></i>
-                                        <i class="icofont icofont-refresh"></i>
-                                        <i class="icofont icofont-close-circled"></i>
-                                    </div>
-                                </div>
-                                <div class="card-block">
-                                    <!-- Row start -->
-                                    <div class="row m-b-30">
-                                        <div class="col-lg-12 col-xl-12">
-                                            <div class="sub-title">
+                                        </table>
+                                        <?php }?>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Material tab card start -->
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>IPC File Details</h5>
+                                                        <div class="card-header-right">
+                                                            <i class="icofont icofont-rounded-down"></i>
+                                                            <i class="icofont icofont-refresh"></i>
+                                                            <i class="icofont icofont-close-circled"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <!-- Row start -->
+                                                        <div class="row m-b-30">
+                                                            <div class="col-lg-12 col-xl-12">
+                                                                <div class="sub-title">
 
 
 
-                                                <div
-                                                    style="width:30%; display:inline-block;border-style: double;background-color:#DD1E2F;">
-                                                    <strong style="color:white;">Total Days:
-                                                        <?php 
+                                                                    <div
+                                                                        style="width:30%; display:inline-block;border-style: double;background-color:#DD1E2F;">
+                                                                        <strong style="color:white;">Total Days:
+                                                                            <?php 
                                                                         echo 35;
                                                                         
                                                                         ?></strong>
-                                                    <?php /*?>>
-                                                    <strong style="color:green;" align="right">Total Day's Spent:
+                                                                        <?php /*?>>
+                                                                        <strong style="color:green;" align="right">Total
+                                                                            Day's Spent:
 
-                                                    </strong>
-                                                    <?php */?>
-                                                </div>
+                                                                        </strong>
+                                                                        <?php */?>
+                                                                    </div>
 
-                                                <div
-                                                    style="width: 38%; display:inline-block;border-style: double;background-color:#00008B;">
-                                                    <strong style="color:red;">
-                                                        <font color="white">Passed Days:
-                                                            <?php
+                                                                    <div
+                                                                        style="width: 38%; display:inline-block;border-style: double;background-color:#00008B;">
+                                                                        <strong style="color:red;">
+                                                                            <font color="white">Passed Days:
+                                                                                <?php
                                                            /* $timezone = 'Asia/Karachi';
                                                             date_default_timezone_set($timezone);
                                                 
@@ -273,10 +290,10 @@ Checklist
 
 
 
-                                                        </font>
-                                                    </strong>
-                                                </div>
-                                                <?php  $tot_days=35;
+                                                                            </font>
+                                                                        </strong>
+                                                                    </div>
+                                                                    <?php  $tot_days=35;
                                                 $rem=$tot_days - $totalWorkingDays ;
                                                 
  
@@ -285,10 +302,10 @@ if($rem > 0){
     }else{
     $colCode="#DD1E2F";
 }?>
-                                                <div
-                                                    style="width: 31%; display:inline-block;border-style: double;background-color:<?php echo $colCode;?>;float:right; margin-top:0px !important">
-                                                    <strong style="color:red;!important;">
-                                                        <font color="white"><?php 
+                                                                    <div
+                                                                        style="width: 31%; display:inline-block;border-style: double;background-color:<?php echo $colCode;?>;float:right; margin-top:0px !important">
+                                                                        <strong style="color:red;!important;">
+                                                                            <font color="white"><?php 
                                      if($rem > 0){
                                         echo "Remaining Days :".$rem; 
                                      }else{
@@ -321,14 +338,14 @@ if($rem > 0){
  
                                                                         
                                                                         ?>
-                                                        </font>
-                                                    </strong>
-                                                </div>
-                                                <hr>
+                                                                            </font>
+                                                                        </strong>
+                                                                    </div>
+                                                                    <hr>
 
 
 
-                                                <?php //$statuseeee=$this->session->userdata('bilo');
+                                                                    <?php //$statuseeee=$this->session->userdata('bilo');
                                                 //if($statuseeee){
                                                 ///if($statuseeee==420){
                                                     $activatee="active";
@@ -340,61 +357,64 @@ if($rem > 0){
                                             //}
                                                 
                                                 ?>
-                                                <!-- Nav tabs -->
-                                                <ul class="nav nav-tabs md-tabs" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" data-toggle="tab" href="#home3"
-                                                            role="tab">IPC Detail</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#profile3"
-                                                            role="tab">Timeline</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#messages3"
-                                                            role="tab">Remarks</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#settings3"
-                                                            role="tab">Add Payment</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="tab" href="#settings4"
-                                                            role="tab">CheckList</a>
-                                                        <div class="slide"></div>
-                                                    </li>
-                                                </ul>
-                                                <!-- Tab panes -->
-                                                <div class="tab-content card-block">
-                                                    <div class="tab-pane active" id="home3" role="tabpanel">
+                                                                    <!-- Nav tabs -->
+                                                                    <ul class="nav nav-tabs md-tabs" role="tablist">
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link active" data-toggle="tab"
+                                                                                href="#home3" role="tab">IPC Detail</a>
+                                                                            <div class="slide"></div>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab"
+                                                                                href="#profile3" role="tab">Timeline</a>
+                                                                            <div class="slide"></div>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab"
+                                                                                href="#messages3" role="tab">Remarks</a>
+                                                                            <div class="slide"></div>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab"
+                                                                                href="#settings3" role="tab">Add
+                                                                                Payment</a>
+                                                                            <div class="slide"></div>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" data-toggle="tab"
+                                                                                href="#settings4"
+                                                                                role="tab">CheckList</a>
+                                                                            <div class="slide"></div>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- Tab panes -->
+                                                                    <div class="tab-content card-block">
+                                                                        <div class="tab-pane active" id="home3"
+                                                                            role="tabpanel">
 
 
-                                                        <table width="100%" border="3">
+                                                                            <table width="100%" border="3">
 
-                                                            <tr>
-                                                                <td>Package Name:</td>
-                                                                <td><strong><?php echo $item->project_name."-".$item->subproject_name;?></strong>
-                                                                </td>
-                                                                <td>IPC No</td>
-                                                                <td>
+                                                                                <tr>
+                                                                                    <td>Package Name:</td>
+                                                                                    <td><strong><?php echo $item->project_name."-".$item->subproject_name;?></strong>
+                                                                                    </td>
+                                                                                    <td>IPC No</td>
+                                                                                    <td>
 
-                                                                    <b>
-                                                                        <font colo="white"><?php 
+                                                                                        <b>
+                                                                                            <font colo="white"><?php 
                                                         echo $item->ipc_no;
                                                         ?>
-                                                                    </b>
-                                                                    </font>
-                                                                </td>
-                                                            </tr>
+                                                                                        </b>
+                                                                                        </font>
+                                                                                    </td>
+                                                                                </tr>
 
-                                                            <tr>
-                                                                <td>Contractor Name:</td>
-                                                                <td><strong>
-                                                                        <?php 
+                                                                                <tr>
+                                                                                    <td>Contractor Name:</td>
+                                                                                    <td><strong>
+                                                                                            <?php 
                                         $cidnew = $this->db->query("SELECT emp_id,emp_name FROM ppms_subproject_assign AS psa,emp AS e
                                         WHERE psa.`contractor_id`=e.`emp_id` and subproject_id=$item->subproject_id")->result();
                                         $z1=1;
@@ -404,42 +424,42 @@ if($rem > 0){
                                         $z1++;
                                         }?></strong></td>
 
-                                                                <td>Mobilization Advance</td>
-                                                                <td>
-                   <?php $MobilizationAdvance=$this->db->query("SELECT ipac_amount as mobilization_advance_amount_new 
+                                                                                    <td>Mobilization Advance</td>
+                                                                                    <td>
+                                                                                        <?php $MobilizationAdvance=$this->db->query("SELECT ipac_amount as mobilization_advance_amount_new 
                     FROM ppms_ipac where subproject_id=$item->subproject_id and certificate_type='Mobilization'")->row();
                     ///echo $this->db->last_query();
                     //$MobilizationAdvance = $this->db->query("SELECT mobilization_advance_amount FROM ppms_subproject 
                     //where $rowss->subproject_id")->row();
 
                    ?>
-                                                                    <b><?php 
+                                                                                        <b><?php 
                                                                     echo  number_format($MobilizationAdvance->mobilization_advance_amount_new, 2, '.', ',');
                                                      
                                                       ?></b>
-                                                                </td>
+                                                                                    </td>
 
-                                                            </tr>
+                                                                                </tr>
 
-                                                            <tr>
-                                                                <td>Commencement Date:</td>
-                                                                <td><strong>
-                                                                        <?php echo $item->subproject_commencedate;?></strong>
-                                                                </td>
+                                                                                <tr>
+                                                                                    <td>Commencement Date:</td>
+                                                                                    <td><strong>
+                                                                                            <?php echo $item->subproject_commencedate;?></strong>
+                                                                                    </td>
 
-                                                                <td>Completion Date</td>
-                                                                <td>
+                                                                                    <td>Completion Date</td>
+                                                                                    <td>
 
-                                                                    <b><?php echo $item->subproject_end_date;?></b>
-                                                                </td>
-
-
-                                                            </tr>
+                                                                                        <b><?php echo $item->subproject_end_date;?></b>
+                                                                                    </td>
 
 
-                                                            <tr>
-                                                                <td>Sub Sub Project name</td>
-                                                                <td colspan="3"><?php 
+                                                                                </tr>
+
+
+                                                                                <tr>
+                                                                                    <td>Sub Sub Project name</td>
+                                                                                    <td colspan="3"><?php 
 $dubee="select project_area_name from ppms_subproject_area where subproject_id=$subID";
 
 $dubee1= $this->db->query($dubee)->result();
@@ -453,15 +473,22 @@ $z++;
 }
 //echo $this->db->last_query();
 ?></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Certificate Type</td>
-                                                                <td><?php echo $item->certificate_type;?></td>
-                                                            </tr>
-<tr><td><font color="red">File Move </font><br><font color="blue">Forward</font></td>
-<td align="center">
-    
-<?php 
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Certificate Type</td>
+                                                                                    <td><?php echo $item->certificate_type;?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <font color="red">File Move
+                                                                                        </font><br>
+                                                                                        <font color="blue">Forward
+                                                                                        </font>
+                                                                                    </td>
+                                                                                    <td align="center">
+
+                                                                                        <?php 
     $checkss=$this->db->query("SELECT organization_id,flag_id,status_id
     FROM ppms_ipac_forward
     WHERE `ipac_forward_id`=(
@@ -493,71 +520,96 @@ if($sqlPayment1){
 }else{
 ?>
 
-  
-         <select onChange="paid(<?php echo $item->ipac_id?>,<?php echo $checkss->status_id?>)" class="form-control" width="20px">
-         <option value="1">Select Option</option>
-                            <option value="1">Imprest</option>
-                            <option value="2">WithDraw Application</option>
-                           
-                            
-</select>
+
+                                                                                        <select
+                                                                                            onChange="paid(<?php echo $item->ipac_id?>,<?php echo $checkss->status_id?>)"
+                                                                                            class="form-control"
+                                                                                            width="20px">
+                                                                                            <option value="1">Select
+                                                                                                Option</option>
+                                                                                            <option value="1">Imprest
+                                                                                            </option>
+                                                                                            <option value="2">WithDraw
+                                                                                                Application</option>
 
 
-<?php 
+                                                                                        </select>
+
+
+                                                                                        <?php 
 }
 /////////////////payment condition closed//////////////////////////
 }else{?>
-          <a href="javascript:"
-                            onClick="forward(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
-                            <img src="<?php echo base_url('img/next.png')?>" width="30px" height="30px">
-                        </a> 
-                        <?php if(($checkss->organization_id==3) or ($checkss->organization_id==4)){?>
-                        <select name="status_ids" id="status_ids<?php echo $item->ipac_id?>" class="form-control"
-                            width="20px">
-                            <?php /*?><option value="0">Recieved</option>
-                           
-                            <option value="2">In Progress</option>
-                            <?php */?>
-                            <option value="1">Forward</option>
-                            <option value="3">Cancel</option>
-                           <?php 
+                                                                                        <a href="javascript:"
+                                                                                            onClick="forward(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
+                                                                                            <img src="<?php echo base_url('img/next.png')?>"
+                                                                                                width="30px"
+                                                                                                height="30px">
+                                                                                        </a>
+                                                                                        <?php if(($checkss->organization_id==3) or ($checkss->organization_id==4)){?>
+                                                                                        <select name="status_ids"
+                                                                                            id="status_ids<?php echo $item->ipac_id?>"
+                                                                                            class="form-control"
+                                                                                            width="20px">
+                                                                                            <?php /*?><option value="0">
+                                                                                                Recieved</option>
+
+                                                                                            <option value="2">In
+                                                                                                Progress</option>
+                                                                                            <?php */?>
+                                                                                            <option value="1">Forward
+                                                                                            </option>
+                                                                                            <option value="3">Cancel
+                                                                                            </option>
+                                                                                            <?php 
                             if($checkss->organization_id==3){?>
-                            <option value="4">Approved by PMU</option>
-                            <?php }else if($checkss->organization_id==4){?>
-                            <option value="4">Approved by ADB</option>
-                            <?php }?>
+                                                                                            <option value="4">Approved
+                                                                                                by PMU</option>
+                                                                                            <?php }else if($checkss->organization_id==4){?>
+                                                                                            <option value="4">Approved
+                                                                                                by ADB</option>
+                                                                                            <?php }?>
 
 
-                        </select>
-    <?php 
+                                                                                        </select>
+                                                                                        <?php 
                         }
 }?>
-                        <?php /*?>
-         <select name="org_id" onchange="forward(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)" id="org_id<?php echo $item->ipac_id?>" style="width:150px;" class="form-control">
-         <option value="">Organization </option>
-         <?php 
+                                                                                        <?php /*?>
+                                                                                        <select name="org_id"
+                                                                                            onchange="forward(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)"
+                                                                                            id="org_id<?php echo $item->ipac_id?>"
+                                                                                            style="width:150px;"
+                                                                                            class="form-control">
+                                                                                            <option value="">
+                                                                                                Organization </option>
+                                                                                            <?php 
 
 $orgiiCity = $this->db->query("SELECT organization_id,organization_name from organization where city_id=$cityID and organization_id not in(3,4)")->result();
 foreach( $orgiiCity as $orgiiCity){
 ?>
-                                                           <option value="<?php echo $orgiiCity->organization_id;?>">
-                                                               <?php echo  $orgiiCity->organization_name;?></option>
-                                                           <?php }?>                                       
-                                                           
+                                                                                            <option
+                                                                                                value="<?php echo $orgiiCity->organization_id;?>">
+                                                                                                <?php echo  $orgiiCity->organization_name;?>
+                                                                                            </option>
+                                                                                            <?php }?>
 
-                                                            <?php 
+
+                                                                                            <?php 
 
  $orgii = $this->db->query("SELECT organization_id,organization_name from organization where organization_id in(3,4)")->result();
 foreach( $orgii as  $orgii){
 ?>
-                                                            <option value="<?php echo $orgii->organization_id;?>">
-                                                                <?php echo  $orgii->organization_name;?></option>
-                                                            <?php }?>
+                                                                                            <option
+                                                                                                value="<?php echo $orgii->organization_id;?>">
+                                                                                                <?php echo  $orgii->organization_name;?>
+                                                                                            </option>
+                                                                                            <?php }?>
 
-                                                        </select>
-                                                        <?php */?>
-                        
-            <?php 
+                                                                                        </select>
+                                                                                        <?php */?>
+
+                                                                                        <?php 
                     
                     } else {
                         echo "First Complete Your Check list";
@@ -570,12 +622,15 @@ foreach( $orgii as  $orgii){
                 }?>
 
 
-</td>
+                                                                                    </td>
 
 
-                        
-<td><font color="red">Returned</font></td>
-<td align="center"><?php
+
+                                                                                    <td>
+                                                                                        <font color="red">Returned
+                                                                                        </font>
+                                                                                    </td>
+                                                                                    <td align="center"><?php
 $sqlPayment = "SELECT * FROM ipc_payment WHERE status_id=2 and ipac_id=$item->ipac_id";
 $sqlPayment1 = $this->db->query($sqlPayment)->row(); 
 if($sqlPayment1){
@@ -583,135 +638,159 @@ if($sqlPayment1){
     <font color='white'>IPC Paid & Closed</font></lable>";
 }else{?>
 
-<a href="javascript:"
-                            onClick="returned(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
-                            <img src="<?php echo base_url('img/backward.png')?>" width="30px" height="30px">
-                        </a>
-<select name="org_id" id="org_id<?php echo $item->ipac_id?>" style="width:80px;" class="form-control">
-         <option value="">Organization </option>
-         <?php 
+                                                                                        <a href="javascript:"
+                                                                                            onClick="returned(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
+                                                                                            <img src="<?php echo base_url('img/backward.png')?>"
+                                                                                                width="30px"
+                                                                                                height="30px">
+                                                                                        </a>
+                                                                                        <select name="org_id"
+                                                                                            id="org_id<?php echo $item->ipac_id?>"
+                                                                                            style="width:80px;"
+                                                                                            class="form-control">
+                                                                                            <option value="">
+                                                                                                Organization </option>
+                                                                                            <?php 
 
 $orgiiCity = $this->db->query("SELECT organization_id,organization_name from organization where city_id=$cityID and organization_id not in(3,4)")->result();
 foreach( $orgiiCity as $orgiiCity){
 ?>
-                                                           <option value="<?php echo $orgiiCity->organization_id;?>">
-                                                               <?php echo  $orgiiCity->organization_name;?></option>
-                                                           <?php }?>                                       
-                                                           
+                                                                                            <option
+                                                                                                value="<?php echo $orgiiCity->organization_id;?>">
+                                                                                                <?php echo  $orgiiCity->organization_name;?>
+                                                                                            </option>
+                                                                                            <?php }?>
 
-                                                            <?php 
+
+                                                                                            <?php 
 
  $orgii = $this->db->query("SELECT organization_id,organization_name from organization where organization_id in(3,4)")->result();
 foreach( $orgii as  $orgii){
 ?>
-                                                            <option value="<?php echo $orgii->organization_id;?>">
-                                                                <?php echo  $orgii->organization_name;?></option>
-                                                            <?php }?>
+                                                                                            <option
+                                                                                                value="<?php echo $orgii->organization_id;?>">
+                                                                                                <?php echo  $orgii->organization_name;?>
+                                                                                            </option>
+                                                                                            <?php }?>
 
-                                                        </select>
-
-
-<?php }?>
-
+                                                                                        </select>
 
 
-</td>
-
-</tr>
+                                                                                        <?php }?>
 
 
 
-                                                            <tr style="background-color:#218559; color:#fff">
-                                                                <td colspan="4" align="left">
-                                                                    <strong>Documents Download:
-                                                                    </strong>
-                                                                </td>
-                                                            </tr>
+                                                                                    </td>
 
-                                                            <?php 
+                                                                                </tr>
+
+
+
+                                                                                <tr
+                                                                                    style="background-color:#218559; color:#fff">
+                                                                                    <td colspan="4" align="left">
+                                                                                        <strong>Documents Download:
+                                                                                        </strong>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <?php 
                                                                          $filee="SELECT ipac_file_id,ipac_file_name,ipac_file_url,file_name 
                                                                             FROM 
                                                                             ppms_ipac_file where ipac_id=$ipc_iddd";
  $filess = $this->db->query($filee)->result();?>
-                                                            <tr>
-                                                                <?php $f=1;
+                                                                                <tr>
+                                                                                    <?php $f=1;
  foreach($filess as $filess){
  ?>
-                                                                <td><?php echo $f;?></td>
-                                                                <td><?php echo $filess->file_name;?></td>
-                                                                <td><?php echo $filess->ipac_file_name;?></td>
-                                                                <td  align="center">
+                                                                                    <td><?php echo $f;?></td>
+                                                                                    <td><?php echo $filess->file_name;?>
+                                                                                    </td>
+                                                                                    <td><?php echo $filess->ipac_file_name;?>
+                                                                                    </td>
+                                                                                    <td align="center">
 
-                                                                    <a
-                                                                        href="<?php echo base_url('img/upload_files/')?><?php echo $filess->ipac_file_url;?>">
-                                                                        <img src="<?php echo base_url('img/download.jpg')?>"
-                                                                            width="30px" height="30px">
-                                                                    </a>
-                                                                
+                                                                                        <a
+                                                                                            href="<?php echo base_url('img/upload_files/')?><?php echo $filess->ipac_file_url;?>">
+                                                                                            <img src="<?php echo base_url('img/download.jpg')?>"
+                                                                                                width="30px"
+                                                                                                height="30px">
+                                                                                        </a>
 
-<a
-    href="javascript:" onClick="delete_files(<?php echo $filess->ipac_file_id;?>)">
-    <img src="<?php echo base_url('img/delete.jpg')?>"
-        width="30px" height="30px">
-</a>
-</td>
-                                                                
-                                                                
-                                                            </tr>
-                                                            <?php 
+
+                                                                                        <a href="javascript:"
+                                                                                            onClick="delete_files(<?php echo $filess->ipac_file_id;?>)">
+                                                                                            <img src="<?php echo base_url('img/delete.jpg')?>"
+                                                                                                width="30px"
+                                                                                                height="30px">
+                                                                                        </a>
+                                                                                    </td>
+
+
+                                                                                </tr>
+                                                                                <?php 
                                                                         $f++;
                                                                         }?>
 
 
-                                                            </form>
+                                                                                </form>
 
-                                                        </table>
-                <!------------------infrastructur engineer check here-------->
-                                                        <?php 
+                                                                            </table>
+                                                                            <!------------------infrastructur engineer check here-------->
+                                                                            <?php 
                                                         if($groupID==10){
                                                             echo "";
                                                         }else{
                                                         ?>
-                                                        <form method="post"
-                                                            action="<?php echo base_url('Welcome/more_file_uploading')?>"
-                                                            enctype="multipart/form-data">
-                                                            <table class="table">
-                                                                <tr style="background-color:#218559; color:#fff">
-                                                                    <td colspan="5" align="left">
-                                                                        <strong>Documents Upload:
-                                                                        </strong>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>File Name</td>
-                                                                    <td>
-                                                                        <input type="text" name="file_name" value=""
-                                                                            class="form-control">
-                                                                    </td>
+                                                                            <form method="post"
+                                                                                action="<?php echo base_url('Welcome/more_file_uploading')?>"
+                                                                                enctype="multipart/form-data">
+                                                                                <table class="table">
+                                                                                    <tr
+                                                                                        style="background-color:#218559; color:#fff">
+                                                                                        <td colspan="5" align="left">
+                                                                                            <strong>Documents Upload:
+                                                                                            </strong>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>File Name</td>
+                                                                                        <td>
+                                                                                            <input type="text"
+                                                                                                name="file_name"
+                                                                                                value=""
+                                                                                                class="form-control">
+                                                                                        </td>
 
-                                                                    <td>File Upload</td>
-                                                                    <td>
-                                                                        <input type="hidden" name="ipc_id"
-                                                                            value="<?php echo $id?>">
-                                                                        <input type="file" name="Pict_upload"
-                                                                            class="form-control">
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="submit" name="upload_kifi"
-                                                                            value="Upload File" class="btn btn-primary">
-                                                                    </td>
-                                                                </tr>
+                                                                                        <td>File Upload</td>
+                                                                                        <td>
+                                                                                            <input type="hidden"
+                                                                                                name="ipc_id"
+                                                                                                value="<?php echo $id?>">
+                                                                                            <input type="file"
+                                                                                                name="Pict_upload"
+                                                                                                class="form-control">
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <input type="submit"
+                                                                                                name="upload_kifi"
+                                                                                                value="Upload File"
+                                                                                                class="btn btn-primary">
+                                                                                        </td>
+                                                                                    </tr>
 
-                                                            </table>
-                                                        </form>
-<?php }?>
-                                                    </div>
-                                                    <div class="tab-pane" id="profile3" role="tabpanel">
-                                                        <div class="" style="background-color:#D4F4D4;">
-                                                            <div class="cd-timeline cd-container">
+                                                                                </table>
+                                                                            </form>
+                                                                            <?php }?>
+                                                                        </div>
+                                                                        <div class="tab-pane" id="profile3"
+                                                                            role="tabpanel">
+                                                                            <div class=""
+                                                                                style="background-color:#D4F4D4;">
+                                                                                <div class="cd-timeline cd-container">
 
-                                                                <!-- cd-timeline-block -->
-                                                                <?php 
+                                                                                    <!-- cd-timeline-block -->
+                                                                                    <?php 
                                                                          $logee="SELECT *
                                                                             FROM 
                                                                             ppms_ipac_forward as pif,organization as o,emp as e,designation as d,department as de
@@ -726,11 +805,12 @@ foreach( $orgii as  $orgii){
  foreach($logeee as $logeee){
  ?>
 
-                                                                <div class="cd-timeline-block">
-                                                                    <div class="cd-timeline-icon bg-primary">
-                                                                        <i class="icofont">
-                                                                            <?php /*?>icofont-ui-file<?php */?>
-                                                                            <?php if($logeee->status_id==0){
+                                                                                    <div class="cd-timeline-block">
+                                                                                        <div
+                                                                                            class="cd-timeline-icon bg-primary">
+                                                                                            <i class="icofont">
+                                                                                                <?php /*?>icofont-ui-file<?php */?>
+                                                                                                <?php if($logeee->status_id==0){
                                                                                                      echo 0; 
 }else if($logeee->status_id==1){
 $pki="select ipac_forward_date from ppms_ipac_forward where ipac_id=$logeee->ipac_id
@@ -763,19 +843,20 @@ echo $weekdaysCount;
 
                                                                                                         echo 0;
                                                                                                     }?>
-                                                                            <font color="black"
-                                                                                style="font-size: 13px;">
+                                                                                                <font color="black"
+                                                                                                    style="font-size: 13px;">
 
-                                                                                Days
+                                                                                                    Days
 
-                                                                            </font>
-                                                                        </i>
-                                                                    </div>
-                                                                    <!-- cd-timeline-img -->
-                                                                    <div class="cd-timeline-content card_main">
-                                                                        <div class="card-block">
-                                                                            <span
-                                                                                style="color:red;"><?php 
+                                                                                                </font>
+                                                                                            </i>
+                                                                                        </div>
+                                                                                        <!-- cd-timeline-img -->
+                                                                                        <div
+                                                                                            class="cd-timeline-content card_main">
+                                                                                            <div class="card-block">
+                                                                                                <span
+                                                                                                    style="color:red;"><?php 
                                                                                 
                                                                                 ///echo "(".$logeee->ipac_forward_id.")";
 
@@ -785,22 +866,24 @@ echo $weekdaysCount;
                                                                                                         }else if($f > 1){
                                                                                                             echo $logeee->organization_name;
                                                                                                         }?></span><br />
-                                                                            <span>
-                                                                                <?php if($groupID==1){?>
-                                                                                <input type="date" name="fdate"
-                                                                                    class="form-control"
-                                                                                    value="<?php echo $logeee->ipac_forward_date;?>"
-                                                                                    onBlur="change_date(this.value,<?php echo $logeee->ipac_forward_id;?>,<?php echo $item->ipac_id;?>)">
-                                                                                <?php }else{?>
-                                                                                <?php echo $logeee->ipac_forward_date;?>
+                                                                                                <span>
+                                                                                                    <?php if($groupID==1){?>
+                                                                                                    <input type="date"
+                                                                                                        name="fdate"
+                                                                                                        class="form-control"
+                                                                                                        value="<?php echo $logeee->ipac_forward_date;?>"
+                                                                                                        onBlur="change_date(this.value,<?php echo $logeee->ipac_forward_id;?>,<?php echo $item->ipac_id;?>)">
+                                                                                                    <?php }else{?>
+                                                                                                    <?php echo $logeee->ipac_forward_date;?>
 
-                                                                                <?php }?>
-                                                                            </span>
-                                                                            <div class="timeline-details">
+                                                                                                    <?php }?>
+                                                                                                </span>
+                                                                                                <div
+                                                                                                    class="timeline-details">
 
-                                                                                <a href="#">
+                                                                                                    <a href="#">
 
-                                                                                    <?php if($logeee->status_id==0){
+                                                                                                        <?php if($logeee->status_id==0){
                                                                                                           echo "<label class='label label-warning'>Recieved</label>";
                                                                                                         }else if($logeee->status_id==1){
                                                                                                             echo "<label class='label label-warning'>Forwarded</label>";
@@ -819,9 +902,10 @@ echo $weekdaysCount;
                                                                                                         }?>
 
 
-                                                                                    <br>
-                                                                                    <span style="font-size:10px;">
-                                                                                        <?php 
+                                                                                                        <br>
+                                                                                                        <span
+                                                                                                            style="font-size:10px;">
+                                                                                                            <?php 
                                                                                          if($logeee->status_id==2) {
 $dtt=$this->db->query("select designation_id,organization_id from ppms_ipac_forward where ipac_forward_id=$logeee->ipac_forward_id")->row();
 
@@ -839,15 +923,15 @@ $dtt=$this->db->query("select designation_id,organization_id from ppms_ipac_forw
                                                                                            
                                                                                         ?>,
 
-                                                                                        <?php }else{
+                                                                                                            <?php }else{
                                                                                         echo $logeee->emp_name;?>
-                                                                                        <br><?php echo $logeee->designation_name;?>
-                                                                                        <br>
-                                                                                        <i><?php echo $logeee->department_name;?></i></span>
+                                                                                                            <br><?php echo $logeee->designation_name;?>
+                                                                                                            <br>
+                                                                                                            <i><?php echo $logeee->department_name;?></i></span>
 
-                                                                                    <br>
+                                                                                                        <br>
 
-                                                                                    <?php 
+                                                                                                        <?php 
 
 if($logeee->status_id==1){ 
 $tot_days_level=$this->db->query("select days from ipc_days where level_id=$logeee->order_by")->row();
@@ -875,18 +959,19 @@ if($tot_daiiisss >=1 ){
 
 
 
-                                                                                    <?php }?>
-                                                                                </a>
-                                                                                <p class="m-t-20">
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <span class="cd-date"></span>
-                                                                    </div>
-                                                                    <!-- cd-timeline-content -->
-                                                                </div>
+                                                                                                        <?php }?>
+                                                                                                    </a>
+                                                                                                    <p class="m-t-20">
+                                                                                                    </p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <span
+                                                                                                class="cd-date"></span>
+                                                                                        </div>
+                                                                                        <!-- cd-timeline-content -->
+                                                                                    </div>
 
-                                                                <?php 
+                                                                                    <?php 
                                                                                     $f++;}?>
 
 
@@ -898,13 +983,14 @@ if($tot_daiiisss >=1 ){
 
 
 
-                                                            </div>
-                                                            <!-- cd-timeline -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-pane" id="messages3" role="tabpanel">
-                                                        <ul class="list-view">
-                                                            <?php 
+                                                                                </div>
+                                                                                <!-- cd-timeline -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tab-pane" id="messages3"
+                                                                            role="tabpanel">
+                                                                            <ul class="list-view">
+                                                                                <?php 
                                                                          $remarkss="SELECT *
                                                                             FROM 
                                                                             ppms_ipac_remarks as pif,emp as e,designation as d,department as de
@@ -916,158 +1002,180 @@ if($tot_daiiisss >=1 ){
  $f=1;
  foreach($remarkss as $remarkss){
  ?>
-                                                            <li>
-                                                                <div class="card user-card">
-                                                                    <div class="card-block">
-                                                                        <div class="media">
-                                                                            <a class="media-left" href="#">
-                                                                                <img class="media-object img-circle card-list-img"
-                                                                                    src="<?php echo base_url()?>assets/images/user.png"
-                                                                                    alt="Generic placeholder image">
-                                                                            </a>
-                                                                            <div class="media-body">
-                                                                                <div class="col-xs-12">
-                                                                                    <strong
-                                                                                        class="d-inline-block"><?php echo $remarkss->emp_name;?></strong>
-                                                                                    <label
-                                                                                        class="label label-info"><?php echo $remarkss->department_name;?>
-                                                                                    </label>
-                                                                                </div>
-                                                                                <p><?php echo $remarkss->ipac_remark;?>
-                                                                                </p>
-                                                                                <span style="color:#228B22;"><i>Posted
-                                                                                        on:
-                                                                                        <strong
-                                                                                            style="color:#228B22;"><?php echo $remarkss->ipac_remark_date;?></strong></i>
-                                                                                </span>
-                                                                                <?php 
+                                                                                <li>
+                                                                                    <div class="card user-card">
+                                                                                        <div class="card-block">
+                                                                                            <div class="media">
+                                                                                                <a class="media-left"
+                                                                                                    href="#">
+                                                                                                    <img class="media-object img-circle card-list-img"
+                                                                                                        src="<?php echo base_url()?>assets/images/user.png"
+                                                                                                        alt="Generic placeholder image">
+                                                                                                </a>
+                                                                                                <div class="media-body">
+                                                                                                    <div
+                                                                                                        class="col-xs-12">
+                                                                                                        <strong
+                                                                                                            class="d-inline-block"><?php echo $remarkss->emp_name;?></strong>
+                                                                                                        <label
+                                                                                                            class="label label-info"><?php echo $remarkss->department_name;?>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                    <p><?php echo $remarkss->ipac_remark;?>
+                                                                                                    </p>
+                                                                                                    <span
+                                                                                                        style="color:#228B22;"><i>Posted
+                                                                                                            on:
+                                                                                                            <strong
+                                                                                                                style="color:#228B22;"><?php echo $remarkss->ipac_remark_date;?></strong></i>
+                                                                                                    </span>
+                                                                                                    <?php 
 $filee="SELECT ipac_file_name,ipac_file_url,file_name FROM 
 ppms_ipac_file where ipac_id=$ipc_iddd and ipac_user_id=$remarkss->emp_id and ipac_remarks_id=$remarkss->ipac_remarks_id";
  $filess = $this->db->query($filee)->row();
  if( $filess){
  ?>
-                                                                                <table class="table">
-                                                                                    <tr
-                                                                                        style="background-color:#218559; color:#fff">
-                                                                                        <td colspan="4" align="left">
-                                                                                            <strong>Documents Download:
-                                                                                            </strong>
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                                    <table
+                                                                                                        class="table">
+                                                                                                        <tr
+                                                                                                            style="background-color:#218559; color:#fff">
+                                                                                                            <td colspan="4"
+                                                                                                                align="left">
+                                                                                                                <strong>Documents
+                                                                                                                    Download:
+                                                                                                                </strong>
+                                                                                                            </td>
+                                                                                                        </tr>
 
-                                                                                    <tr>
+                                                                                                        <tr>
 
-                                                                                        <td><?php echo $filess->file_name;?>
-                                                                                        </td>
-                                                                                        <td><?php echo $filess->ipac_file_name;?>
-                                                                                        </td>
-                                                                                        <td colspan="2" align="center">
+                                                                                                            <td><?php echo $filess->file_name;?>
+                                                                                                            </td>
+                                                                                                            <td><?php echo $filess->ipac_file_name;?>
+                                                                                                            </td>
+                                                                                                            <td colspan="2"
+                                                                                                                align="center">
 
-                                                                                            <a
-                                                                                                href="<?php echo base_url('img/upload_files/')?><?php echo $filess->ipac_file_url;?>">
-                                                                                                <img src="<?php echo base_url('img/download.jpg')?>"
-                                                                                                    width="30px"
-                                                                                                    height="30px">
-                                                                                            </a>
-                                                                                        </td>
-                                                                                    </tr>
+                                                                                                                <a
+                                                                                                                    href="<?php echo base_url('img/upload_files/')?><?php echo $filess->ipac_file_url;?>">
+                                                                                                                    <img src="<?php echo base_url('img/download.jpg')?>"
+                                                                                                                        width="30px"
+                                                                                                                        height="30px">
+                                                                                                                </a>
+                                                                                                            </td>
+                                                                                                        </tr>
 
 
 
-                                                                                    </form>
+                                                                                                        </form>
 
-                                                                                </table>
+                                                                                                    </table>
+                                                                                                    <?php }?>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+
                                                                                 <?php }?>
-                                                                            </div>
+
+
+
+                                                                            </ul>
+
+                                                                            <form method="post"
+                                                                                action="<?php echo base_url('Welcome/remarks_file_uploading')?>"
+                                                                                enctype="multipart/form-data">
+                                                                                <!-- List view card end -->
+                                                                                <label>Add Remark:</label>
+                                                                                <div class="card">
+                                                                                    <input type="hidden" name="ipac_id"
+                                                                                        value="<?php echo $item->ipac_id;?>">
+                                                                                    <textarea name="remarks"
+                                                                                        class="form-control max-textarea"
+                                                                                        maxlength="255"
+                                                                                        rows="4"></textarea><br>
+
+
+
+
+
+
+                                                                                    <table class="table">
+                                                                                        <tr
+                                                                                            style="background-color:#218559; color:#fff">
+                                                                                            <td colspan="5"
+                                                                                                align="left">
+                                                                                                <strong>Documents
+                                                                                                    Upload:
+                                                                                                </strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>File Name</td>
+                                                                                            <td>
+                                                                                                <input type="text"
+                                                                                                    name="file_name"
+                                                                                                    value=""
+                                                                                                    class="form-control">
+                                                                                            </td>
+
+                                                                                            <td>File Upload</td>
+                                                                                            <td>
+                                                                                                <input type="hidden"
+                                                                                                    name="ipc_id"
+                                                                                                    value="<?php echo $id?>">
+                                                                                                <input type="file"
+                                                                                                    name="Pict_upload"
+                                                                                                    class="form-control">
+                                                                                            </td>
+                                                                                            <td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <input type="submit"
+                                                                                                    name="upload_kifi"
+                                                                                                    value="Save Record"
+                                                                                                    class="btn btn-primary">
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                    </table>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
 
-                                                            <?php }?>
-
-
-
-                                                        </ul>
-
-                                                        <form method="post"
-                                                            action="<?php echo base_url('Welcome/remarks_file_uploading')?>"
-                                                            enctype="multipart/form-data">
-                                                            <!-- List view card end -->
-                                                            <label>Add Remark:</label>
-                                                            <div class="card">
-                                                                <input type="hidden" name="ipac_id"
-                                                                    value="<?php echo $item->ipac_id;?>">
-                                                                <textarea name="remarks"
-                                                                    class="form-control max-textarea" maxlength="255"
-                                                                    rows="4"></textarea><br>
-
-
-
-
-
-
-                                                                <table class="table">
-                                                                    <tr style="background-color:#218559; color:#fff">
-                                                                        <td colspan="5" align="left">
-                                                                            <strong>Documents Upload:
-                                                                            </strong>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>File Name</td>
-                                                                        <td>
-                                                                            <input type="text" name="file_name" value=""
-                                                                                class="form-control">
-                                                                        </td>
-
-                                                                        <td>File Upload</td>
-                                                                        <td>
-                                                                            <input type="hidden" name="ipc_id"
-                                                                                value="<?php echo $id?>">
-                                                                            <input type="file" name="Pict_upload"
-                                                                                class="form-control">
-                                                                        </td>
-                                                                        <td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <input type="submit" name="upload_kifi"
-                                                                                value="Save Record"
-                                                                                class="btn btn-primary">
-                                                                        </td>
-                                                                    </tr>
-
-                                                                </table>
-                                                        </form>
-                                                    </div>
-                                                </div>
-
-                                                <div class="tab-pane" id="settings3" role="tabpanel">
-                                                    <div class="dt-responsive table-responsive">
-                                                        <table class="table table-responsive">
-                                                    <tr><td><b>Make Entries</b></td>
-                    <td>
-                    <!------------------infrastructur engineer check here-------->
-                    <?php 
+                                                                    <div class="tab-pane" id="settings3"
+                                                                        role="tabpanel">
+                                                                        <div class="dt-responsive table-responsive">
+                                                                            <table class="table table-responsive">
+                                                                                <tr>
+                                                                                    <td><b>Make Entries</b></td>
+                                                                                    <td>
+                                                                                        <!------------------infrastructur engineer check here-------->
+                                                                                        <?php 
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
-                                                        ?> 
-                     <?php 
+                                                        ?>
+                                                                                        <?php 
                     // echo $orgName->organization_id;
 
                      if($orgName->designation_id==15){
                       echo "You Are Not Eligible for Entries";  
-                     }else{?>   
-                    <input type="checkbox" value="1" onchange="enable_inputs(this,<?php echo $ipc_iddd;?>,<?php echo $subID;?>,<?php echo $subsubID;?>,'<?php echo $item->ipc_no;?>')" id="enable_summary" class="form-control"></td>
-                <?php
+                     }else{?>
+                                                                                        <input type="checkbox" value="1"
+                                                                                            onchange="enable_inputs(this,<?php echo $ipc_iddd;?>,<?php echo $subID;?>,<?php echo $subsubID;?>,'<?php echo $item->ipc_no;?>')"
+                                                                                            id="enable_summary"
+                                                                                            class="form-control">
+                                                                                    </td>
+                                                                                    <?php
                       
                      }
             }?>
-                </tr>
-                                                        </table>
-                                                        <?php 
+                                                                                </tr>
+                                                                            </table>
+                                                                            <?php 
                                                         
                 $main = $this->db->query("SELECT pb.sub_sub_project_id,project_area_name
                 FROM `ppms_billsummary` as pb,ppms_subproject_area as ps
@@ -1076,72 +1184,85 @@ ppms_ipac_file where ipac_id=$ipc_iddd and ipac_user_id=$remarkss->emp_id and ip
                 group by pb.sub_sub_project_id")->result();
 foreach($main as $main){
 ?>
-                                                        <h2><?php echo $main->project_area_name;?> </h2>
-                                                        <table width="100%" border="5" cellspacing="0" cellpadding="0">
+                                                                            <h2><?php echo $main->project_area_name;?>
+                                                                            </h2>
+                                                                            <table width="100%" border="5"
+                                                                                cellspacing="0" cellpadding="0">
 
 
 
-                                                            <tbody>
+                                                                                <tbody>
 
 
-                                                                <?php
+                                                                                    <?php
 error_reporting(E_ALL);
 
 $i=1; 
 $result1 = $this->db->query("SELECT * FROM ppms_billsummary_category")->result();
 foreach($result1 as $item){?>
-                                                                <tr style="background-color:#000; color:#fff">
-                                                                    <td colspan="3">
-                                                                        <h4>
-                                                                            <font color="white">(<?php echo $i;?>)
-                                                                                <?php echo $item->billsummary_category_name;?>
-                                                                            </font>
-                                                                        </h4>
-                                                                    </td>
+                                                                                    <tr
+                                                                                        style="background-color:#000; color:#fff">
+                                                                                        <td colspan="3">
+                                                                                            <h4>
+                                                                                                <font color="white">
+                                                                                                    (<?php echo $i;?>)
+                                                                                                    <?php echo $item->billsummary_category_name;?>
+                                                                                                </font>
+                                                                                            </h4>
+                                                                                        </td>
 
 
 
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <table style="width:80%" cellpadding="0"
-                                                                            cellspacing="0" border="5">
-                                                                            <thead>
-                                                                                <tr
-                                                                                    style="background-color:#218559; color:#fff">
-                                                                                    <th style="width:3%">
-                                                                                        Bill# </th>
-                                                                                    <th style="width:10%">
-                                                                                        Bill Summary
-                                                                                        Description
-                                                                                    </th>
-                                                                                    <?php 
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <table style="width:80%"
+                                                                                                cellpadding="0"
+                                                                                                cellspacing="0"
+                                                                                                border="5">
+                                                                                                <thead>
+                                                                                                    <tr
+                                                                                                        style="background-color:#218559; color:#fff">
+                                                                                                        <th
+                                                                                                            style="width:3%">
+                                                                                                            Bill# </th>
+                                                                                                        <th
+                                                                                                            style="width:10%">
+                                                                                                            Bill Summary
+                                                                                                            Description
+                                                                                                        </th>
+                                                                                                        <?php 
       $totKIFi="SELECT count(*) as totKIF FROM `bill_summary_amount` WHERE `subproject_id`=$subID 
       AND `sub_sub_project_id`=$main->sub_sub_project_id and amount > 1";
       $totKIFi=$this->db->query($totKIFi)->row();
       if($totKIFi->totKIF >=1){
 ?>
-                                                                                    <th style="width:5%">
-                                                                                        BOQ Latest
-                                                                                        Amount</th>
-                                                                                    
+                                                                                                        <th
+                                                                                                            style="width:5%">
+                                                                                                            BOQ Latest
+                                                                                                            Amount</th>
 
-                                                                                    <?php }else{?>
-                                                                                    <th style="width:5%">
-                                                                                        BOQ
-                                                                                        Amount</th>
-                                                                                    <?php }?>
 
-                                                                             <th style="width:10%" align="left" valign="middle">
-                                                                                        IPC
-                                                                                        Amount
-                                                            
-                                                                              </th>
+                                                                                                        <?php }else{?>
+                                                                                                        <th
+                                                                                                            style="width:5%">
+                                                                                                            BOQ
+                                                                                                            Amount</th>
+                                                                                                        <?php }?>
 
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
+                                                                                                        <th style="width:10%"
+                                                                                                            align="left"
+                                                                                                            valign="middle">
+                                                                                                            IPC
+                                                                                                            Amount
+
+                                                                                                        </th>
+                                                                                                        <th>Remarks</th>
+
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
 error_reporting(0);
 
 
@@ -1153,31 +1274,33 @@ and a.billsummary_category_id=$item->billsummary_category_id and subproject_id=$
 $j=1;
 $d1=0;
 foreach($result1 as $item){?>
-                                                                                <tr>
+                                                                                                    <tr>
 
 
 
 
 
-                                                                                    <td>
-                                                                                        <?php //echo $i;?><?php echo $item->billsummary_no;?>
-                                                                                    </td>
-                                                                                    <td style="width:10%">
-                                                                                        <?php  $text=$item->billsummary_desc;
+                                                                                                        <td>
+                                                                                                            <?php //echo $i;?><?php echo $item->billsummary_no;?>
+                                                                                                        </td>
+                                                                                                        <td
+                                                                                                            style="width:10%">
+                                                                                                            <?php  $text=$item->billsummary_desc;
                                         echo wordwrap($text, 20, "<br />\n");
                                          //echo chunk_split ($str, 5, "\r\n");
                                         //echo preg_replace("/(.{10})/", "$1\n\r", $str);
                                         ?>
-                                                                                    </td>
-          
-                                                                                    <?php 
+                                                                                                        </td>
+
+                                                                                                        <?php 
      $totKIFi="SELECT count(*) as totKIF FROM `bill_summary_amount` WHERE `subproject_id`=$subID 
       AND `sub_sub_project_id`=$main->sub_sub_project_id and billsummary_id=$item->billsummary_id";
       $totKIFi=$this->db->query($totKIFi)->row();
       if($totKIFi->totKIF >=1){
 ?>
-                                                                                    <?php /*?><td style="width:5%">
-                                                                                    <?php 
+                                                                                                        <?php /*?><td
+                                                                                                            style="width:5%">
+                                                                                                            <?php 
                                  $maxiiM="
 
 SELECT amount FROM bill_summary_amount 
@@ -1201,9 +1324,10 @@ WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id 
 
 
 ?>
-</td><?php */?>
-                                                                                    <td style="width:5%">
-                                                                                    <?php 
+                                                                                                        </td><?php */?>
+                                                                                                        <td
+                                                                                                            style="width:5%">
+                                                                                                            <?php 
                                                             
                     $maxii="SELECT amount FROM bill_summary_amount 
                     WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id  AND billsummary_id=$item->billsummary_id
@@ -1219,52 +1343,81 @@ WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id 
                                                             }else{
                                                              echo 0;   
                                                             }?>
-                                                            </td>
+                                                                                                        </td>
 
-                                                                                    <?php }else{?>
-                                                                                    <td style="width:5%">
-                                                            <?php 
+                                                                                                        <?php }else{?>
+                                                                                                        <td
+                                                                                                            style="width:5%">
+                                                                                                            <?php 
                                                             echo number_format($item->billsummary_amt,2);
                                                                                         
                                                                                         ?></td>
-                                                                                    <?php }?>
+                                                                                                        <?php }?>
 
-                                                                                    <td align="center">
+                                                                                                        <td
+                                                                                                            align="center">
 
 
-      <?php $doneeee="select * from ppms_ipc_billsummary where billsummary_id=$item->billsummary_id and ipc_id=$ipc_iddd";
+            <?php $doneeee="select * from ppms_ipc_billsummary where billsummary_id=$item->billsummary_id and ipc_id=$ipc_iddd";
 			$done900=$this->db->query($doneeee)->row();
            $d=$done900->ipc_bs_amount;
             ?>
-                                                                                        <input type="hidden"
-                                                                                            placeholder="Enter IPAC Amount"
-                                                                                            required id="billsummary_id"
-                                                                                            class="form-control"
-                                                                                            name="billsummary_id[]"
-                                                                                            value="<?php echo $item->billsummary_id;?>">
+                                                                                                            <input
+                                                                                                                type="hidden"
+                                                                                                                placeholder="Enter IPAC Amount"
+                                                                                                                required
+                                                                                                                id="billsummary_id"
+                                                                                                                class="form-control"
+                                                                                                                name="billsummary_id[]"
+                                                                                                                value="<?php echo $item->billsummary_id;?>">
 
 
 
-                                                                                        <input type="text" disabled
-                                                                                            placeholder="Enter IPAC Amount"
-                                                                                            required
-                                                                                            id="billsummary_amount<?php echo $item->sid;?>"
-                                                                                            class="form-control paki"
-                                                                                            name="billsummary_amount[]"
-                                                                                            value="<?php 
-                                    if($done900->ipc_bs_amount >=1){
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                disabled
+                                                                                                                placeholder="Enter IPAC Amount"
+                                                                                                                required
+                                                                                                                id="billsummary_amount<?php echo $item->sid;?>"
+                                                                                                                class="form-control paki"
+                                                                                                                name="billsummary_amount[]"
+                                                                                                                value="<?php 
+                                    if($done900->ipc_bs_amount){
                                     echo $done900->ipc_bs_amount;
                                     }else{
                                         echo 0;
                                     }?>" onKeyup="calculate_grand_total()" onBlur="calculate_grand_total(),insert_amt(this.value,<?php echo $item->billsummary_id;?>,<?php echo $subID;?>,<?php echo $main->sub_sub_project_id?>,<?php echo $ipc_iddd;?>)">
-                                    <font color="red"><span id="msg<?php echo $item->sid;?>"></span></font>
+                                                                                                            <font
+                                                                                                                color="red">
+                                                                                                                <span
+                                                                                                                    id="msg<?php echo $item->sid;?>"></span>
+                                                                                                            </font>
 
-                                                                                    </td>
+                                                                                                        </td>
+
+
+                                                                                                        <td>
+
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                value="<?php echo $done900->remarks?>"
+                                                                                                               
+                                                                                                                class="form-control"
+                                                                                                                id="remarks_ipc"
+                                                                                                                name="remarks_ipc"
+                                                                                                                onBlur="update_remarks(this.value,<?php echo $item->billsummary_id;?>,<?php echo $subID;?>,<?php echo $main->sub_sub_project_id?>,<?php echo $ipc_iddd;?>)">
+
+                                                                                                                <font
+                                                                                                                color="red">
+                                                                                                                <span
+                                                                                                                    id="msg1<?php echo $item->sid;?>"></span>
+                                                                                                            </font>
+                                                                                                        </td>
 
 
 
-                                                                                </tr>
-                                                                                <?php
+                                                                                                    </tr>
+                                                                                                    <?php
                     
                  
 $j++;
@@ -1278,14 +1431,14 @@ where subproject_id=$subID and sub_sub_project_id=$main->sub_sub_project_id")->r
 ?>
 
 
-                                                                            </tbody>
-                                                                            <tfoot>
-                                                                        </table>
-                                                                    </td>
+                                                                                                </tbody>
+                                                                                                <tfoot>
+                                                                                            </table>
+                                                                                        </td>
 
-                                                                </tr>
+                                                                                    </tr>
 
-                                                                <?php
+                                                                                    <?php
 $i++;
 } 
 
@@ -1293,58 +1446,66 @@ $i++;
 
 ?>
 
-                                                                <input type="hidden" required id="sid_tot"
-                                                                    class="form-control" name="sid_tot"
-                                                                    value="<?php echo $totiiii->tot_rec;?>">
-                                                                <table width="100%" cellpadding="0" cellspacing="0"
-                                                                    border="0">
+                                                                                    <input type="hidden" required
+                                                                                        id="sid_tot"
+                                                                                        class="form-control"
+                                                                                        name="sid_tot"
+                                                                                        value="<?php echo $totiiii->tot_rec;?>">
+                                                                                    <table width="100%" cellpadding="0"
+                                                                                        cellspacing="0" border="0">
 
-                                                                    <tr>
-                                                                        <td><b>
-                                                                                <font color="black">Amount (in PKR)
-                                                                                
-                                                                                </font>
-                                                                            </b></td>
+                                                                                        <tr>
+                                                                                            <td><b>
+                                                                                                    <font color="black">
+                                                                                                        Amount (in PKR)
 
-                                                                        <td>-</td>
-                                                                        <td>
-                                                                            <font color="black">
-                                                                                <h3>
-                                                                                    <input type="text"
-                                                                                        name="ipac_amount420" value="<?php 
+                                                                                                    </font>
+                                                                                                </b></td>
+
+                                                                                            <td>-</td>
+                                                                                            <td>
+                                                                                                <font color="black">
+                                                                                                    <h3>
+                                                                                                        <input
+                                                                                                            type="text"
+                                                                                                            name="ipac_amount420"
+                                                                                                            value="<?php 
 $doneeee="select sum(ipc_bs_amount) as tot_amt from ppms_ipc_billsummary where  ipc_id=$ipc_iddd and subproject_id=$subID and sub_subproject_id=$main->sub_sub_project_id";
 	$done=$this->db->query($doneeee)->row();
     echo $done->tot_amt;
     ?>" style="width:280px;float:right;margin-top:0px">
-                                                                                </h3>
-                                                                            </font>
-                                                                        </td>
-                                                                    </tr>
+                                                                                                    </h3>
+                                                                                                </font>
+                                                                                            </td>
+                                                                                        </tr>
 
-                                                                </table>
+                                                                                    </table>
 
-                                                                <?php }?>
-                                                                </tr>
+                                                                                    <?php }?>
+                                                                                    </tr>
 
-                                                                <table class="table">
-                                                                    <tr style="background-color:#000;color:#fff">
-                                                                        <td>
-                                                                            <h4>
-                                                                                Over All Amount(in PKR)  </h4>
-                                                                        </td>
-                                                                        <td><?php 
+                                                                                    <table class="table">
+                                                                                        <tr
+                                                                                            style="background-color:#000;color:#fff">
+                                                                                            <td>
+                                                                                                <h4>
+                                                                                                    Over All Amount(in
+                                                                                                    PKR) </h4>
+                                                                                            </td>
+                                                                                            <td><?php 
 $doneeee1="select sum(ipc_bs_amount) as tot_amt1 from ppms_ipc_billsummary where  ipc_id=$ipc_iddd";
 	$done1=$this->db->query($doneeee1)->row();
     echo "<h4>".$done1->tot_amt1. "</h4>";
     ?> </td>
-                                                                    </tr>
+                                                                                        </tr>
 
-                                                                </table>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane" id="settings4" role="tabpanel">
+                                                                                    </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane" id="settings4"
+                                                                        role="tabpanel">
 
-                                                       <?php 
+                                                                        <?php 
                                                         $eid=$this->session->userdata('empid');
                                                         $orgiii=$this->db->query("SELECT department_id FROM emp
                                                         WHERE `emp_id`=$eid")->row();
@@ -1356,16 +1517,17 @@ $doneeee1="select sum(ipc_bs_amount) as tot_amt1 from ppms_ipc_billsummary where
                                                         
                                                         ?>
 
-                                                    <h2>PMCSC</h2>
-                                                   
-                                                        <table border="0" class="table" width="100%">
-                                                            <tr style="background-color:#558ed5;color:#fff">
-                                                                <td width="20%">SNo</td>
-                                                                <td width="40%">Description</td>
-                                                                <td width="20%">AddToChecklist</td>
-                                                                <td width="20%">Action</td>
-                                                            </tr>
-                                                            <?php
+                                                                        <h2>PMCSC</h2>
+
+                                                                        <table border="0" class="table" width="100%">
+                                                                            <tr
+                                                                                style="background-color:#558ed5;color:#fff">
+                                                                                <td width="20%">SNo</td>
+                                                                                <td width="40%">Description</td>
+                                                                                <td width="20%">AddToChecklist</td>
+                                                                                <td width="20%">Action</td>
+                                                                            </tr>
+                                                                            <?php
 			   error_reporting(0);
 			   
                 $i=1; 
@@ -1378,23 +1540,23 @@ $doneeee1="select sum(ipc_bs_amount) as tot_amt1 from ppms_ipc_billsummary where
                   //echo "<hr>";
                   
                   ?>
-                                                            <tr>
-                                                                <td width="20%"><?php echo $i;?></td>
-                                                                <td width="60%">
-                                                                    
-                                                                <?php 
+                                                                            <tr>
+                                                                                <td width="20%"><?php echo $i;?></td>
+                                                                                <td width="60%">
+
+                                                                                    <?php 
                                                                 $text420=$itemss->item_name;
                                                                 echo  wordwrap($text420, 70, "<br />\n");?>
-                                                   </td>
+                                                                                </td>
 
 
-                                                              
-                                                                
-                                                                <input type="hidden" name="ipac_id"
-                                                                    value="<?php echo $id;?>">
-                                                                    
-                                                                    
-                                                               <?php
+
+
+                                                                                <input type="hidden" name="ipac_id"
+                                                                                    value="<?php echo $id;?>">
+
+
+                                                                                <?php
 $doneee = $this->db->query("SELECT * FROM items_ipc where item_id=$itemss->item_id and ipc_id=$id and status_id=1 
 ")->row();
 if($doneee){
@@ -1423,55 +1585,60 @@ $dis="";
 }else{
 $dis="disabled";
 }?>
-                                                        <td width="20%" align="left">
-                                                            <!------------------infrastructur engineer check here-------->
-                    <?php 
+                                                                                <td width="20%" align="left">
+                                                                                    <!------------------infrastructur engineer check here-------->
+                                                                                    <?php 
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
-                                                        ?> 
-                                                            <input type="checkbox" 
-                                                                id="item_ids<?php echo $itemss->item_id;?>"
-                                                                onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
-                                                                name="item_id[]" value="<?php echo $itemss->item_id;?>"
-                                                                <?php echo $checked;?> class="form-control" <?php echo $dis;?>>
-                                                                <?php }?>
-                                                        </td>
-                                                                
-                                                                
-                                                                <?php if($groupID==1){?>
+                                                        ?>
+                                                                                    <input type="checkbox"
+                                                                                        id="item_ids<?php echo $itemss->item_id;?>"
+                                                                                        onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
+                                                                                        name="item_id[]"
+                                                                                        value="<?php echo $itemss->item_id;?>"
+                                                                                        <?php echo $checked;?>
+                                                                                        class="form-control"
+                                                                                        <?php echo $dis;?>>
+                                                                                    <?php }?>
+                                                                                </td>
+
+
+                                                                                <?php if($groupID==1){?>
 
 
 
-                                                                <td>
-                                                                    <a href="javascript:"
-                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
-                                                                        <img src="<?php echo base_url()?>img/delete.png"
-                                                                            width="30px" height="30px" /> </a>
+                                                                                <td>
+                                                                                    <a href="javascript:"
+                                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
+                                                                                        <img src="<?php echo base_url()?>img/delete.png"
+                                                                                            width="30px"
+                                                                                            height="30px" /> </a>
 
 
-                                                                </td>
-                                                                <?php }?>
+                                                                                </td>
+                                                                                <?php }?>
 
-                                                            </tr>
-                                                            <?php 
+                                                                            </tr>
+                                                                            <?php 
 $i++;
 }?>
-</table>
+                                                                        </table>
 
 
 
 
 
-                                                     <h2>CIU</h2>
-                                                        <table border="0" class="table" width="100%">
-                                                            <tr style="background-color:#558ed5;color:#fff">
-                                                                <td width="20%">SNo</td>
-                                                                <td width="40%">Description</td>
-                                                                <td width="20%">AddToChecklist</td>
-                                                                <td width="20%">Action</td>
-                                                            </tr>
-                                                            <?php
+                                                                        <h2>CIU</h2>
+                                                                        <table border="0" class="table" width="100%">
+                                                                            <tr
+                                                                                style="background-color:#558ed5;color:#fff">
+                                                                                <td width="20%">SNo</td>
+                                                                                <td width="40%">Description</td>
+                                                                                <td width="20%">AddToChecklist</td>
+                                                                                <td width="20%">Action</td>
+                                                                            </tr>
+                                                                            <?php
 			   error_reporting(0);
 			   
                 $J=1; 
@@ -1479,23 +1646,23 @@ $i++;
                   $result1 = $this->db->query("SELECT * FROM items 
                   where organization_id=2")->result();
                   foreach($result1 as $itemss){?>
-                                                            <tr>
-                                                                <td width="20%"><?php echo $J;?></td>
-                                                                <td width="60%">
-                                                                     <?php 
+                                                                            <tr>
+                                                                                <td width="20%"><?php echo $J;?></td>
+                                                                                <td width="60%">
+                                                                                    <?php 
                                                                 $text420=$itemss->item_name;
                                                                 echo  wordwrap($text420, 70, "<br />\n");?>
-                                                                
-                                                   </td>
+
+                                                                                </td>
 
 
-                                                               
-                                                                
-                                                                <input type="hidden" name="ipac_id"
-                                                                    value="<?php echo $id;?>">
-                                                                    
-                                                                    
-                                                               <?php
+
+
+                                                                                <input type="hidden" name="ipac_id"
+                                                                                    value="<?php echo $id;?>">
+
+
+                                                                                <?php
 $doneee = $this->db->query("SELECT * FROM items_ipc where item_id=$itemss->item_id and ipc_id=$id and status_id=1 
 ")->row();
 if($doneee){
@@ -1526,53 +1693,58 @@ if($itemss->organization_id==$orgiiiiii){
 $dis="disabled";
 }
 ?>
-                                                        <td width="20%" align="left">
-                                                            <!------------------infrastructur engineer check here-------->
-                    <?php 
+                                                                                <td width="20%" align="left">
+                                                                                    <!------------------infrastructur engineer check here-------->
+                                                                                    <?php 
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
 
-                                                        ?> 
-                                                            <input type="checkbox" <?php echo $dis;?>
-                                                                id="item_ids<?php echo $itemss->item_id;?>"
-                                                                onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
-                                                                name="item_id[]" value="<?php echo $itemss->item_id;?>"
-                                                                <?php echo $checked;?> class="form-control">
-                                                                <?php }?>
-                                                        </td>
-                                                                
-                                                                
-                                                                <?php if($groupID==1){?>
+                                                        ?>
+                                                                                    <input type="checkbox"
+                                                                                        <?php echo $dis;?>
+                                                                                        id="item_ids<?php echo $itemss->item_id;?>"
+                                                                                        onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
+                                                                                        name="item_id[]"
+                                                                                        value="<?php echo $itemss->item_id;?>"
+                                                                                        <?php echo $checked;?>
+                                                                                        class="form-control">
+                                                                                    <?php }?>
+                                                                                </td>
+
+
+                                                                                <?php if($groupID==1){?>
 
 
 
-                                                                <td>
-                                                                    <a href="javascript:"
-                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
-                                                                        <img src="<?php echo base_url()?>img/delete.png"
-                                                                            width="30px" height="30px" /> </a>
+                                                                                <td>
+                                                                                    <a href="javascript:"
+                                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
+                                                                                        <img src="<?php echo base_url()?>img/delete.png"
+                                                                                            width="30px"
+                                                                                            height="30px" /> </a>
 
 
-                                                                </td>
-                                                                <?php }?>
+                                                                                </td>
+                                                                                <?php }?>
 
-                                                            </tr>
-                                                            <?php 
+                                                                            </tr>
+                                                                            <?php 
 $J++;
 }?>
-</table>
+                                                                        </table>
 
 
-                                                    <h2>PMU</h2>
-                                                        <table border="0" class="table" width="100%">
-                                                            <tr style="background-color:#558ed5;color:#fff">
-                                                                <td width="20%">SNo</td>
-                                                                <td width="40%">Description</td>
-                                                                <td width="20%">AddToChecklist</td>
-                                                                <td width="20%">Action</td>
-                                                            </tr>
-                                                            <?php
+                                                                        <h2>PMU</h2>
+                                                                        <table border="0" class="table" width="100%">
+                                                                            <tr
+                                                                                style="background-color:#558ed5;color:#fff">
+                                                                                <td width="20%">SNo</td>
+                                                                                <td width="40%">Description</td>
+                                                                                <td width="20%">AddToChecklist</td>
+                                                                                <td width="20%">Action</td>
+                                                                            </tr>
+                                                                            <?php
 			   error_reporting(0);
 			   
                 $k=1; 
@@ -1580,21 +1752,21 @@ $J++;
                   $result1 = $this->db->query("SELECT * FROM items 
                   where organization_id=3")->result();
                   foreach($result1 as $itemss){?>
-                                                            <tr>
-                                                                <td width="20%"><?php echo $k;?></td>
-                                                                <td width="60%">
-                                                                <?php 
+                                                                            <tr>
+                                                                                <td width="20%"><?php echo $k;?></td>
+                                                                                <td width="60%">
+                                                                                    <?php 
                                                                 $text420=$itemss->item_name;
                                                                 echo  wordwrap($text420, 70, "<br />\n");?>
-                                                   </td>
+                                                                                </td>
 
 
-                                                               
-                                                                
-                                                                <input type="hidden" name="ipac_id"
-                                                                    value="<?php echo $id;?>">
-                                                                    
-                                                                   <?php
+
+
+                                                                                <input type="hidden" name="ipac_id"
+                                                                                    value="<?php echo $id;?>">
+
+                                                                                <?php
 $doneee = $this->db->query("SELECT * FROM items_ipc where item_id=$itemss->item_id and ipc_id=$id and status_id=1 
 ")->row();
 if($doneee){
@@ -1622,54 +1794,59 @@ $dis="";
 $dis="disabled";
 }
 ?>
-                                                        <td width="20%" align="left">
-                                    <!------------------infrastructur engineer check here-------->
-                    <?php 
+                                                                                <td width="20%" align="left">
+                                                                                    <!------------------infrastructur engineer check here-------->
+                                                                                    <?php 
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
-                                                        ?> 
-                                                            <input type="checkbox" <?php echo $dis;?>
-                                                                id="item_ids<?php echo $itemss->item_id;?>"
-                                                                onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
-                                                                name="item_id[]" value="<?php echo $itemss->item_id;?>"
-                                                                <?php echo $checked;?> class="form-control">
+                                                        ?>
+                                                                                    <input type="checkbox"
+                                                                                        <?php echo $dis;?>
+                                                                                        id="item_ids<?php echo $itemss->item_id;?>"
+                                                                                        onClick="get_checkbox(<?php echo $itemss->item_id;?>,<?php echo $id?>)"
+                                                                                        name="item_id[]"
+                                                                                        value="<?php echo $itemss->item_id;?>"
+                                                                                        <?php echo $checked;?>
+                                                                                        class="form-control">
 
-                                                                <?php }?>
-                                                        </td>  
-                                                              
-                                                                
-                                                                
-                                                                <?php if($groupID==1){?>
-
+                                                                                    <?php }?>
+                                                                                </td>
 
 
-                                                                <td>
-                                                                    <a href="javascript:"
-                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
-                                                                        <img src="<?php echo base_url()?>img/delete.png"
-                                                                            width="30px" height="30px" /> </a>
+
+                                                                                <?php if($groupID==1){?>
 
 
-                                                                </td>
-                                                                <?php }?>
 
-                                                            </tr>
-                                                            <?php 
+                                                                                <td>
+                                                                                    <a href="javascript:"
+                                                                                        onClick="delete_item(<?php echo $itemss->ipc_item_id;?>)">
+                                                                                        <img src="<?php echo base_url()?>img/delete.png"
+                                                                                            width="30px"
+                                                                                            height="30px" /> </a>
+
+
+                                                                                </td>
+                                                                                <?php }?>
+
+                                                                            </tr>
+                                                                            <?php 
 $k++;
 }?>
-</table>
-<?php /*?>
- <h2>Add CheckList</h2>
+                                                                        </table>
+                                                                        <?php /*?>
+                                                                        <h2>Add CheckList</h2>
 
-<table border="0" class="table" width="100%">
-                                                            <tr style="background-color:#000;color:#fff">
-                                                                <td width="20%">SNo</td>
-                                                                <td width="40%">ItemName</td>
-                                                                <td width="20%">Organization</td>
-                                                                <td width="20%" colspan="3">Action</td>
-                                                            </tr>
- <?php
+                                                                        <table border="0" class="table" width="100%">
+                                                                            <tr
+                                                                                style="background-color:#000;color:#fff">
+                                                                                <td width="20%">SNo</td>
+                                                                                <td width="40%">ItemName</td>
+                                                                                <td width="20%">Organization</td>
+                                                                                <td width="20%" colspan="3">Action</td>
+                                                                            </tr>
+                                                                            <?php
 $eid=$this->session->userdata('empid');
 $orgiii=$this->db->query("SELECT department_id FROM emp
 WHERE `emp_id`=$eid")->row();
@@ -1691,19 +1868,19 @@ WHERE `emp_id`=$eid")->row();
                         }
                         //echo $this->db->last_query();
                   foreach($result1 as $items){?>
-                                                    <tr>
-                                                        <td width="20%"><?php echo $j;?></td>
-                                                        <td width="60%">
+                                                                            <tr>
+                                                                                <td width="20%"><?php echo $j;?></td>
+                                                                                <td width="60%">
 
 
-                                                            <?php echo $items->item_name;?>
+                                                                                    <?php echo $items->item_name;?>
 
 
 
-                                                        </td>
+                                                                                </td>
 
 
-                                                         <td><?php if($items->organization_id==1){
+                                                                                <td><?php if($items->organization_id==1){
                                                         
                                                         echo "PMCSC";
                                                     }else if($items->organization_id==2){
@@ -1720,9 +1897,10 @@ echo "PMU";
                                                         
                                                         
                                                     ?></td>
-                                                        <input type="hidden" name="ipac_id" value="<?php echo $id;?>">
+                                                                                <input type="hidden" name="ipac_id"
+                                                                                    value="<?php echo $id;?>">
 
-                                                        <?php
+                                                                                <?php
 $doneee = $this->db->query("SELECT * FROM items_ipc where item_id=$items->item_id and ipc_id=$id and status_id=1 
 ")->row();
 if($doneee){
@@ -1733,68 +1911,70 @@ $checked="checked";
 }
 
 ?>
-                                                        <td width="20%" align="left">
-                                                            <input type="checkbox"
-                                                                id="item_ids<?php echo $items->item_id;?>"
-                                                                onClick="get_checkbox(<?php echo $items->item_id;?>,<?php echo $id?>)"
-                                                                name="item_id[]" value="<?php echo $items->item_id;?>"
-                                                                <?php echo $checked;?> class="form-control">
-                                                        </td>
+                                                                                <td width="20%" align="left">
+                                                                                    <input type="checkbox"
+                                                                                        id="item_ids<?php echo $items->item_id;?>"
+                                                                                        onClick="get_checkbox(<?php echo $items->item_id;?>,<?php echo $id?>)"
+                                                                                        name="item_id[]"
+                                                                                        value="<?php echo $items->item_id;?>"
+                                                                                        <?php echo $checked;?>
+                                                                                        class="form-control">
+                                                                                </td>
 
-                                                        
 
-                                                    </tr>
-                                                    <?php 
+
+                                                                            </tr>
+                                                                            <?php 
 $j++;
 }?>
-</table>
+                                                                        </table>
 
 
-<?php */?>
+                                                                        <?php */?>
 
 
 
 
+                                                                    </div>
+
+
+
+
+                                                                </div>
+
+
+                                                            </div>
+                                                            <!-- Row end -->
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Material tab card end -->
                                                 </div>
-
-
-
-
                                             </div>
+                                            <script>
+                                            function calculate_grand_total() {
 
+                                                grand_total = 0;
 
-                                        </div>
-                                        <!-- Row end -->
+                                                var counter = $("#sid_tot").val();
+                                                ///alert(counter);
+                                                //exit;
 
-                                    </div>
-                                </div>
-                                <!-- Material tab card end -->
-                            </div>
-                        </div>
-                        <script>
-                        function calculate_grand_total() {
+                                                for (var i = 1; i <= counter; i++) {
+                                                    ///var x = '' + j + i;
 
-                            grand_total = 0;
+                                                    grand_total += Number($("#billsummary_amount" + i).val());
+                                                    //grand_total = parseInt(grand_total);
 
-                            var counter = $("#sid_tot").val();
-                            ///alert(counter);
-                            //exit;
+                                                }
 
-                            for (var i = 1; i <= counter; i++) {
-                                ///var x = '' + j + i;
+                                                $("#ipac_amount").val(parseInt(grand_total));
+                                                //$("#sub_total1").val(grand_total);
+                                                /// document.getElementById("ipac_amount").innerHTML = grand_total.toFixed(2);
 
-                                grand_total += Number($("#billsummary_amount" + i).val());
-                                //grand_total = parseInt(grand_total);
-
-                            }
-
-                            $("#ipac_amount").val(parseInt(grand_total));
-                            //$("#sub_total1").val(grand_total);
-                            /// document.getElementById("ipac_amount").innerHTML = grand_total.toFixed(2);
-
-                        }
-                        </script>
-                        <?php 
+                                            }
+                                            </script>
+                                            <?php 
 	if(isset($_POST['add11'])){
 		extract($_POST);
         $tdate=date('Y-m-d');
@@ -1819,7 +1999,7 @@ $j++;
 	
 	
 	?>
-                        <?php 
+                                            <?php 
 	/*if(isset($_POST['add_item'])){
 		extract($_POST);
 	$done=$this->db->query("select * from items where item_name='$item' and ipc_id=$ipc")->row();
@@ -1862,52 +2042,83 @@ $done=$this->db->query("update items_ipc set item_name='$item' where item_name='
 	
 	
 	?>
-                        <script type="text/javascript">
-                        function insert_amt(amt, sid, sprojectID, subprojectID, ipcid) {
-                            //alert(fdate);
-                            //var unit_qty_old=$("#unit_qty_old"+id).val();
+                                            <script type="text/javascript">
+                                            function insert_amt(amt, sid, sprojectID, subprojectID, ipcid) {
+                                                //alert(fdate);
+                                                //var unit_qty_old=$("#unit_qty_old"+id).val();
 
-                            //a//lert(s_qq);
-                            //alert(s_rr);
-                            $.post("<?php echo base_url()?>Welcome/insert_amt/", {
-                                amt: amt,
-                                sid: sid,
-                                sprojectID: sprojectID,
-                                subprojectID: subprojectID,
-                                ipcid: ipcid
-                            }, function(page_response) {
-                                //$.post("view/get_inst.php",{inst:cont},function(rep3)
-                                if (page_response == 1) {
-                                    //$('#bilo').value(1);
-                                    ///window.location.reload();
-                                    $("#msg"+sid).text("Amount Inserted Successfully!");
-                                }
-                            });
+                                                //a//lert(s_qq);
+                                                //alert(s_rr);
+                                                $.post("<?php echo base_url()?>Welcome/insert_amt/", {
+                                                    amt: amt,
+                                                    sid: sid,
+                                                    sprojectID: sprojectID,
+                                                    subprojectID: subprojectID,
+                                                    ipcid: ipcid
+                                                }, function(page_response) {
+                                                    //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                    if (page_response == 1) {
+                                                        //$('#bilo').value(1);
+                                                        ///window.location.reload();
+                                                        $("#msg" + sid).text("Amount Inserted Successfully!");
+                                                    }
+                                                });
 
-                        }
-                        </script>
-                        <script type="text/javascript">
-                        function change_date(fdate, id, ipcid) {
-                            //alert(fdate);
-                            //var unit_qty_old=$("#unit_qty_old"+id).val();
+                                            }
+                                            //////////////////////////////////////////update_remarks/////////#
+                                            
+                                            </script>
 
-                            //a//lert(s_qq);
-                            //alert(s_rr);
-                            $.post("<?php echo base_url()?>Welcome/change_date/", {
-                                fdate: fdate,
-                                id: id,
-                                ipcid: ipcid
-                            }, function(page_response) {
-                                //$.post("view/get_inst.php",{inst:cont},function(rep3)
-                                if (page_response == 1) {
 
-                                    window.location.reload();
-                                }
-                            });
 
-                        }
-                        </script>
-                        <?php 
+
+<script>
+    function update_remarks(amt, sid, sprojectID, subprojectID, ipcid) {
+                                                //alert(fdate);
+                                                //var unit_qty_old=$("#unit_qty_old"+id).val();
+
+                                                //alert(amt);
+                                                //alert(s_rr);
+                                               
+                                                $.post("<?php echo base_url()?>Welcome/update_remarks/", {
+                                                    remarks: amt,
+                                                    sid: sid,
+                                                    sprojectID: sprojectID,
+                                                    subprojectID: subprojectID,
+                                                    ipcid: ipcid
+                                                }, function(page_response) {
+                                                    //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                    if (page_response == 1) {
+                                                        //$('#bilo').value(1);
+                                                        ///window.location.reload();
+                                                        $("#msg1" + sid).text("Remarks Added Successfully!");
+                                                    }
+                                                });
+
+                                            } 
+                                            </script>
+                                            <script type="text/javascript">
+                                            function change_date(fdate, id, ipcid) {
+                                                //alert(fdate);
+                                                //var unit_qty_old=$("#unit_qty_old"+id).val();
+
+                                                //a//lert(s_qq);
+                                                //alert(s_rr);
+                                                $.post("<?php echo base_url()?>Welcome/change_date/", {
+                                                    fdate: fdate,
+                                                    id: id,
+                                                    ipcid: ipcid
+                                                }, function(page_response) {
+                                                    //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                    if (page_response == 1) {
+
+                                                        window.location.reload();
+                                                    }
+                                                });
+
+                                            }
+                                            </script>
+                                            <?php 
 
 function getWeekdaysCount($startDate, $endDate) {
     $startDate = strtotime($startDate);
@@ -1933,63 +2144,63 @@ function getWeekdaysCount($startDate, $endDate) {
 
 
 ?>
- <script type="text/javascript">
-                        function delete_files(fid) {
-                            var result = confirm("Are you sure to delete?");
-      if(result){
-                            $.post("<?php echo base_url()?>Welcome/delete_ipc_files/", {
-                                 fid: fid
-                            }, function(page_response) {
-                                //$.post("view/get_inst.php",{inst:cont},function(rep3)
-                                if (page_response == 1) {
+                                            <script type="text/javascript">
+                                            function delete_files(fid) {
+                                                var result = confirm("Are you sure to delete?");
+                                                if (result) {
+                                                    $.post("<?php echo base_url()?>Welcome/delete_ipc_files/", {
+                                                        fid: fid
+                                                    }, function(page_response) {
+                                                        //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                        if (page_response == 1) {
 
-                                    window.location.reload();
-                                }
-                            });
-      }
+                                                            window.location.reload();
+                                                        }
+                                                    });
+                                                }
 
-                        }
-                        </script>
+                                            }
+                                            </script>
 
-<script>
-    function enable_inputs(checkbox,ipc,subID,subsubID,ipcno){
-        //alert(checkbox.value);
-        //alert(ipc);
-        //alert(subID);
-        
-       // alert(ipcno);
+                                            <script>
+                                            function enable_inputs(checkbox, ipc, subID, subsubID, ipcno) {
+                                                //alert(checkbox.value);
+                                                //alert(ipc);
+                                                //alert(subID);
 
-        if (checkbox.checked) {
-            ///alert("Checkbox is checked!");
-            if(ipcno == 0){
-alert("You are Not Allowed to Enter the Amount");
-            }else if(ipcno != 0){
-            /////////////////////////////////////////////#////////////////////////////
-            $.post("<?php echo base_url()?>Welcome/enable_inputs/", {
-                                
-                subID: subID,
-                subsubID: subsubID,
-                ipc: ipc
-                            }, function(page_response) {
-                                //$.post("view/get_inst.php",{inst:cont},function(rep3)
-                                $(".paki").prop("disabled", false);
-                            });
+                                                // alert(ipcno);
 
-                        }
+                                                if (checkbox.checked) {
+                                                    ///alert("Checkbox is checked!");
+                                                    if (ipcno == 0) {
+                                                        alert("You are Not Allowed to Enter the Amount");
+                                                    } else if (ipcno != 0) {
+                                                        /////////////////////////////////////////////#////////////////////////////
+                                                        $.post("<?php echo base_url()?>Welcome/enable_inputs/", {
 
+                                                            subID: subID,
+                                                            subsubID: subsubID,
+                                                            ipc: ipc
+                                                        }, function(page_response) {
+                                                            //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                            $(".paki").prop("disabled", false);
+                                                        });
 
-
-            /////////////////////////////////////////////////
-        } else {
-            $(".paki").prop("disabled", true);
-        }
+                                                    }
 
 
 
+                                                    /////////////////////////////////////////////////
+                                                } else {
+                                                    $(".paki").prop("disabled", true);
+                                                }
 
-    }
 
-            /*if(this.checked) {
+
+
+                                            }
+
+                                            /*if(this.checked) {
                 $(".paki").prop("disabled", false);
             } else {
                 $(".paki").prop("disabled", true);
@@ -1997,114 +2208,147 @@ alert("You are Not Allowed to Enter the Amount");
         });
     });
     */
-</script>
+                                            </script>
 
-<script type="text/javascript">
-    function forward(id, oid) {
-
-
-        var org_id = $("#org_id" + id).val();
-        var status_ids = $("#status_ids" + id).val();
-        let text = "Are You Sure to Forward IPC.";
-        if (confirm(text) == true) {
-        $.post("<?php echo base_url()?>Dropdowns/forward_ipace/", {
-
-//////////$.post("<?php echo base_url()?>Dropdowns/forward_ipc_new/", {
-                ipac_id: id,
-                oid: oid,
-                status_ids: status_ids,
-                org_id:org_id
-
-            }, function(page_response) {
-
-                if (page_response == 1) {
-                    alert('File Moved');
-                    // $("#display_products").html(page_response);
-                    ///calculate_grand_total();
-                    ///$("#barcode").focus();
-                    window.location.reload();
-                } else {
-                    alert('Thanks File Moved Already');
-                    window.location.reload();
-
-                }
-
-            });
-        }
-
-    }
-    </script>
+                                            <script type="text/javascript">
+                                            function forward(id, oid) {
 
 
-<script type="text/javascript">
-    function returned(id, oid) {
+                                                var org_id = $("#org_id" + id).val();
+                                                var status_ids = $("#status_ids" + id).val();
+                                                let text = "Are You Sure to Forward IPC.";
+                                                if (confirm(text) == true) {
+                                                    $.post("<?php echo base_url()?>Dropdowns/forward_ipace/", {
+
+                                                        //////////$.post("<?php echo base_url()?>Dropdowns/forward_ipc_new/", {
+                                                        ipac_id: id,
+                                                        oid: oid,
+                                                        status_ids: status_ids,
+                                                        org_id: org_id
+
+                                                    }, function(page_response) {
+
+                                                        if (page_response == 1) {
+                                                            alert('File Moved');
+                                                            // $("#display_products").html(page_response);
+                                                            ///calculate_grand_total();
+                                                            ///$("#barcode").focus();
+                                                            window.location.reload();
+                                                        } else {
+                                                            alert('Thanks File Moved Already');
+                                                            window.location.reload();
+
+                                                        }
+
+                                                    });
+                                                }
+
+                                            }
+                                            </script>
 
 
-        var org_id = $("#org_id" + id).val();
-        var status_ids = $("#status_ids" + id).val();
-        let text = "Are You Sure to Forward IPC.";
-        if (confirm(text) == true) {
-            ///$.post("<?php echo base_url()?>Dropdowns/forward_ipace/", {
-
-            $.post("<?php echo base_url()?>Dropdowns/forward_ipc_new/", {
-                ipac_id: id,
-                oid: oid,
-                status_ids: status_ids,
-                org_id:org_id
-
-            }, function(page_response) {
-
-                if (page_response == 1) {
-                    alert('File Moved');
-                    // $("#display_products").html(page_response);
-                    ///calculate_grand_total();
-                    ///$("#barcode").focus();
-                    window.location.reload();
-                } else {
-                    alert('Thanks File Moved Already');
-                    window.location.reload();
-
-                }
-
-            });
-        }
-
-    }
-    </script>
-
-<script type="text/javascript">
-    function paid(id, sid) {
-
-        if (sid == 4) {
-
-            let text = "Are You Sure to Change Payment Status.";
-            if (confirm(text) == true) {
-                $.post("<?php echo base_url()?>Dropdowns/ipace_paid/", {
-                    ipac_id: id
+                                            <script type="text/javascript">
+                                            function returned(id, oid) {
 
 
-                }, function(page_response) {
+                                                var org_id = $("#org_id" + id).val();
+                                                var status_ids = $("#status_ids" + id).val();
+                                                let text = "Are You Sure to Forward IPC.";
+                                                if (confirm(text) == true) {
+                                                    ///$.post("<?php echo base_url()?>Dropdowns/forward_ipace/", {
 
-                    if (page_response == 1) {
-                        alert('IPC Paid');
-                        // $("#display_products").html(page_response);
-                        ///calculate_grand_total();
-                        ///$("#barcode").focus();
-                        window.location.reload();
-                    } else {
-                        alert('Some Problem');
-                        window.location.reload();
+                                                    $.post("<?php echo base_url()?>Dropdowns/forward_ipc_new/", {
+                                                        ipac_id: id,
+                                                        oid: oid,
+                                                        status_ids: status_ids,
+                                                        org_id: org_id
 
-                    }
+                                                    }, function(page_response) {
 
-                });
-            }
+                                                        if (page_response == 1) {
+                                                            alert('File Moved');
+                                                            // $("#display_products").html(page_response);
+                                                            ///calculate_grand_total();
+                                                            ///$("#barcode").focus();
+                                                            window.location.reload();
+                                                        } else {
+                                                            alert('Thanks File Moved Already');
+                                                            window.location.reload();
 
-        } else {
+                                                        }
 
-            alert("You are not authroized for this Activity");
-        }
+                                                    });
+                                                }
+
+                                            }
+                                            </script>
+
+                                            <script type="text/javascript">
+                                            function paid(id, sid) {
+
+                                                if (sid == 4) {
+
+                                                    let text = "Are You Sure to Change Payment Status.";
+                                                    if (confirm(text) == true) {
+                                                        $.post("<?php echo base_url()?>Dropdowns/ipace_paid/", {
+                                                            ipac_id: id
 
 
-    }
-    </script>
+                                                        }, function(page_response) {
+
+                                                            if (page_response == 1) {
+                                                                alert('IPC Paid');
+                                                                // $("#display_products").html(page_response);
+                                                                ///calculate_grand_total();
+                                                                ///$("#barcode").focus();
+                                                                window.location.reload();
+                                                            } else {
+                                                                alert('Some Problem');
+                                                                window.location.reload();
+
+                                                            }
+
+                                                        });
+                                                    }
+
+                                                } else {
+
+                                                    alert("You are not authroized for this Activity");
+                                                }
+
+
+                                            }
+                                            </script>
+
+<style>
+                                            /* Table CSS */
+                                            table {
+                                                border-collapse: collapse;
+                                                width: 100%;
+                                            }
+
+                                            th,
+                                            td {
+                                                border: 1px solid #000;
+                                                padding: 8px;
+                                                text-align: left;
+                                            }
+
+                                            /* Beveled Cell Data */
+                                            td {
+                                                background-color: #fff;
+                                                border-top: 1px solid #000;
+                                                border-left: 1px solid #000;
+                                                box-shadow: inset 0 0 5px #888;
+                                                color: #000
+                                            }
+
+                                            /* Beveled Header Cells */
+                                            th {
+                                                background-color: #218559;
+                                                color: #fff;
+                                                border-top: 1px solid #fff;
+                                                border-left: 1px solid #fff;
+                                                box-shadow: inset 0 0 5px #888;
+                                            }
+                                            </style>
