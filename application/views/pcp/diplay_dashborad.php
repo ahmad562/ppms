@@ -551,7 +551,7 @@ Highcharts.chart('container', {
 											                            <div class="card">
                             <div class="card-block">
 																	                 
-																					 <figure class="highcharts-figure">
+<figure class="highcharts-figure">
     <div id="grm_cont"></div>
     <p class="highcharts-description">
         A basic column chart..
@@ -836,6 +836,8 @@ Highcharts.chart('grm_cont', {
 						
 						
                     </div>
+
+
                     <div class="col-xl-8">
                         <!-- New ticket button card start -->
 
@@ -923,7 +925,7 @@ Highcharts.chart('grm_cont', {
     }]
 });
 		<?php */?>
-		  <figure class="highcharts-figure">
+<figure class="highcharts-figure">
     <div id="containerNew"></div>
     <p class="highcharts-description">
        
@@ -1039,6 +1041,111 @@ foreach($actee2 as $actee2){?>
 								  
 								  
 								  <div>
+
+                                  <figure class="highcharts-figure">
+    <div id="physicalprogress"></div>
+    <p class="highcharts-description">
+       
+    </p>
+</figure>
+<?php $physical_progress = $this->db->query("SELECT * FROM ppms_completion_status where sub_project_id=$id order by cs_id asc")->result();
+?>
+<script>
+
+Highcharts.chart('physicalprogress', {
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Physical Progress (Planed / Achived)',
+        align: 'left'
+    },
+    subtitle: {
+        text: ' ',
+        align: 'left'
+    },
+    xAxis: [{
+        categories: [<?php foreach($physical_progress as $record){?>  
+            <?php echo "'".$record->year.'-'.$record->month."'";?>,
+            <?php } ?>],
+        crosshair: true
+    }],
+    yAxis: [{
+        title: {
+            text: 'Commulative Axis',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        opposite: true
+    },{
+        title: {
+            text: 'Monthly Axis',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+    }],
+    tooltip: {
+        shared: true
+    },
+    legend: {
+        align: 'left',
+        x: 80,
+        verticalAlign: 'top',
+        y: 60,
+        floating: true,
+        backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || 'rgba(255, 255, 255, 0.25)'
+    },
+    series: [{
+        name: 'Planed Progress',
+        type: 'column',
+        yAxis: 1,
+        data: [<?php foreach($physical_progress as $record){?>  
+            <?php echo $record->planned;?>,
+            <?php } ?>],
+        tooltip: {
+            valueSuffix: ' mm'
+        }
+    },{
+        name: 'Achived Progress',
+        type: 'column',
+        yAxis: 1,
+        data: [<?php foreach($physical_progress as $record){?>  
+            <?php echo $record->achieved;?>,
+            <?php } ?>],
+        tooltip: {
+            valueSuffix: ' mm'
+        }
+    }, {
+        name: 'Planed Cumm',
+        type: 'spline',
+        data: [<?php 
+            $planed_cumm = 0;
+            foreach($physical_progress as $record){?>  
+            <?php echo $planed_cumm = $planed_cumm+$record->planned;?>,
+            <?php } ?>],
+        tooltip: {
+            valueSuffix: '°C'
+        }
+    }, {
+        name: 'Achived Cumm',
+        type: 'spline',
+        data: [<?php 
+            $achived_cumm = 0;
+            foreach($physical_progress as $record){?>  
+            <?php echo $achived_cumm = $achived_cumm+$record->achieved;?>,
+            <?php } ?>],
+        tooltip: {
+            valueSuffix: '°C'
+        }
+    }]
+});
+
+
+
+</script>
+
 								  
 								  </div>
 								  
