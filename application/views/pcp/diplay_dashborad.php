@@ -924,7 +924,7 @@ Highcharts.chart('grm_cont', {
         }
     }]
 });
-		<?php */?>
+		
 <figure class="highcharts-figure">
     <div id="containerNew"></div>
     <p class="highcharts-description">
@@ -1032,7 +1032,7 @@ foreach($actee2 as $actee2){?>
 });
 											
 											</script>
-
+<?php */?>
 											
 										  
 										 
@@ -1040,7 +1040,7 @@ foreach($actee2 as $actee2){?>
 								  </div>
 								  
 								  
-								  <div>
+								  <div class="">
 
                                   <figure class="highcharts-figure">
     <div id="physicalprogress"></div>
@@ -1152,7 +1152,7 @@ Highcharts.chart('physicalprogress', {
 								  
                         <!-- New ticket button card end -->
                         <!-- bug list card start -->
-                        <div class="card">
+                        <div class="card" style="display:none">
                             <div class="card-header">
                                 <h5>Water Supply - Activities</h5>
                                 <div class="card-header-right">
