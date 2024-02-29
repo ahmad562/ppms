@@ -11,6 +11,10 @@
                         <a href="<?php echo base_url('Cad_performance/report') ?>">
                             <button class="btn btn-success">Report</button>
                         </a>
+
+                        <a href="<?php echo base_url('Cad_performance/cad_detail') ?>">
+                            <button class="btn btn-warning">Cad Performance Detail</button>
+                        </a>
                     </div>
                 </div>
                 <div class="page-body">

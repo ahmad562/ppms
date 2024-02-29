@@ -53,6 +53,13 @@ class Cad_performance extends CI_Controller {
         $this->load->view('footer');
         
     }
+    public function cad_detail() {
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('cad/loan_table');
+        $this->load->view('footer');
+    
+    }
 
     public function update($id) {
         $data = array(
