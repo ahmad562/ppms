@@ -813,6 +813,15 @@ th {
     vertical-align: middle;
 }
 
+img {
+        
+        transition: transform 0.3s ease; /* Add transition effect */
+    }
 
+    /* Define the rotation effect on hover */
+    img:hover {
+        transform: rotate(360deg); /* Rotate the image 360 degrees when hovered over */
+    }
+                
 
 </style>

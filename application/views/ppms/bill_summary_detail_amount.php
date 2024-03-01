@@ -561,4 +561,14 @@ $x++;
                                                 border-left: 1px solid #fff;
                                                 box-shadow: inset 0 0 5px #888;
                                             }
+                                            img {
+      
+        transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    /* Define the rotation effect on hover */
+    img:hover {
+        transform: rotate(360deg); /* Rotate the image 360 degrees when hovered over */
+    }
+                
                                             </style>

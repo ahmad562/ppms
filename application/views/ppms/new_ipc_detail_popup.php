@@ -157,8 +157,7 @@ vertical-align: middle; !important">
                                                     </td>
 
                                                     <td style="text-align: center;
-vertical-align: middle; !important"> <a
-                                                            href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
+vertical-align: middle; !important"> <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
                                                             <img src="<?php echo base_url('img/ipc/mobilization.png')?>"
                                                                 width="70px" height="70px"><br>
                                                             <b>Mobilization Detail</b>
@@ -1204,7 +1203,7 @@ foreach($result1 as $item){?>
                                                                                         style="background-color:#000; color:#fff">
                                                                                         <td colspan="3">
                                                                                             <h4>
-                                                                                                <font color="white">
+                                                                                                <font color="black">
                                                                                                     (<?php echo $i;?>)
                                                                                                     <?php echo $item->billsummary_category_name;?>
                                                                                                 </font>
@@ -1401,13 +1400,12 @@ WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id 
                                                                                                             <input
                                                                                                                 type="text"
                                                                                                                 value="<?php echo $done900->remarks?>"
-                                                                                                               
                                                                                                                 class="form-control"
                                                                                                                 id="remarks_ipc"
                                                                                                                 name="remarks_ipc"
                                                                                                                 onBlur="update_remarks(this.value,<?php echo $item->billsummary_id;?>,<?php echo $subID;?>,<?php echo $main->sub_sub_project_id?>,<?php echo $ipc_iddd;?>)">
 
-                                                                                                                <font
+                                                                                                            <font
                                                                                                                 color="red">
                                                                                                                 <span
                                                                                                                     id="msg1<?php echo $item->sid;?>"></span>
@@ -2066,20 +2064,19 @@ $done=$this->db->query("update items_ipc set item_name='$item' where item_name='
 
                                             }
                                             //////////////////////////////////////////update_remarks/////////#
-                                            
                                             </script>
 
 
 
 
-<script>
-    function update_remarks(amt, sid, sprojectID, subprojectID, ipcid) {
+                                            <script>
+                                            function update_remarks(amt, sid, sprojectID, subprojectID, ipcid) {
                                                 //alert(fdate);
                                                 //var unit_qty_old=$("#unit_qty_old"+id).val();
 
                                                 //alert(amt);
                                                 //alert(s_rr);
-                                               
+
                                                 $.post("<?php echo base_url()?>Welcome/update_remarks/", {
                                                     remarks: amt,
                                                     sid: sid,
@@ -2095,7 +2092,7 @@ $done=$this->db->query("update items_ipc set item_name='$item' where item_name='
                                                     }
                                                 });
 
-                                            } 
+                                            }
                                             </script>
                                             <script type="text/javascript">
                                             function change_date(fdate, id, ipcid) {
@@ -2320,7 +2317,7 @@ function getWeekdaysCount($startDate, $endDate) {
                                             }
                                             </script>
 
-<style>
+                                            <style>
                                             /* Table CSS */
                                             table {
                                                 border-collapse: collapse;
@@ -2351,4 +2348,15 @@ function getWeekdaysCount($startDate, $endDate) {
                                                 border-left: 1px solid #fff;
                                                 box-shadow: inset 0 0 5px #888;
                                             }
+                                             /* Define the initial state of the image */
+                                             img {
+        width: 70px;
+        height: 70px;
+        transition: transform 0.3s ease; /* Add transition effect */
+    }
+
+    /* Define the rotation effect on hover */
+    img:hover {
+        transform: rotate(360deg); /* Rotate the image 360 degrees when hovered over */
+    }
                                             </style>
