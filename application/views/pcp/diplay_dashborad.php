@@ -1048,7 +1048,10 @@ foreach($actee2 as $actee2){?>
        
     </p>
 </figure>
-<?php $physical_progress = $this->db->query("SELECT * FROM ppms_completion_status where sub_project_id=$id order by cs_id asc")->result();
+<?php 
+$ipc_received = 0 ;
+$physical_progress = $this->db->query("SELECT * FROM ppms_completion_status where sub_project_id=$id order by cs_id asc")->result();
+
 ?>
 <script>
 
@@ -1056,6 +1059,7 @@ Highcharts.chart('physicalprogress', {
     chart: {
         zoomType: 'xy'
     },
+   
     title: {
         text: 'Physical Progress (Planed / Achived)',
         align: 'left'
@@ -1082,7 +1086,7 @@ Highcharts.chart('physicalprogress', {
         title: {
             text: 'Monthly Axis',
             style: {
-                color: Highcharts.getOptions().colors[1]
+                color: Highcharts.getOptions().colors[1],
             }
         }
     }],
@@ -1105,7 +1109,7 @@ Highcharts.chart('physicalprogress', {
             <?php echo $record->planned;?>,
             <?php } ?>],
         tooltip: {
-            valueSuffix: ' mm'
+            valueSuffix: ' %'
         }
     },{
         name: 'Achived Progress',
@@ -1115,7 +1119,7 @@ Highcharts.chart('physicalprogress', {
             <?php echo $record->achieved;?>,
             <?php } ?>],
         tooltip: {
-            valueSuffix: ' mm'
+            valueSuffix: '%'
         }
     }, {
         name: 'Planed Cumm',
@@ -1126,7 +1130,7 @@ Highcharts.chart('physicalprogress', {
             <?php echo $planed_cumm = $planed_cumm+$record->planned;?>,
             <?php } ?>],
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: '%'
         }
     }, {
         name: 'Achived Cumm',
@@ -1137,8 +1141,28 @@ Highcharts.chart('physicalprogress', {
             <?php echo $achived_cumm = $achived_cumm+$record->achieved;?>,
             <?php } ?>],
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: '%'
         }
+    },{
+        name: 'IPC Received',
+        type: 'column',
+        yAxis: 1,
+        color: 'green',
+
+        data: [<?php foreach($physical_progress as $record){
+            $month_no = date('m', strtotime($record->month));
+            $check_IPC = $this->db->query("SELECT * FROM ppms_ipac where subproject_id=$id and ipac_submitted_date like '$record->year"."-".$month_no."%"."' order by ipac_id asc")->result();
+        //   echo  sizeof($check_IPC);
+        //     print_r($check_IPC);
+        //      echo $this->db->last_query();
+            // exit;
+            ?>  
+            <?php if(isset($check_IPC) && sizeof($check_IPC)>0){ echo '12'; }else{ echo '0';} ?>,
+            <?php } //exit; ?>],
+        tooltip: {
+            valueSuffix: ''
+        }
+       
     }]
 });
 
