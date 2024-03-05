@@ -11,9 +11,14 @@
                         <a href="<?php echo base_url('Cad_performance/report') ?>">
                             <button class="btn btn-success">Report</button>
                         </a>
-
                         <a href="<?php echo base_url('Cad_performance/cad_detail') ?>">
-                            <button class="btn btn-warning">Cad Performance Detail</button>
+                            <button class="btn btn-warning">CAD Performance Detail Report</button>
+                        </a>
+                        <a href="<?php echo base_url('Cad_performance/cad_disbursement_target') ?>">
+                            <button class="btn btn-success">CAD Planned</button>
+                        </a>
+                        <a href="<?php echo base_url('Cad_performance/cad_achieved') ?>">
+                            <button class="btn btn-danger">CAD Achieved</button>
                         </a>
                     </div>
                 </div>
