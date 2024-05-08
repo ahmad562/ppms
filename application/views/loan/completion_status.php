@@ -19,7 +19,7 @@
                 <div class="page-body">
                     <div class="row">
                         
- <div class="col-sm-12">
+                        <div class="col-sm-12">
                             <!-- Zero config.table start -->
                             <div class="card">
                                 <div class="card-header">
@@ -134,7 +134,7 @@ foreach($done as $desig){
 
 
                                                 </tr>
-                                                <tr style="">
+                                                <tr style="display:none">
                                                     <td>Sub Sub Project</td>
                                                     <td>
                                                         <select  name="sub_sub_project_id"
@@ -191,7 +191,14 @@ foreach($done as $desig){
                                             </thead>
                                             <tbody>
                                                 <?php
-			   error_reporting(0);
+
+                $user_data_session = $this->session->userdata();
+                $subproject_check = "";
+                if($user_data_session['groupid']==3){
+                    $query_subproject = $this->db->query("select * from assign_regional where emp_id= '".$user_data_session['empid']."'")->result();
+                    $subproject_check = " and psub.subproject_id ='".$query_subproject[0]->subproject_id."' ";
+                }
+                error_reporting(0);
 			   
                $i=1; 
                //old query
@@ -220,9 +227,9 @@ foreach($done as $desig){
                   WHERE 
                   
                   pcs.sub_project_id=psub.subproject_id
-                  AND psub.`project_id`=pp.`project_id`
+                  AND psub.`project_id`=pp.`project_id` ".$subproject_check."
                   AND pp.`sector_id`=ps.`sector_id`
-                  AND ps.`output_id`=pol.`output_id`")->result();
+                  AND ps.`output_id`=pol.`output_id` ")->result();
                   foreach($result1 as $item){?>
                                                 <tr class="gradeX">
                                                     <td><?php echo $i;?></td>

@@ -138,7 +138,10 @@ class Dropdown extends CI_Model{
 
       function get_sub_projects($postData){
         $response = array();
-     
+        if(isset($postData['subproject_check_id'])){
+            $this->db->where('ppms_subproject.subproject_id',$postData['subproject_check_id']);
+        }
+        
         // Select record
         $this->db->select('subproject_id,subproject_name');
         $this->db->where('project_id', $postData['project_id']);

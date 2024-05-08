@@ -222,6 +222,12 @@ foreach($done as $desig){
                                             </thead>
                                             <tbody>
                                                 <?php
+                                                $user_data_session = $this->session->userdata();
+                                                $subproject_check = "";
+                                                if($groupid==3){
+                                                    $query_subproject = $this->db->query("select * from assign_regional where emp_id= '".$user_data_session['empid']."'")->result();
+                                                    $subproject_check = " and psub.subproject_id ='".$query_subproject[0]->subproject_id."' ";
+                                                }
 			   error_reporting(0);
 			   
                $i=1; 
@@ -234,8 +240,8 @@ foreach($done as $desig){
                
                WHERE 
                
-               pcs.sub_project_id=psub.subproject_id
-               AND psub.`project_id`=pp.`project_id`
+               pcs.sub_project_id=psub.subproject_id ".$subproject_check."
+               AND psub.`project_id`=pp.`project_id` 
                AND pp.`sector_id`=ps.`sector_id`
                AND ps.`output_id`=pol.`output_id`")->result();
                   foreach($result1 as $item){?>

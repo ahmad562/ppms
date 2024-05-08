@@ -225,18 +225,31 @@
                                         </thead>
                                             <tbody class="text-left">
                                             <?php
-			  $result2="SELECT * FROM 
+
+                $user_data_session = $this->session->userdata();
+                //print_r($user_data_session);
+                $subproject_check = "";
+                if($user_data_session['groupid']==3){
+                    $query_subproject = $this->db->query("select * from assign_regional where emp_id= '".$user_data_session['empid']."'")->result();
+                    $subproject_check = " and psd.subproject_id ='".$query_subproject[0]->subproject_id."' ";
+                }
+
+			   $result2="SELECT * FROM 
              ppms_subproject AS psd,
              ppms_project AS ps,
              ppms_sector AS se,
              ppms_output_list AS pol            
-             WHERE psd.project_id=ps.project_id
+             WHERE psd.project_id=ps.project_id ".$subproject_check."
              AND ps.`sector_id`=se.`sector_id`
              AND se.`output_id`=pol.`output_id`
             
-             $outputs
-             $sectorss
-             $projectss";
+             
+             "
+             // commented for sub project check for physical progress module
+            //  $outputs  
+            //  $sectorss
+            //  $projectss
+             ;
                   $result1 = $this->db->query($result2)->result();
                   //echo $this->db->last_query();
                     $i=1; 
