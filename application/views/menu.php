@@ -642,119 +642,111 @@ and pa.group_id=$grpID and pa.flag_id=1")->result();
                         </div>
                     </nav>
 
-        <style>
-    /* Main Navigation */
-    .pcoded-item {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+                   <style>
+/* General styles for the navigation container */
+nav {
+    font-family: 'Segoe UI', Arial, sans-serif; /* Ensures the font is consistent */
+    background-color: #f4f4f8; /* Light gray background for the entire nav area */
+}
 
+/* Styling for the main menu container */
+.raised-menu {
+    background: linear-gradient(145deg, #1ABC9C, #e9ecef);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 10px 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    color: #ffffff;
+}
+
+.raised-menu img {
+    margin-right: 10px;
+}
+
+.raised-menu b {
+    font-size: 18px;
+}
+
+/* Styling for the top-level menu items */
+.pcoded-item {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pcoded-item li {
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.pcoded-item a {
+    display: block;
+    background: #495057;
+    color: #ffffff; /* Improved contrast for text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.pcoded-item a:hover {
+    background-color: #4a69bd;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+/* Submenu styling */
+.pcoded-submenu {
+    display: none; /* Hidden by default */
+    list-style: none;
+    padding-left: 20px;
+    background: #495057; /* Uniform with the main item */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.30), inset 0 0 8px #fff; /* Beveled look */
+    border-radius: 10px;
+}
+
+.pcoded-hasmenu:hover .pcoded-submenu {
+    display: block; /* Show submenu on hover */
+}
+
+.pcoded-submenu li a {
+    background-color: #4a69bd; /* Consistent submenu color */
+    color: #fff;
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5); /* Inset shadow for beveled effect */
+    border-radius: 8px;
+}
+
+.pcoded-submenu li a:hover {
+    background: linear-gradient(145deg, #4a69bd, #1ABC9C); /* Smooth gradient on hover */
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.30), inset 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Caret icon adjustments */
+.pcoded-mcaret {
+    float: right;
+    margin-left: 10px;
+}
+
+/* Media query for responsive adjustments */
+@media (max-width: 768px) {
     .raised-menu {
-        background: linear-gradient(to right, #1e3c72, #2a5298);
-        padding: 15px;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .raised-menu:hover {
-        background: linear-gradient(to right, #2a5298, #1e3c72);
+        flex-direction: column;
+        align-items: start;
     }
 
     .raised-menu img {
-        margin-right: 15px;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease-in-out;
+        margin-bottom: 10px;
     }
 
-    .raised-menu:hover img {
-        transform: scale(1.1);
-    }
-
-    .raised-menu font {
-        font-size: 20px;
-        color: #fff;
-    }
-
-    /* Submenu */
     .pcoded-submenu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        position: static; /* Adjust for mobile to dropdown */
     }
-
-    .pcoded-submenu li {
-        margin-bottom: 8px;
-    }
-
-    .pcoded-micon {
-        margin-right: 15px;
-    }
-
-    /* Additional styling */
-    .pcoded-left-item {
-        padding-left: 15px;
-    }
-</style>
-
-<style>
-    /* Child Menu */
-    .pcoded-submenu li {
-        margin-bottom: 8px;
-    }
-
-    .pcoded-submenu a {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border-radius: 8px; /* Border radius for a rounded look */
-        color: #fff; /* Set text color to white */
-        text-decoration: none;
-        background-color: #2c3e50 /* Glassy or crystalline effect with transparency */
-        border: 5px solid rgba(41, 128, 185, 0.7); /* Border color with transparency */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    }
-
-    .pcoded-submenu a:hover {
-        background-color: rgba(41, 128, 185, 0.9); /* Adjust color on hover with increased transparency */
-        transform: scale(1.02); /* Slightly scale on hover */
-    }
-
-    .pcoded-micon {
-        margin-right: 10px;
-        font-size: 16px;
-    }
-
-    .pcoded-mtext {
-        font-size: 14px;
-    }
-
-    /* Additional styling */
-    .pcoded-mcaret {
-        margin-left: auto;
-        font-size: 12px;
-    }
-
-
-    @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.blinking-text {
-  animation: blink 1s infinite;
 }
 
 
+
 </style>
-
-
-                 

@@ -105,7 +105,7 @@ foreach($done as $desig){
 
                                                     <select name="city_id" id="city_id" class="form-control">
 
-                                                        <option value="">Select City</option>
+                                                        <option value="">ALL</option>
                                                         <?php $cityID420=$this->db->query("select * from city")->result();
  foreach($cityID420 as $cityID420){?>
                                                         <option value="<?php echo $cityID420->city_id;?>">
@@ -121,7 +121,7 @@ foreach($done as $desig){
                                                     <select name="sub_project_id" id="sub_project_idss"
                                                         class="form-control" onChange="display_subprject(this.value)">
 
-                                                        <option value="">Select Sub Project List</option>
+                                                        <option value="">ALL</option>
                                                         <?php 
             if($orgName->designation_id==8){
                 $subProject=$this->db->query("SELECT * FROM ppms_subproject AS ps,assign_regional AS ar
@@ -140,7 +140,7 @@ foreach($done as $desig){
                                                 <td>Certificate Type</td>
                                                 <td>
                                                     <select name="certificate_type" class="form-control">
-                                                        <option value="">Select Option</option>
+                                                        <option value="">ALL</option>
                                                         <option value="IPA/IPC">IPA/IPC</option>
                                                         <option value="Mobilization">Mobilization</option>
 
@@ -336,7 +336,7 @@ foreach($desig as $desig){
                                                           }
 }else{
    
- echo "<label class='label label-success'>Not in PMU</label>"; 
+ echo "<label class='label label-success'>Internal File</label>"; 
       
     
 }?>

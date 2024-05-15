@@ -529,7 +529,10 @@ $boq2++;
 
                                                                                             <?php 
                                                                             if($done900->ipc_bs_amount){
-                                                                            echo $done900->ipc_bs_amount;
+                                                                            echo $done900->ipc_bs_amount."<br>";
+if($done900->ipc_bs_amount < 0){
+    echo $done900->remarks;
+}
                                                                             }else{
                                                                                 echo 0;
                                                                             }?>

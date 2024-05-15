@@ -15,7 +15,12 @@ class Cad_performance_model extends CI_Model {
     public function addPerformance($data) {
         $this->db->insert('cad_performance', $data);
     }
-
+    public function add_cad_disbursement_target($data) {
+        $this->db->insert('cad_disbursement_target', $data);
+    }
+    public function add_cad_achieved($data) {
+        $this->db->insert('ipc_temp_payment', $data);
+    }
     public function getPerformanceById($id) {
         $this->db->select('cp.*, p.cad_product_name');
         $this->db->from('cad_performance cp');

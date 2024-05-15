@@ -62,6 +62,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('general/sample_display');
 		$this->load->view('footer');
 	}
+	
 
 	public function display_form()
 	{
@@ -196,7 +197,9 @@ public function bill_summary_detail($id)
 	$run = $this->db->query( "delete from ppms_ipac_file  where ipac_file_id=$fid");
 		if($run){
 
-echo 1;
+			$data['ipc_iddd']=$ipac_id;
+			$data['rid']=$remarksID;
+			$this->load->view('ppms/file_back_ward',$data);
 
 		}
 
@@ -918,8 +921,13 @@ public function insert_ipac(){
 
 			$doneeee="insert into ppms_ipac_forward set status_id=0,ipac_id=$last_id,ipac_forward_date='$submitted_date',organization_id=$orgid,flag_id=1,user_id=$empID";
 			$done=$this->db->query($doneeee);	
+////////////////////////////////////////////////////
+if(!empty($already_ipc)){
+foreach($already_ipc as $ipc_used){
+	$done=$this->db->query("insert into ppms_ipc_already_used set ipac_id=$last_id,ipc_no='$ipc_used',pi_date='$submitted_date'");
 
-
+}
+}
 ///////////////////////bill summary amount/////////////////////////////////////////////////
 
 	/*	$x=0;
@@ -1562,6 +1570,24 @@ if($doneCheck1){
 
 
 }
+
+
+public function update_remarks(){
+	extract($_POST);
+	 
+$doneeee="update ppms_ipc_billsummary set remarks='$remarks' where billsummary_id=$sid and ipc_id=$ipcid";
+$done=$this->db->query($doneeee);
+
+	
+		if($done){
+			
+		echo 1;	
+		}else{
+			echo 0;
+		}
+	
+	
+	}
 ////////////////////////////////////////////////////
 /////////////////////////////database backup///////////////////////////////
 function take_backup(){

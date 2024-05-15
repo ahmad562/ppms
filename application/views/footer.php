@@ -9,6 +9,8 @@
 <script type="text/javascript" src="<?php echo base_url()?>bower_components/modernizr/js/css-scrollbars.js"></script>
 <!-- classie js -->
 <script type="text/javascript" src="<?php echo base_url()?>bower_components/classie/js/classie.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/modalEffects.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/classie.js"></script>
 <!-- Rickshow Chart js -->
 <script src="<?php echo base_url()?>bower_components/d3/js/d3.js"></script>
 <script src="<?php echo base_url()?>bower_components/rickshaw/js/rickshaw.js"></script>
@@ -51,6 +53,8 @@
 <script src="<?php echo base_url()?>assets/js/demo-12.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.mousewheel.min.js"></script>
+
+
 
 
 
@@ -409,6 +413,38 @@ alert(sub_project_idss);
             
         }
     </script>  
+
+
+
+<script>
+        //$(document).ready(function(){
+            function get_already_ipc_no(){
+          //  $("#certificate_type").change(function(){
+                //var certificate_type = $(this).val();
+                var sub_project_idss = $('#sub_project_idss').val();
+//alert(certificate_type);
+//alert(sub_project_idss);
+                // Send AJAX request to get cities based on the selected country
+                $.ajax({
+                    url: '<?php echo base_url('Dropdowns/get_ipc_already_no')?>',  // PHP file to handle AJAX request
+                    type: 'post',
+                    data: {sub_project_idss:sub_project_idss},
+                   // dataType: 'json',
+                    success:function(html){
+                        // Clear existing options
+                        //alert(html);
+                        $('#already_ipc_no').html(html);
+                    }
+                });
+           
+
+            ///////////////////////////////////////
+
+            
+        }
+    </script> 
+
+
 </body>
 
 </html>

@@ -71,73 +71,73 @@ $cityID=$this->session->userdata('cityid');
                                     </div>
 
                                     <div class="dt-responsive table-responsive">
-                                    <table class="table  table-bordered nowrap">
+                                        <table class="table  table-bordered nowrap">
 
-<tr>
-    <td style="text-align: center;
+                                            <tr>
+                                                <td style="text-align: center;
 vertical-align: middle; !important">
-        <a
-            href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
-            <img src="<?php echo base_url('img/ipc/ipc_detail.png')?>"
-                width="70px" height="70px"><br>
-            <b>IPC Detail</b>
-        </a>
-    </td>
+                                                    <a
+                                                        href="<?php echo base_url('Welcome/new_ipc_detail_popup/')?><?php echo $item->ipac_id?>">
+                                                        <img src="<?php echo base_url('img/ipc/ipc_detail.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>IPC Detail</b>
+                                                    </a>
+                                                </td>
 
-    <td style="text-align: center;
+                                                <td style="text-align: center;
 vertical-align: middle; !important">
-        <a
-            href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
-            <img src="<?php echo base_url('img/ipc/ipc_payment.png')?>"
-                width="70px" height="70px"><br>
-            <b>IPC'S Payment Detail</b>
-        </a>
-    </td>
+                                                    <a
+                                                        href="<?php echo base_url('Welcome/bill_summary_detail/')?><?php echo $item->ipac_id?>">
+                                                        <img src="<?php echo base_url('img/ipc/ipc_payment.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>IPC'S Payment Detail</b>
+                                                    </a>
+                                                </td>
 
-    <td style="text-align: center;
+                                                <td style="text-align: center;
 vertical-align: middle; !important"> <a href="<?php echo base_url('Welcome/mobilization_advance/')?><?php echo $item->ipac_id?>">
-            <img src="<?php echo base_url('img/ipc/mobilization.png')?>"
-                width="70px" height="70px"><br>
-            <b>Mobilization Detail</b>
-        </a>
-    </td>
+                                                        <img src="<?php echo base_url('img/ipc/mobilization.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>Mobilization Detail</b>
+                                                    </a>
+                                                </td>
 
-    <td style="text-align: center;
+                                                <td style="text-align: center;
 vertical-align: middle; !important">
-        <a
-            href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
-            <img src="<?php echo base_url('img/ipc/bill.png')?>"
-                width="70px" height="70px"><br>
-            <b>Bill Summary Detail</b>
-        </a>
-    </td>
+                                                    <a
+                                                        href="<?php echo base_url('Welcome/bill_summary_detail_amount/')?><?php echo $item->ipac_id?>">
+                                                        <img src="<?php echo base_url('img/ipc/bill.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>Bill Summary Detail</b>
+                                                    </a>
+                                                </td>
 
 
-    <td style="text-align: center;
+                                                <td style="text-align: center;
 vertical-align: middle; !important">
-        <a
-            href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
-            <img src="<?php echo base_url('img/ipc/progress.png')?>"
-                width="70px" height="70px"><br>
-            <b>Financial Progress</b>
-        </a>
-    </td>
+                                                    <a
+                                                        href="<?php echo base_url('Welcome/boq_amount_percent/')?><?php echo $item->ipac_id?>">
+                                                        <img src="<?php echo base_url('img/ipc/progress.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>Financial Progress</b>
+                                                    </a>
+                                                </td>
 
 
-    <td style="text-align: center;
+                                                <td style="text-align: center;
 vertical-align: middle; !important">
-        <a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>"
-            target="parent">
-            <img src="<?php echo base_url('img/ipc/certificate.png')?>"
-                width="70px" height="70px"><br>
-            <b>Payment Certificate</b>
-        </a>
-    </td>
+                                                    <a href="<?php echo base_url('Welcome/payment_certificat/')?><?php echo $item->ipac_id?>"
+                                                        target="parent">
+                                                        <img src="<?php echo base_url('img/ipc/certificate.png')?>"
+                                                            width="70px" height="70px"><br>
+                                                        <b>Payment Certificate</b>
+                                                    </a>
+                                                </td>
 
 
-</tr>
-</thead>
-</table>
+                                            </tr>
+                                            </thead>
+                                        </table>
 
                                     </div>
                                     <!-- Page-header end -->
@@ -191,7 +191,7 @@ vertical-align: middle; !important">
                                                                 <th>PKR</th>
                                                                 <th>Remarks</th>
                                                             </tr>
-                                                            <?php if($orgName->designation_id ==15){
+                            <?php if(($orgName->designation_id ==15) or ($orgName->order_by !=1)){
                                                                 echo $dis="disabled";
                                                                 }else{
                                                                     $dis="";  
@@ -205,7 +205,7 @@ vertical-align: middle; !important">
                                                                 </td>
                                                                 <td align="center">-</td>
                                                                 <td>
-                                                               
+
 
                                                                     <input type="text" <?php echo $dis;?>
                                                                         value="<?php echo number_format($result2->ipa_amount,2); ?>"
@@ -813,32 +813,49 @@ echo 1;
 
 
                                                                     </td>
-                                       
-                                        <td>
-                                        <?php if($orgName->designation_id ==15 ){
+
+<td>
+<?php if($orgName->designation_id ==15 ){
 
 echo "";
                                         }else{
-                                            ?>    
-                                        
-                                        <input type="submit" name="save" id="save"
+                                            if($groupID==3){
+                                                if($orgName->designation_id==8){
+                                            ?>
+
+                                                                        <input type="submit" name="save" id="save"
                                                                             value="Add New Record"
                                                                             class="btn btn-danger btn-round">
-                                                                    <?php }?>
-                                        </td>
+                                                                        <?php 
+                                                                    }else{
+                                                                        echo "";
+                                                                    }
+                                                                }else if($groupID==5){?>
+ <input type="submit" name="save" id="save"
+                                                                            value="Add New Record"
+                                                                            class="btn btn-danger btn-round">
+
+                                                            <?php
+                                                                }
+                                                                    
+                                                                    }?>
+                                                                    </td>
                                                                 </tr>
                                                             </table>
 
                                                         </form>
-                                                        <?php if($orgName->designation_id ==15){
+                                 <?php if($orgName->designation_id ==15){
                                                             
                                                             echo "";
                                                             
                                                             
-                                                        }else{?>
+                                                        }else{
+                                                            if($groupID==3){
+                                                                if($orgName->designation_id==8){
+                                                            ?>
 
 
-                                                            
+
                                                         <table table="table table-bordered">
                                                             <tr>
                                                                 <td>
@@ -860,8 +877,33 @@ echo "";
                                                             </tr>
                                                         </table>
                                                         <?php 
-                                                        
-                                                    }?>
+                                                                }
+                                                    }
+                                                } if($groupID==5){?>
+ <table table="table table-bordered">
+                                                            <tr>
+                                                                <td>
+
+                                                                    <button class="btn btn-warning btn-round"><a
+                                                                            href="<?php echo base_url('Certificate_tax')?>"
+                                                                            target="_new">
+                                                                            <font color="white">View Taxes</font>
+                                                                        </a></button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-success btn-round"><a
+                                                                            href="<?php echo base_url('Certificate_tax/tax_detail')?>"
+                                                                            target="_new">
+                                                                            <font color="white">Add New Tax</font>
+                                                                        </a></button>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+<?php }?>
+
+
                                                         <script>
                                                         function get_tax_amount1111() {
                                                             var taxVal = $("#tax").val();
@@ -1086,45 +1128,47 @@ echo "";
                                                         </script>
 
 
-<style>
-                                            /* Table CSS */
-                                            table {
-                                                border-collapse: collapse;
-                                                width: 100%;
-                                            }
+                                                        <style>
+                                                        /* Table CSS */
+                                                        table {
+                                                            border-collapse: collapse;
+                                                            width: 100%;
+                                                        }
 
-                                            th,
-                                            td {
-                                                border: 1px solid #000;
-                                                padding: 8px;
-                                                text-align: left;
-                                            }
+                                                        th,
+                                                        td {
+                                                            border: 1px solid #000;
+                                                            padding: 8px;
+                                                            text-align: left;
+                                                        }
 
-                                            /* Beveled Cell Data */
-                                            td {
-                                                background-color: #fff;
-                                                border-top: 1px solid #000;
-                                                border-left: 1px solid #000;
-                                                box-shadow: inset 0 0 5px #888;
-                                                color: #000
-                                            }
+                                                        /* Beveled Cell Data */
+                                                        td {
+                                                            background-color: #fff;
+                                                            border-top: 1px solid #000;
+                                                            border-left: 1px solid #000;
+                                                            box-shadow: inset 0 0 5px #888;
+                                                            color: #000
+                                                        }
 
-                                            /* Beveled Header Cells */
-                                            th {
-                                                background-color: #218559;
-                                                color: #fff;
-                                                border-top: 1px solid #fff;
-                                                border-left: 1px solid #fff;
-                                                box-shadow: inset 0 0 5px #888;
-                                            }
+                                                        /* Beveled Header Cells */
+                                                        th {
+                                                            background-color: #218559;
+                                                            color: #fff;
+                                                            border-top: 1px solid #fff;
+                                                            border-left: 1px solid #fff;
+                                                            box-shadow: inset 0 0 5px #888;
+                                                        }
 
-                                            img {
-       
-        transition: transform 0.3s ease; /* Add transition effect */
-    }
+                                                        img {
 
-    /* Define the rotation effect on hover */
-    img:hover {
-        transform: rotate(360deg); /* Rotate the image 360 degrees when hovered over */
-    }
-                                            </style>
+                                                            transition: transform 0.3s ease;
+                                                            /* Add transition effect */
+                                                        }
+
+                                                        /* Define the rotation effect on hover */
+                                                        img:hover {
+                                                            transform: rotate(360deg);
+                                                            /* Rotate the image 360 degrees when hovered over */
+                                                        }
+                                                        </style>

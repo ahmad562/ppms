@@ -112,7 +112,7 @@ foreach($done as $desig){
                                                     <td>Sub Project</td>
                                                     <td>
                                                         <select name="sub_project_id" id="sub_project_idss"
-                                                            class="form-control" required onChange="display_subprject(this.value)">
+                                                            class="form-control" required onChange="display_subprject(this.value),get_already_ipc_no()">
 
                                                             <option value="">Select Sub Project List</option>
             <?php 
@@ -159,14 +159,14 @@ foreach($done as $desig){
                                                             </table>
                                                              <table class="table" id="file_displays">
                                                 <tr style="background-color:#1ABC9C; color:#fff">
-                                                    <td><font size="+1">Caption</font></td>
+                                                    <td><font size="+1">Title/File Name</font></td>
                                                     <td><font size="+1">Attached File</font></td>
                                                     <td><font size="+1">Action</font></td>
                                                 </tr>
                                                 <tr>
 
                                                     <td><input type="text" name="filename[]" class="form-control"
-                                                            placeholder="Enter Caption Here">
+                                                            placeholder="Enter Title/File Name Here">
 
 
                                                     <td><input type="file" placeholder="Please Attached a File" 
@@ -207,26 +207,45 @@ foreach($done as $desig){
                                                     </td>
 
                                                     <td><b>
-                    <font color="red">IPA Contractor Amount(In PKR) 
+                    <font color="red">Contractor Amount(In PKR) 
                     </b></td>
                                                     <td>
-                                                        <input type="text" placeholder="Enter IPA Amount" required
-                                                            id="ipc_amount"  onchange="formatInput(this.value)" onblur="formatInput(this.value)"  class="form-control" name="ipc_amount"
+                                                        <input type="text" placeholder="Enter Contractor Amount(In PKR) " required
+                                                            id="ipc_amount"  class="form-control" name="ipc_amount"
                                                             tabindex="1">
+                                                            <?php 
+                                                           /// onchange="formatInput(this.value)" onblur="formatInput(this.value)"
+                                                            ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>IPC No./EPC No.</td>
                                                     <td><input type="text" placeholder="Enter IPC#" required id="ipc_no"
-                                                            class="form-control" name="ipc_no" tabindex="1"></td>
+                                                            class="form-control" name="ipc_no" tabindex="1">
+                                                        
+                                                           
+
+<select name="already_ipc_no" id="already_ipc_no" class="form-control">
+<option value="">Select Option</option>
+
+
+</select>
+
+
+
+
+                                                        </td>
 
                                                             <td><b>
-                    <font color="red">IPC Verified Amount(in PKR) </font>
+                    <font color="red">Verified Amount(in PKR) </font>
                 </b>
                                                              </td>
                                                              <td>
-                <input type="text" onchange="formatInput1(this.value)" onblur="formatInput1(this.value)"  name="ipac_amount420" placeholder="Enter IPAC Amount" required id="ipac_amount"
+                <input type="text" name="ipac_amount420" placeholder="Enter IPAC Amount" required id="ipac_amount"
                     class="form-control" >
+                    <?php 
+                    ////onchange="formatInput1(this.value)" onblur="formatInput1(this.value)"
+                    ?>
             </td>
                                                 </tr>
 
@@ -234,21 +253,25 @@ foreach($done as $desig){
 <td>
 <select name="certificate_type" class="form-control" onchange="get_already_ipc(this.value)">
 <option value="">Select Option</option>
-<option value="IPA/IPC">IPA/IPC</option>
-<option value="Mobilization">Mobilization</option>
+<option value="IPA/IPC">IPC</option>
+<option value="IPC & EPC">IPC & EPC</option>
 <option value="EPC">EPC</option>
+<option value="Mobilization">Mobilization</option>
+<option value="Mobilization & IPC">Mobilization & IPC</option>
+<option value="Secure Advance">Secure Advance</option>
+
 
 </select>
 
 
 </td><td>IPC's Already Used</td>
 <td>
-<select name="already_ipc" id="already_ipc" class="form-control">
+<select name="already_ipc[]" id="already_ipc" class="form-control" multiple>
 <option value="">Select Option</option>
 
 
 </select>
-
+<span style="color:red"><b>Select Multiple IPC No by pressing Control+Click</b></span>
 
 
 </td></tr>

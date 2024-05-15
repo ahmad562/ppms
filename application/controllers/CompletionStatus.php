@@ -22,8 +22,7 @@ class CompletionStatus extends CI_Controller {
         $data = array(
             'year' => $this->input->post('year'),
             'month' => $this->input->post('month'),
-            //'sub_sub_id' => $this->input->post('sub_sub_project_id'),
-            'sub_project_id' => $this->input->post('sub_project_id'),
+            'sub_sub_id' => $this->input->post('sub_sub_project_id'),
             'planned' => $this->input->post('planned'),
             'achieved' => $this->input->post('achieved')
         );
@@ -47,9 +46,7 @@ class CompletionStatus extends CI_Controller {
         $data = array(
             'year' => $this->input->post('year'),
             'month' => $this->input->post('month'),
-            //'sub_sub_id' => $this->input->post('sub_sub_project_id'),
-            'sub_project_id' => $this->input->post('sub_project_id'),
-            
+            'sub_sub_id' => $this->input->post('sub_sub_project_id'),
             'planned' => $this->input->post('planned'),
             'achieved' => $this->input->post('achieved')
         );

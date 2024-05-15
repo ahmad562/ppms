@@ -119,7 +119,8 @@ public function add_cad_disbursement_target() {
 public function cad_achieved() {
     $this->load->view('header');
     $this->load->view('menu');
-    $this->load->view('cad/cad_achieved');
+   // $this->load->view('cad/cad_achieved');
+    $this->load->view('cad/cad_achieved_new');
     $this->load->view('footer');
 
 }
@@ -139,23 +140,25 @@ public function add_cad_achieved() {
  $yearss=$year;
    //$this->input->post('year');
 //exit;
+for($i=0;$i<=11;$i++){
  $doneeee="select * from ipc_temp_payment where city_id=$cityid and sub_project_id=$projectID
-    and month_id=$mid and year=$yearss";
+    and month_id=$mid[$i] and year=$yearss";
     $done=$this->db->query($doneeee)->row();
    /// exit;
     if($done){
-        $done=$this->db->query("update ipc_temp_payment set amount=$amt where city_id=$cityid and sub_project_id=$projectID
-        and month_id=$mid and year=$yearss");
+        $done=$this->db->query("update ipc_temp_payment set amount=$amt[$i] where city_id=$cityid and sub_project_id=$projectID
+        and month_id=$mid[$i] and year=$yearss");
     }else{
     $data = array(
         'city_id' => $cityid,
         'sub_project_id' => $projectID,
-        'month_id' => $mid,
-        'amount' => $amt,
+        'month_id' => $mid[$i],
+        'amount' => $amt[$i],
         'year' => $yearss,
         'ipc_temp_date' => $tdate
     );
     $this->Cad_performance_model->add_cad_achieved($data);
+}
 }
     redirect('cad_performance/cad_achieved');
 }

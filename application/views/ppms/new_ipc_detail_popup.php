@@ -31,9 +31,6 @@ FROM
 emp AS e,organization AS o
 WHERE e.organization_id=o.organization_id 
 and e.emp_id=$empiD")->row();
-
-
-
 ?>
 
 <div class="pcoded-content">
@@ -422,8 +419,31 @@ if($rem > 0){
                                         //echo "(".$z1.") "."<br>";
                                         $z1++;
                                         }?></strong></td>
+                                                                                    <td><?php  if($item->certificate_type=='IPA/IPC'){?>
+                                                                                        IPC verified amount
+                                                                                        <?php }?>
+                                                                                        <?php  if($item->certificate_type=='IPC & EPC'){?>
+                                                                                        IPC & EPC verified amount
+                                                                                        <?php }?>
+                                                                                        <?php  if($item->certificate_type=='EPC'){?>
+                                                                                        EPC verified amount
+                                                                                        <?php }?>
+                                                                                        <?php  if($item->certificate_type=='Mobilization'){?>
+                                                                                        Mobilization Amount
+                                                                                        <?php }?>
+                                                                                        <?php  if($item->certificate_type=='Mobilization & IPC'){?>
+                                                                                        Mobilization & IPC verified
+                                                                                        amount
+                                                                                        <?php }?>
+                                                                                        <?php  if($item->certificate_type=='Secure Advance'){?>
+                                                                                        Secure Advance amount
+                                                                                        <?php }?>
+                                                                                    </td>
+                                                                                    <td><?php echo  number_format($item->ipac_amount,2);?>
+                                                                                    </td>
 
-                                                                                    <td>Mobilization Advance</td>
+                                                                                    <?php /*?><td>Mobilization Advance
+                                                                                    </td>
                                                                                     <td>
                                                                                         <?php $MobilizationAdvance=$this->db->query("SELECT ipac_amount as mobilization_advance_amount_new 
                     FROM ppms_ipac where subproject_id=$item->subproject_id and certificate_type='Mobilization'")->row();
@@ -437,6 +457,7 @@ if($rem > 0){
                                                      
                                                       ?></b>
                                                                                     </td>
+                                                                                    <?php */?>
 
                                                                                 </tr>
 
@@ -478,14 +499,18 @@ $z++;
                                                                                     <td><?php echo $item->certificate_type;?>
                                                                                     </td>
                                                                                 </tr>
+
+
                                                                                 <tr>
-                                                                                    <td>
-                                                                                        <font color="red">File Move
-                                                                                        </font><br>
-                                                                                        <font color="blue">Forward
+                                                                                    <th>
+                                                                                        <font color="white">IPC File
+                                                                                            Move
+                                                                                        </font>/
+                                                                                        <font color="white">Forward
                                                                                         </font>
-                                                                                    </td>
-                                                                                    <td align="center">
+                                                                                    </th>
+                                                                                    <td colspan="3"
+                                                                                        style="text-align: center">
 
                                                                                         <?php 
     $checkss=$this->db->query("SELECT organization_id,flag_id,status_id
@@ -541,10 +566,25 @@ if($sqlPayment1){
 }else{?>
                                                                                         <a href="javascript:"
                                                                                             onClick="forward(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
-                                                                                            <img src="<?php echo base_url('img/next.png')?>"
+                                                                                            <?php /*?> <img
+                                                                                                src="<?php echo base_url('img/next.png')?>"
                                                                                                 width="30px"
-                                                                                                height="30px">
+                                                                                                height="30px"><?php */?>
+                                                                                            <button type="button"
+                                                                                                class="btn btn-success"><b>Forward
+                                                                                                    IPC to <?php if($orgName->order_by==1){
+                                                                                         echo "CIU";   
+                                                                                            }else if($orgName->order_by==2){
+                                                                                                echo "PMU";   
+                                                                                            }else if($orgName->order_by==3){
+                                                                                                echo "ADB";   
+                                                                                                   }else if($orgName->order_by==4){
+                                                                                                    echo "PMU";   
+                                                                                                       }?> : <span
+                                                                                                        class="blink">Click
+                                                                                                        Here</span></b></button>
                                                                                         </a>
+
                                                                                         <?php if(($checkss->organization_id==3) or ($checkss->organization_id==4)){?>
                                                                                         <select name="status_ids"
                                                                                             id="status_ids<?php echo $item->ipac_id?>"
@@ -611,7 +651,7 @@ foreach( $orgii as  $orgii){
                                                                                         <?php 
                     
                     } else {
-                        echo "First Complete Your Check list";
+                        echo "<button class='btn btn-success'>First Complete Your Check list</button>";
                     }
                     
                 }else{
@@ -622,60 +662,67 @@ foreach( $orgii as  $orgii){
 
 
                                                                                     </td>
+                                                                                </tr>
 
 
 
-                                                                                    <td>
-                                                                                        <font color="red">Returned
+                                                                                <tr>
+
+
+
+
+                                                                                    <th
+                                                                                        style="background-color: blue !important">
+                                                                                        <font color="white">Returned IPC
                                                                                         </font>
-                                                                                    </td>
-                                                                                    <td align="center"><?php
+                                                                                    </th>
+                                                                                    <?php
+ if($orgName->order_by >=2){
 $sqlPayment = "SELECT * FROM ipc_payment WHERE status_id=2 and ipac_id=$item->ipac_id";
 $sqlPayment1 = $this->db->query($sqlPayment)->row(); 
 if($sqlPayment1){
    echo "<label class='label label-danger'>
     <font color='white'>IPC Paid & Closed</font></lable>";
 }else{?>
+                                                                                    <td colspan="3"
+                                                                                        style="text-align:center">
 
-                                                                                        <a href="javascript:"
+
+
+                                                                                        <?php /*?><a href="javascript:"
                                                                                             onClick="returned(<?php echo $item->ipac_id?>,<?php echo $orgName->organization_id;?>)">
-                                                                                            <img src="<?php echo base_url('img/backward.png')?>"
-                                                                                                width="30px"
-                                                                                                height="30px">
-                                                                                        </a>
-                                                                                        <select name="org_id"
-                                                                                            id="org_id<?php echo $item->ipac_id?>"
-                                                                                            style="width:80px;"
-                                                                                            class="form-control">
-                                                                                            <option value="">
-                                                                                                Organization </option>
-                                                                                            <?php 
-
-$orgiiCity = $this->db->query("SELECT organization_id,organization_name from organization where city_id=$cityID and organization_id not in(3,4)")->result();
-foreach( $orgiiCity as $orgiiCity){
-?>
-                                                                                            <option
-                                                                                                value="<?php echo $orgiiCity->organization_id;?>">
-                                                                                                <?php echo  $orgiiCity->organization_name;?>
-                                                                                            </option>
-                                                                                            <?php }?>
+                                                                                        </a><?php */?>
 
 
-                                                                                            <?php 
+                                                                                        <button type="button"
+                                                                                            data-toggle="modal"
+                                                                                            data-target="#Modal-tab"
+                                                                                            class="btn btn-danger"><b>Send
+                                                                                                Back IPC to <?php if($orgName->order_by==4){
+                                                                                         echo "PMU";   
+                                                                                            }else if($orgName->order_by==3){
+                                                                                                echo "CIU";   
+                                                                                            }else if($orgName->order_by==2){
+                                                                                                echo "PMSCS";   
+                                                                                                   }?> : <span
+                                                                                                    class="blink">Click
+                                                                                                    Here</span></b></button>
 
- $orgii = $this->db->query("SELECT organization_id,organization_name from organization where organization_id in(3,4)")->result();
-foreach( $orgii as  $orgii){
-?>
-                                                                                            <option
-                                                                                                value="<?php echo $orgii->organization_id;?>">
-                                                                                                <?php echo  $orgii->organization_name;?>
-                                                                                            </option>
-                                                                                            <?php }?>
 
-                                                                                        </select>
+                                                                                        <?php /*?> <img
+                                                                                            src="<?php echo base_url('img/backward.png')?>"
+                                                                                            width="30px"
+                                                                                            height="30px"><?php */?>
 
 
-                                                                                        <?php }?>
+
+                                                                                        <?php }
+                                                                                        
+}else{
+    
+   echo "<button class='btn btn-danger'>Not Available</button>"; 
+    
+}?>
 
 
 
@@ -715,7 +762,9 @@ foreach( $orgii as  $orgii){
                                                                                                 width="30px"
                                                                                                 height="30px">
                                                                                         </a>
-
+                                                                                        <?php 
+                                            
+                                            if($groupID == 5 or $groupID == 6 or $groupID == 1 or $groupID == 2){?>
 
                                                                                         <a href="javascript:"
                                                                                             onClick="delete_files(<?php echo $filess->ipac_file_id;?>)">
@@ -723,6 +772,7 @@ foreach( $orgii as  $orgii){
                                                                                                 width="30px"
                                                                                                 height="30px">
                                                                                         </a>
+                                                                                        <?php }?>
                                                                                     </td>
 
 
@@ -735,6 +785,169 @@ foreach( $orgii as  $orgii){
                                                                                 </form>
 
                                                                             </table>
+
+
+                                                                            <!-------------------MOdel for File Returned--------------------->
+
+                                                                            <div class="modal fade modal-flex"
+                                                                                id="Modal-tab" tabindex="-1"
+                                                                                role="dialog">
+                                                                                <form method="post"
+                                                                                    action="<?php echo base_url('Dropdowns/back_ward_file')?>"
+                                                                                    enctype="multipart/form-data">
+                                                                                    <div class="modal-dialog"
+                                                                                        role="document"
+                                                                                        style="height:100% !important;width:100% !important;">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-body">
+
+                                                                                                <button type="button"
+                                                                                                    class="close"
+                                                                                                    data-dismiss="modal"
+                                                                                                    aria-label="Close">
+                                                                                                    <span
+                                                                                                        aria-hidden="true">&times;</span>
+                                                                                                </button>
+
+                                                                                                <input type="text"
+                                                                                                    name="bacward_ipc"
+                                                                                                    value="<?php echo $ipc_iddd?>">
+
+                                                                                                <input type="text"
+                                                                                                    name="bacward_oid"
+                                                                                                    value="<?php echo $orgName->organization_id;?>">
+
+
+                                                                                                <input type="text"
+                                                                                                    name="bacward_status_id"
+                                                                                                    value="<?php echo 0;?>">
+
+
+
+                                                                                                <?php 
+ $orgiii="select city_id,order_by from organization where organization_id=$orgName->organization_id";
+ $orgiii1=$this->db->query($orgiii)->row();
+ //echo $this->db->last_query();
+
+
+  $ordereee420=$orgiii1->order_by;
+  $ordereee=$ordereee420-1;
+ //echo "<br>";
+  $cityID=$orgiii1->city_id;
+ $doneeeKif="SELECT organization_id,organization_name from organization where city_id=$cityID and order_by=$ordereee";
+  $orgiiCityBackward = $this->db->query($doneeeKif)->row();
+
+  ?>
+                                                                                                <table class="table">
+                                                                                                    <tr>
+                                                                                                        <td>Organization
+                                                                                                            Name</td>
+
+                                                                                                        <td colspan="3">
+                                                                                                            <select
+                                                                                                                name="fid"
+                                                                                                                id="fid"
+                                                                                                                class="form-control">
+
+
+                                                                                                                <option
+                                                                                                                    value="<?php echo $orgiiCityBackward->organization_id;?>">
+                                                                                                                    <?php echo  $orgiiCityBackward->organization_name;?>
+                                                                                                                </option>
+
+
+
+
+
+                                                                                                            </select>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td colspan="4">
+
+                                                                                                            <textarea
+                                                                                                                name="remarks_kifi"
+                                                                                                                placeholder="Enter Remarks Here"
+                                                                                                                id="remarks_kifi"
+                                                                                                                class="form-control"></textarea>
+                                                                                                        </td>
+                                                                                                    <tr>
+
+                                                                                                        <td colspan="2">
+                                                                                                            <input
+                                                                                                                type="text"
+                                                                                                                id="caption"
+                                                                                                                placeholder="Enter File Name"
+                                                                                                                name="file_name"
+                                                                                                                value=""
+                                                                                                                class="form-control">
+                                                                                                        </td>
+
+
+
+
+
+                                                                                                        <td colspan="2">
+                                                                                                            <input
+                                                                                                                type="hidden"
+                                                                                                                name="ipc_id"
+                                                                                                                value="<?php echo $id?>"
+                                                                                                                id="ipcID">
+
+
+                                                                                                            <input
+                                                                                                                type="hidden"
+                                                                                                                name="ooid"
+                                                                                                                value="<?php echo $orgName->organization_id?>"
+                                                                                                                id="ooid">
+
+                                                                                                            <input
+                                                                                                                type="file"
+                                                                                                                style="width:180px;"
+                                                                                                                name="file"
+                                                                                                                id="file"
+                                                                                                                class="form-control"
+                                                                                                                id="filer_input">
+
+                                                                                                            <img src="<?php echo base_url('img/add.png')?>"
+                                                                                                                width="40px"
+                                                                                                                style="float:right;margin-top:-50px"
+                                                                                                                height="50px"
+                                                                                                                onClick="uploadData()">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tbody
+                                                                                                        id="file_uploadings_backward">
+
+
+                                                                                                    </tbody>
+                                                                                                    <tr>
+                                                                                                        <td colspan="4">
+                                                                                                            <input
+                                                                                                                type="submit"
+                                                                                                                name="upload_kifi"
+                                                                                                                value="Save Record"
+                                                                                                                class="btn btn-primary">
+                                                                                                        </td>
+                                                                                                    </tr>
+
+
+                                                                                                </table>
+
+
+
+
+
+
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                            </div>
+
+
+                                                                            </form>
+                                                                            <!--------------------------------------------------------------->
                                                                             <!------------------infrastructur engineer check here-------->
                                                                             <?php 
                                                         if($groupID==10){
@@ -1162,13 +1375,24 @@ ppms_ipac_file where ipac_id=$ipc_iddd and ipac_user_id=$remarkss->emp_id and ip
 
                      if($orgName->designation_id==15){
                       echo "You Are Not Eligible for Entries";  
-                     }else{?>
+                     }else{
+                        if($orgName->order_by==1){
+                            if($orgName->designation_id==8){                            
+                        
+                        ?>
                                                                                         <input type="checkbox" value="1"
                                                                                             onchange="enable_inputs(this,<?php echo $ipc_iddd;?>,<?php echo $subID;?>,<?php echo $subsubID;?>,'<?php echo $item->ipc_no;?>')"
                                                                                             id="enable_summary"
                                                                                             class="form-control">
-                                                                                    </td>
+                                                                                   <?php }else{
+                                                                                    echo "Regional Engineer is Allowed for entries";
+                                                                                   }?>
+                                                                                   
+                                                                                        </td>
                                                                                     <?php
+                        }else{
+                            echo "You are not Allowed for entries";
+                        }
                       
                      }
             }?>
@@ -1357,7 +1581,7 @@ WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id 
                                                                                                             align="center">
 
 
-            <?php $doneeee="select * from ppms_ipc_billsummary where billsummary_id=$item->billsummary_id and ipc_id=$ipc_iddd";
+                                                                                                            <?php $doneeee="select * from ppms_ipc_billsummary where billsummary_id=$item->billsummary_id and ipc_id=$ipc_iddd";
 			$done900=$this->db->query($doneeee)->row();
            $d=$done900->ipc_bs_amount;
             ?>
@@ -1398,9 +1622,9 @@ WHERE `subproject_id`=$subID AND `sub_sub_project_id`=$main->sub_sub_project_id 
                                                                                                         <td>
 
                                                                                                             <input
-                                                                                                                type="text"
+                                                                                                                type="text" disabled
                                                                                                                 value="<?php echo $done900->remarks?>"
-                                                                                                                class="form-control"
+                                                                                                                class="form-control paki1"
                                                                                                                 id="remarks_ipc"
                                                                                                                 name="remarks_ipc"
                                                                                                                 onBlur="update_remarks(this.value,<?php echo $item->billsummary_id;?>,<?php echo $subID;?>,<?php echo $main->sub_sub_project_id?>,<?php echo $ipc_iddd;?>)">
@@ -1523,7 +1747,11 @@ $doneeee1="select sum(ipc_bs_amount) as tot_amt1 from ppms_ipc_billsummary where
                                                                                 <td width="20%">SNo</td>
                                                                                 <td width="40%">Description</td>
                                                                                 <td width="20%">AddToChecklist</td>
+                                                                                <?php 
+                                            
+                                            if($groupID == 5 or $groupID == 6 or $groupID == 1 or $groupID == 2){?>
                                                                                 <td width="20%">Action</td>
+                                                                                <?php }?>
                                                                             </tr>
                                                                             <?php
 			   error_reporting(0);
@@ -1589,6 +1817,7 @@ $dis="disabled";
                                                         if($groupID==10){
                                                             echo "You Are Not Allowed to do changes here";
                                                         }else{
+                                                            if($orgName->designation_id==8){   
                                                         ?>
                                                                                     <input type="checkbox"
                                                                                         id="item_ids<?php echo $itemss->item_id;?>"
@@ -1598,7 +1827,11 @@ $dis="disabled";
                                                                                         <?php echo $checked;?>
                                                                                         class="form-control"
                                                                                         <?php echo $dis;?>>
-                                                                                    <?php }?>
+                                                                                    <?php 
+                                                            }else{
+                                                                echo "Regional Engineer can make chages here";
+                                                            }
+                                                                                }?>
                                                                                 </td>
 
 
@@ -1634,7 +1867,9 @@ $i++;
                                                                                 <td width="20%">SNo</td>
                                                                                 <td width="40%">Description</td>
                                                                                 <td width="20%">AddToChecklist</td>
+                                                                                <?php if($groupID==1){?>
                                                                                 <td width="20%">Action</td>
+                                                                                <?php }?>
                                                                             </tr>
                                                                             <?php
 			   error_reporting(0);
@@ -1740,7 +1975,8 @@ $J++;
                                                                                 <td width="20%">SNo</td>
                                                                                 <td width="40%">Description</td>
                                                                                 <td width="20%">AddToChecklist</td>
-                                                                                <td width="20%">Action</td>
+                                                                                <?php if($groupID==1){?><td width="20%">
+                                                                                    Action</td><?php }?>
                                                                             </tr>
                                                                             <?php
 			   error_reporting(0);
@@ -2158,7 +2394,26 @@ function getWeekdaysCount($startDate, $endDate) {
 
                                             }
                                             </script>
+                                            <script type="text/javascript">
+                                            function delete_files_backward(fid, ipac_id, remarksID) {
+                                                var result = confirm("Are you sure to delete?");
+                                                if (result) {
+                                                    $.post("<?php echo base_url()?>Welcome/delete_ipc_files/", {
+                                                        fid: fid,
+                                                        ipac_id: ipac_id,
+                                                        remarksID: remarksID
+                                                    }, function(page_response) {
+                                                        //$.post("view/get_inst.php",{inst:cont},function(rep3)
+                                                        if (page_response) {
+                                                            /// alert(page_response);
+                                                            $("#file_uploadings_backward").html(page_response);
+                                                            ///window.location.reload();
+                                                        }
+                                                    });
+                                                }
 
+                                            }
+                                            </script>
                                             <script>
                                             function enable_inputs(checkbox, ipc, subID, subsubID, ipcno) {
                                                 //alert(checkbox.value);
@@ -2181,6 +2436,7 @@ function getWeekdaysCount($startDate, $endDate) {
                                                         }, function(page_response) {
                                                             //$.post("view/get_inst.php",{inst:cont},function(rep3)
                                                             $(".paki").prop("disabled", false);
+                                                            $(".paki1").prop("disabled", false);
                                                         });
 
                                                     }
@@ -2190,6 +2446,7 @@ function getWeekdaysCount($startDate, $endDate) {
                                                     /////////////////////////////////////////////////
                                                 } else {
                                                     $(".paki").prop("disabled", true);
+                                                    $(".paki1").prop("disabled", true);
                                                 }
 
 
@@ -2348,15 +2605,77 @@ function getWeekdaysCount($startDate, $endDate) {
                                                 border-left: 1px solid #fff;
                                                 box-shadow: inset 0 0 5px #888;
                                             }
-                                             /* Define the initial state of the image */
-                                             img {
-        width: 70px;
-        height: 70px;
-        transition: transform 0.3s ease; /* Add transition effect */
-    }
 
-    /* Define the rotation effect on hover */
-    img:hover {
-        transform: rotate(360deg); /* Rotate the image 360 degrees when hovered over */
-    }
+                                            /* Define the initial state of the image */
+                                            img {
+                                                width: 70px;
+                                                height: 70px;
+                                                transition: transform 0.3s ease;
+                                                /* Add transition effect */
+                                            }
+
+                                            /* Define the rotation effect on hover */
+                                            img:hover {
+                                                transform: rotate(360deg);
+                                                /* Rotate the image 360 degrees when hovered over */
+                                            }
+
+                                            .blink {
+                                                animation: blink-animation 1s infinite;
+                                                /* Change the animation duration as needed */
+                                            }
+
+                                            @keyframes blink-animation {
+                                                0% {
+                                                    opacity: 1;
+                                                }
+
+                                                50% {
+                                                    opacity: 0;
+                                                }
+
+                                                100% {
+                                                    opacity: 1;
+                                                }
+                                            }
+
+                                            #Modal-tab {
+                                                height: 800px !important;
+                                            }
                                             </style>
+
+
+                                            <script>
+                                            function uploadData() {
+                                                var fid = $("#fid").val();
+                                                var remarks_kifi = $("#remarks_kifi").val();
+                                                var ooid = $("#ooid").val();
+                                                var caption = $("#caption").val();
+                                                var ipcID = $("#ipcID").val();
+                                                var fileInput = document.getElementById('file');
+                                                var file = fileInput.files[0];
+
+                                                var formData = new FormData();
+                                                formData.append("org_id", fid);
+                                                formData.append("caption", caption);
+                                                formData.append("attach_file", file);
+                                                formData.append("ipac_id", ipcID);
+                                                formData.append("oid", ooid);
+                                                formData.append("remarks_kifi", remarks_kifi);
+
+                                                $.ajax({
+                                                    url: "<?php echo base_url('Dropdowns/back_ward_file_remarks')?>",
+                                                    type: "POST",
+                                                    data: formData,
+                                                    contentType: false,
+                                                    processData: false,
+                                                    success: function(response) {
+                                                        $("#file_uploadings_backward").html(response);
+                                                    },
+                                                    error: function() {
+                                                        $("#file_uploadings_backward").html(
+                                                            "Error occurred while uploading.");
+                                                    }
+                                                });
+                                            }
+                                            </script>

@@ -220,7 +220,6 @@
                                                 <th>End Date</th>
                                                
                                                 <th>Status</th>
-
                                             </tr>
                                         </thead>
                                             <tbody class="text-left">
@@ -251,7 +250,6 @@
                                                 <td><span class="label label-primary"></span></td>
                   <?php */?>
                                                 <td><a href="<?php echo base_url('Welcome/diplay_dashborad/').$item->subproject_id?>">Click</a></td>
-                                               
                                             </tr>
 											<?php 
                                         $i++;

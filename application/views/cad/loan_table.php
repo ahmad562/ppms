@@ -2,24 +2,28 @@
 table tr td {
     align-items: center;
 }
+
 .sticky {
     position: sticky;
     top: 0;
-    background-color: #f9f9f9; /* You can adjust the background color as needed */
-    z-index: 1000; /* Ensure the z-index is higher than other elements */
+    background-color: #f9f9f9;
+    /* You can adjust the background color as needed */
+    z-index: 1000;
+    /* Ensure the z-index is higher than other elements */
 }
 
 /* Additional CSS to style the table */
 .table-container {
-    max-height: 400px; /* Adjust the max height as needed */
+    max-height: 400px;
+    /* Adjust the max height as needed */
     overflow-y: auto;
 }
 
 /* Optional: Add padding to the bottom of the table to prevent content from hiding behind the sticky header */
 .table-container table {
-    margin-bottom: 50px; /* Adjust the value as needed */
+    margin-bottom: 50px;
+    /* Adjust the value as needed */
 }
-
 </style>
 <?php error_reporting(0);?>
 <div class="pcoded-content">
@@ -44,55 +48,86 @@ table tr td {
                             <div class="container" style="overflow:scroll;margin-right:20px">
                                 <div class="row">
                                     <div class="col-12">
+                                        <form method="post" action="">
+                                            <table border="1px" cellpadding="3px" cellspacing="0px" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Search</td>
+                                                        <td>
+                                                            <?php
+$currentYear = date("Y"); // Get the current year
+$startYear = 2020; // Set the start year
+$endYear = 2050; // Set the end year
 
-                                    
+echo '<select name="year" class="form-control">';
+for ($year = $startYear; $year <= $endYear; $year++) {
+    // Check if the current year matches the iteration year
+    $selected = ($year == $currentYear) ? 'selected' : '';
+    echo '<option value="' . $year . '" ' . $selected . '>' . $year . '</option>';
+}
+echo '</select>';
+?>
+                                                        </td>
+                                                        <td><input type="submit" name="search" value="Search"
+                                                                class="btn btn-danger"></td>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </form>
 
-
-
+                                        <?php if(isset($_POST['search'])){
+    
+    extract($_POST);
+    ?>
                                         <table border="1px" cellpadding="3px" cellspacing="0px" width="100%">
-                                        <thead>   
-                                        <tr>
-                                                <th colspan="33" style="font-size: 18px;">KHYBER PAKHTUNKHWA CITIES
-                                                    IMPROVEMENT PROJECT (KPCIP)</th>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="33" style="font-size: 18px;">Financing : ADB Loan 4160-PAK
-                                                    and AIIB Loan (L0214A)</th>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="33" style="font-size: 18px;">KHYBER PAKHTUNKHWA CITIES
+                                                        IMPROVEMENT PROJECT (KPCIP)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="33" style="font-size: 18px;">Financing : ADB Loan
+                                                        4160-PAK
+                                                        and AIIB Loan (L0214A)</td>
 
-                                            </tr>
-                                            <tr style="border-bottom: 4px solid black;">
-                                                <th colspan="33" style="font-size: 18px;">Disbursement Targets for 2024
-                                                </th>
+                                                </tr>
+                                                <tr style="border-bottom: 4px solid black;">
+                                                    <td colspan="33" style="font-size: 18px;">Disbursement Targets for
+                                                        <?php echo $year;?>
+                                                    </td>
 
 
-                                            </tr>
+                                                </tr>
 
-                                            <tr class="sticky">
-                                                <th><b>Sr.</b></th>
-                                                <th><b>Description</b></th>
+                                                <tr class="sticky">
+                                                    <th><b>Sr.</b></th>
+                                                    <th><b>Description</b></th>
 
-                                                <th>Contract Amount</th>
-                                                <th>Previous Disbursements</th>
-                                                <?php 
+                                                    <th>Contract Amount</th>
+                                                    <th>Previous Disbursements</th>
+                                                    <?php 
 
 $montheeee = $this->db->query("select * from month order by month_id asc")->result();
 
 foreach($montheeee as $montheeee){
 ?>
-                                                <th><b><?php echo $montheeee->month_name;?></b> 2024<br><br> PKR Millions
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
-<tr><td width="50%">Planned</td>
-<td width="50%">Achieved</td>
-</tr>
+                                                    <th><b><?php echo $montheeee->month_name;?></b>
+                                                        <?php echo $year;?><br><br> PKR
+                                                        Millions
+                                                        <table width="100%" border="1" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%">Planned</td>
+                                                                <td width="50%">Achieved</td>
+                                                            </tr>
 
-                                            </table>
-                                            
-                                            </th>
-                                               <?php }?>
-                                                <th><b>Total</b><br><br> PKR Millions</th>
+                                                        </table>
 
-                                            </tr>
-</thead>
+                                                    </th>
+                                                    <?php }?>
+                                                    <th><b>Total</b><br><br> PKR Millions</th>
+
+                                                </tr>
+                                            </thead>
                                             <tr style="border-bottom: 4px solid black;">
                                                 <th>1</th>
                                                 <td><b>Civil Works</b> </td>
@@ -118,7 +153,7 @@ foreach($montheeee as $montheeee){
 
                                             </tr>
 
-<?php 
+                                            <?php 
 
     $projects = $this->db->query("select * from ppms_project")->result();
     $z1=1;
@@ -148,7 +183,7 @@ foreach($montheeee as $montheeee){
                                                 <td></td>
                                                 <td></td>
                                             </tr>
-                        <?php 
+                                            <?php 
 
     $Subprojects = $this->db->query("select * from ppms_subproject as ps,city as c
      where ps.project_id=$projects->project_id and ps.city_id=c.city_id")->result();
@@ -157,50 +192,51 @@ foreach($montheeee as $montheeee){
 ?>
                                             <tr>
                                                 <td></td>
-                                                <td align="right"><b><?php echo $Subprojects->subproject_name;?></b>: 
-                                                <?php echo wordwrap($Subprojects->detail, 40, "<br>\n");?>
-                                                
-                                                <b><?php echo $Subprojects->city_name;?></b></td>
-                                                <td align="center"><b><?php echo 0?></b></td>
+                                                <td align="right"><b><?php echo $Subprojects->subproject_name;?></b>:
+                                                    <?php echo wordwrap($Subprojects->detail, 40, "<br>\n");?>
+
+                                                    <b><?php echo $Subprojects->city_name;?></b>
+                                                </td>
+                                                <td align="center"><b><?php echo number_format($Subprojects->subproject_amount,2);?></b></td>
                                                 <td align="center"><b><?php echo 0?></b></td>
                                                 <?php 
 
 $montheeee1 = $this->db->query("select * from month order by month_id asc")->result();
 
 foreach($montheeee1 as $montheeee2){
-?>                                               
-<td>
+?>
+                                                <td>
 
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
-<tr>
-<td width="50%" align="center"> <?php 
+                                                    <table width="100%" border="1" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="50%" align="center"> <?php 
 
-$bud_amt = $this->db->query("select * from cad_disbursement_target where sub_project_id=$Subprojects->subproject_id and year=2024 and month_id=$montheeee2->month_id")->row();
+$bud_amt = $this->db->query("select * from cad_disbursement_target where sub_project_id=$Subprojects->subproject_id and year=$year and month_id=$montheeee2->month_id")->row();
 
 //foreach($bud_amt as $bud_amt){
 ?>
 
-                                                <?php if($bud_amt->amount){
+                                                                <?php if($bud_amt->amount){
                                                     echo $bud_amt->amount;
                                                 }else{
                                                  echo 0;   
                                                 }?></td>
-                                               <?php //}?>
-                                            </td>
-                                            <td width="50%" align="center"> <?php 
+                                                            <?php //}?>
+                                                </td>
+                                                <td width="50%" align="center"> <?php 
 
 $paid_amt = $this->db->query("SELECT * FROM `ppms_ipac` AS ppi,`ipc_payment` AS ip
 WHERE ppi.`ipac_id`=ip.`ipac_id`
 AND ip.`status_id`=2
-AND ppi.`subproject_id`=$Subprojects->subproject_id and MONTH(ipc_payment_date)=$montheeee2->month_id and YEAR(ipc_payment_date)=2024")->row();
+AND ppi.`subproject_id`=$Subprojects->subproject_id and MONTH(ipc_payment_date)=$montheeee2->month_id and YEAR(ipc_payment_date)=$year")->row();
 
 //foreach($bud_amt as $bud_amt){
 ?>
 
-                                                <?php if($paid_amt->ipa_amount){
+                                                    <?php if($paid_amt->ipa_amount){
                                                     echo $paid_amt->ipa_amount;
                                                 }else{
-         $bud_amt_manual = $this->db->query("select * from ipc_temp_payment where sub_project_id=$Subprojects->subproject_id and year=2024 and month_id=$montheeee2->month_id")->row();
+         $bud_amt_manual = $this->db->query("select * from ipc_temp_payment where sub_project_id=$Subprojects->subproject_id and year=$year and month_id=$montheeee2->month_id")->row();
   
   if($bud_amt_manual->amount){
     echo $bud_amt_manual->amount;
@@ -208,111 +244,356 @@ AND ppi.`subproject_id`=$Subprojects->subproject_id and MONTH(ipc_payment_date)=
     echo 0;
   }
                                                 }?></td>
-                                               <?php //}?>
-                                            </td>
-
-
-</tr>
-
-                                            </table>
-</td>
-<?php }?>
-                                            
-                                            </tr>
-
-
-                                            <?php 
-    }
-                                        }?>
-                                           
-                                            <tr style="border-bottom: 4px solid black;">
-
-                                                <th></th>
-                                                <td><b>Total for Civil Works + Supervision/Project Management (PKR)</b>
+                                                <?php //}?>
                                                 </td>
-                                                <th></th>
-                                                <th></th>
-                                                <th> 2,055 </th>
-                                                <th> 2,173 </th>
-                                                <th> 3,625 </th>
-                                                <th> 2,807 </th>
-                                                <th> 2,143 </th>
-                                                <th> 1,856 </th>
-                                                <th> 2,530 </th>
-                                                <th> 2,902 </th>
-                                                <th> 2,603 </th>
-                                                <th> 2,564 </th>
-                                                <th> 2,825 </th>
-                                                <th> 2,851 </th>
-                                                <th> 30,934 </th>
 
-                                            </tr>
-                                            <tr style="border-bottom: 4px solid black;">
-                                                <td></td>
-                                                <td><b>Total Amounts in US$</b></td>
-
-
-                                                <th></th>
-                                                <th></th>
-                                                <th> $7.34 </th>
-                                                <th> $7.76 </th>
-                                                <th> $12.95 </th>
-                                                <th> $10.02 </th>
-                                                <th> $7.65 </th>
-                                                <th> $6.63 </th>
-                                                <th> $9.04 </th>
-                                                <th> $10.37 </th>
-                                                <th> $9.30 </th>
-                                                <th> $9.16 </th>
-                                                <th> $10.09 </th>
-                                                <th> $10.18 </th>
-                                                <th> $110.48 </th>
-
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>ADB Share (US$)</td>
-
-                                                <td></td>
-                                                <td></td>
-                                                <td> $5.32 </td>
-                                                <td> $5.64 </td>
-                                                <td> $9.42 </td>
-                                                <td> $7.29 </td>
-                                                <td> $5.56 </td>
-                                                <td> $4.82 </td>
-                                                <td> $6.57 </td>
-                                                <td> $7.53 </td>
-                                                <td> $6.76 </td>
-                                                <td> $6.66 </td>
-                                                <td> $7.33 </td>
-                                                <td> $7.40 </td>
-                                                <td> $71.69 </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>AIIB Share (US$)</td>
-
-                                                <td></td>
-                                                <td></td>
-                                                <td> $2.02 </td>
-                                                <td> $2.12 </td>
-                                                <td> $3.53 </td>
-                                                <td> $2.73 </td>
-                                                <td> $2.09 </td>
-                                                <td> $1.81 </td>
-                                                <td> $2.47 </td>
-                                                <td> $2.83 </td>
-                                                <td> $2.54 </td>
-                                                <td> $2.50 </td>
-                                                <td> $2.76 </td>
-                                                <td> $2.78 </td>
-                                                <td> $38.79 </td>
 
                                             </tr>
 
                                         </table>
+                                        </td>
+                                        <?php }?>
+
+                                        </tr>
+
+
+                                        <?php 
+    }
+                                        }?>
+
+                                        <tr style="border-bottom: 4px solid black;">
+
+                                            <th></th>
+                                            <td><b>Total for Civil Works + Supervision/Project Management (PKR)</b>
+                                            </td>
+                                            <th></th>
+                                            <th></th>
+                                           
+<?php 
+
+$montheeee10 = $this->db->query("select * from month order by month_id asc")->result();
+
+foreach($montheeee10 as $montheeee101){
+?>
+    <th>   
+        <table class="table"><tr><td>
+            <?php 
+
+$bud_amt_gross = $this->db->query("select sum(amount) as sub_tots
+ from cad_disbursement_target where year=$year and month_id=$montheeee101->month_id")->row();
+
+
+?>
+
+                                                <?php if($bud_amt_gross->sub_tots){
+                                                    echo number_format($bud_amt_gross->sub_tots,2);
+                                                }else{
+                                                    
+
+$tot_cad_dis = $this->db->query("select sum(amount) as tot_cad_dis from 
+cad_disbursement_target where  year=$year and month_id=$montheeee101->month_id")->row();
+                                                    
+                                                    if($tot_cad_dis->tot_cad_dis >=1){
+                                    echo number_format($tot_cad_dis->tot_cad_dis,2);
+                                                    }else{
+                                                        echo 0;
+                                                    }
+                                                
+                                                }?>
+
+</td><td>
+
+<?php 
+
+$tot_ipc_amt = $this->db->query("SELECT sum(ipa_amount) as tot_ipc_amt FROM `ppms_ipac` AS ppi,`ipc_payment` AS ip
+WHERE ppi.`ipac_id`=ip.`ipac_id`
+AND ip.`status_id`=2
+AND MONTH(ipc_payment_date)=$montheeee101->month_id and YEAR(ipc_payment_date)=$year")->row();
+
+//foreach($bud_amt as $bud_amt){
+?>
+
+                                                    <?php if($tot_ipc_amt->tot_ipc_amt){
+                                                    echo number_format($tot_ipc_amt->tot_ipc_amt,2);
+                                                }else{
+         $tot_budget_amt = $this->db->query("select sum(amount) as tot_budget_amt 
+         from ipc_temp_payment where year=$year and month_id=$montheeee101->month_id")->row();
+  
+  if($tot_budget_amt->tot_budget_amt){
+    echo number_format($tot_budget_amt->tot_budget_amt,2);
+  }else{
+    echo 0;
+  }
+                                                }?>
+
+
+
+</td></tr>
+</table>
+
+
+
+
+
+                                            </th>
+
+                                            <?php }?>
+                                        </tr>
+                                        <tr style="border-bottom: 4px solid black;">
+                                            <td></td>
+                                            <td><b>Total Amounts in US$</b></td>
+
+
+                                            <th></th>
+                                            <th></th>
+                                            <?php 
+
+$montheeee10 = $this->db->query("select * from month order by month_id asc")->result();
+
+foreach($montheeee10 as $montheeee101){
+?>
+    <th>   
+        <table class="table"><tr><td>
+            <?php 
+
+$bud_amt_gross = $this->db->query("select sum(amount) as sub_tots
+ from cad_disbursement_target where year=$year and month_id=$montheeee101->month_id")->row();
+
+
+?>
+
+                                                <?php if($bud_amt_gross->sub_tots){
+                                                    $a=$bud_amt_gross->sub_tots/280;
+                                                    echo number_format($a,2);
+                                                }else{
+                                                    
+
+$tot_cad_dis = $this->db->query("select sum(amount) as tot_cad_dis from 
+cad_disbursement_target where  year=$year and month_id=$montheeee101->month_id")->row();
+                                                    
+                                                    if($tot_cad_dis->tot_cad_dis >=1){
+                                         $b=$tot_cad_dis->tot_cad_dis/280;
+                                    echo number_format($b,2);
+                                                    }else{
+                                                        echo 0;
+                                                    }
+                                                
+                                                }?>
+
+</td><td>
+
+<?php 
+
+$tot_ipc_amt = $this->db->query("SELECT sum(ipa_amount) as tot_ipc_amt FROM `ppms_ipac` AS ppi,`ipc_payment` AS ip
+WHERE ppi.`ipac_id`=ip.`ipac_id`
+AND ip.`status_id`=2
+AND MONTH(ipc_payment_date)=$montheeee101->month_id and YEAR(ipc_payment_date)=$year")->row();
+
+//foreach($bud_amt as $bud_amt){
+?>
+
+                                                    <?php if($tot_ipc_amt->tot_ipc_amt){
+                                                      $c=$tot_ipc_amt->tot_ipc_amt/280;  
+                                                    echo number_format($c,2);
+                                                }else{
+         $tot_budget_amt = $this->db->query("select sum(amount) as tot_budget_amt 
+         from ipc_temp_payment where year=$year and month_id=$montheeee101->month_id")->row();
+  
+  if($tot_budget_amt->tot_budget_amt){
+    $d=$tot_budget_amt->tot_budget_amt/280;
+    echo number_format($d,2);
+  }else{
+    echo 0;
+  }
+                                                }?>
+
+
+
+</td></tr>
+</table>
+
+
+
+
+
+                                            </th>
+
+                                            <?php }?>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>ADB Share (US$)</td>
+
+                                            <th></th>
+                                            <th></th>
+                                            <?php 
+
+$montheeee10 = $this->db->query("select * from month order by month_id asc")->result();
+
+foreach($montheeee10 as $montheeee101){
+?>
+    <th>   
+        <table class="table"><tr><td>
+            <?php 
+
+$bud_amt_gross = $this->db->query("select sum(amount) as sub_tots
+ from cad_disbursement_target where year=$year and month_id=$montheeee101->month_id")->row();
+
+
+?>
+
+                                                <?php if($bud_amt_gross->sub_tots){
+                                                    $a1=($bud_amt_gross->sub_tots/280);
+                                                    $a11=((65*$a1)/100);
+                                                    echo number_format($a11,2);
+                                                }else{
+                                                    
+
+$tot_cad_dis = $this->db->query("select sum(amount) as tot_cad_dis from 
+cad_disbursement_target where  year=$year and month_id=$montheeee101->month_id")->row();
+                                                    
+                                                    if($tot_cad_dis->tot_cad_dis >=1){
+                                         $b1=$tot_cad_dis->tot_cad_dis/280;
+                                         $b11=((65*$b1)/100);
+                                    echo number_format($b11,2);
+                                                    }else{
+                                                        echo 0;
+                                                    }
+                                                
+                                                }?>
+
+</td><td>
+
+<?php 
+
+$tot_ipc_amt = $this->db->query("SELECT sum(ipa_amount) as tot_ipc_amt FROM `ppms_ipac` AS ppi,`ipc_payment` AS ip
+WHERE ppi.`ipac_id`=ip.`ipac_id`
+AND ip.`status_id`=2
+AND MONTH(ipc_payment_date)=$montheeee101->month_id and YEAR(ipc_payment_date)=$year")->row();
+
+//foreach($bud_amt as $bud_amt){
+?>
+
+                                                    <?php if($tot_ipc_amt->tot_ipc_amt){
+                                                      $c1=$tot_ipc_amt->tot_ipc_amt/280;  
+                                                      $c11=((65*$c1)/100);
+                                                    echo number_format($c11,2);
+                                                }else{
+         $tot_budget_amt = $this->db->query("select sum(amount) as tot_budget_amt 
+         from ipc_temp_payment where year=$year and month_id=$montheeee101->month_id")->row();
+  
+  if($tot_budget_amt->tot_budget_amt){
+    $d1=$tot_budget_amt->tot_budget_amt/280;
+    $d11=((65*$d1)/100);
+    echo number_format($d11,2);
+  }else{
+    echo 0;
+  }
+                                                }?>
+
+
+
+</td></tr>
+</table>
+
+
+
+
+
+                                            </th>
+
+                                            <?php }?>
+
+
+
+
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>AIIB Share (US$)</td>
+
+                                            <th></th>
+                                            <th></th>
+                                            <?php 
+
+$montheeee10 = $this->db->query("select * from month order by month_id asc")->result();
+
+foreach($montheeee10 as $montheeee101){
+?>
+    <th>   
+        <table class="table"><tr><td>
+            <?php 
+
+$bud_amt_gross = $this->db->query("select sum(amount) as sub_tots
+ from cad_disbursement_target where year=$year and month_id=$montheeee101->month_id")->row();
+
+
+?>
+
+                                                <?php if($bud_amt_gross->sub_tots){
+                                                    $a2=($bud_amt_gross->sub_tots/280);
+                                                    $a22=((35*$a2)/100);
+                                                    echo number_format($a22,2);
+                                                }else{
+                                                    
+
+$tot_cad_dis = $this->db->query("select sum(amount) as tot_cad_dis from 
+cad_disbursement_target where  year=$year and month_id=$montheeee101->month_id")->row();
+                                                    
+                                                    if($tot_cad_dis->tot_cad_dis >=1){
+                                         $b2=$tot_cad_dis->tot_cad_dis/280;
+                                         $b22=((35*$b2)/100);
+                                    echo number_format($b22,2);
+                                                    }else{
+                                                        echo 0;
+                                                    }
+                                                
+                                                }?>
+
+</td><td>
+
+<?php 
+
+$tot_ipc_amt = $this->db->query("SELECT sum(ipa_amount) as tot_ipc_amt FROM `ppms_ipac` AS ppi,`ipc_payment` AS ip
+WHERE ppi.`ipac_id`=ip.`ipac_id`
+AND ip.`status_id`=2
+AND MONTH(ipc_payment_date)=$montheeee101->month_id and YEAR(ipc_payment_date)=$year")->row();
+
+//foreach($bud_amt as $bud_amt){
+?>
+
+                                                    <?php if($tot_ipc_amt->tot_ipc_amt){
+                                                      $c2=$tot_ipc_amt->tot_ipc_amt/280;  
+                                                      $c22=((35*$c2)/100);
+                                                    echo number_format($c22,2);
+                                                }else{
+         $tot_budget_amt = $this->db->query("select sum(amount) as tot_budget_amt 
+         from ipc_temp_payment where year=$year and month_id=$montheeee101->month_id")->row();
+  
+  if($tot_budget_amt->tot_budget_amt){
+    $d2=$tot_budget_amt->tot_budget_amt/280;
+    $d22=((35*$d2)/100);
+    echo number_format($d22,2);
+  }else{
+    echo 0;
+  }
+                                                }?>
+
+
+
+</td></tr>
+</table>
+
+
+
+<?php }?>
+                                        </tr>
+
+                                        </table>
+
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>
@@ -323,3 +604,52 @@ AND ppi.`subproject_id`=$Subprojects->subproject_id and MONTH(ipc_payment_date)=
         </div>
     </div>
 </div>
+
+<style>
+/* Table CSS */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #000;
+    padding: 8px;
+
+}
+
+/* Beveled Cell Data */
+td {
+    background-color: #fff;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    box-shadow: inset 0 0 5px #888;
+    color: #000;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Beveled Header Cells */
+th {
+    background-color: #218559;
+    color: #fff;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    box-shadow: inset 0 0 5px #888;
+    text-align: left;
+    vertical-align: middle;
+}
+
+img {
+
+    transition: transform 0.3s ease;
+    /* Add transition effect */
+}
+
+/* Define the rotation effect on hover */
+img:hover {
+    transform: rotate(360deg);
+    /* Rotate the image 360 degrees when hovered over */
+}
+</style>

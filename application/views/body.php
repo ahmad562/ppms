@@ -412,7 +412,8 @@ WHERE pii.ipac_id=pif.ipac_id AND pif.ipac_forward_id =
                 </div>
             </div>
             <?php */?>
-
+<?php 
+if($groupID == 5 or $groupID == 6 or $groupID == 1 or $groupID == 2){?>
             <div class="row">
                 <script src="https://code.highcharts.com/highcharts.js"></script>
                 <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -1488,7 +1489,7 @@ foreach($totiiiF as $totiiiF){?>
 });
 </script>
 
-
+<?php }?>
                     </div></div>
             <div id="styleSelector"></div>
         </div>

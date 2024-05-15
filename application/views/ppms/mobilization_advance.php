@@ -149,6 +149,12 @@ vertical-align: middle; !important">
                                                     
                                                    
                                                 </tr>
+                                                <tr>
+                                                    <th>Serial#</th>
+                                                    <th>IPC#</th>
+                                                    <th>verified Amount</th>
+                                                    <th>Paid Amount</th>
+</tr>
                                             </thead>
                                             <tbody>
                  <?php 
