@@ -604,52 +604,62 @@ AND MONTH(ipc_payment_date)=$montheeee101->month_id and YEAR(ipc_payment_date)=$
         </div>
     </div>
 </div>
-
 <style>
-/* Table CSS */
+/* General Table Styles */
 table {
     border-collapse: collapse;
     width: 100%;
+    font-size: 12px; /* Set font size to 10px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow around the table */
 }
 
-th,
-td {
-    border: 1px solid #000;
-    padding: 8px;
-
-}
-
-/* Beveled Cell Data */
-td {
-    background-color: #fff;
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
-    box-shadow: inset 0 0 5px #888;
-    color: #000;
-    text-align: left;
-    vertical-align: middle;
-}
-
-/* Beveled Header Cells */
+/* Header Styles */
 th {
     background-color: #218559;
     color: #fff;
-    border-top: 1px solid #fff;
-    border-left: 1px solid #fff;
-    box-shadow: inset 0 0 5px #888;
+    border: 1px solid #fff;
+    padding: 8px;
     text-align: left;
     vertical-align: middle;
+    position: sticky; /* Keep headers fixed when scrolling */
+    top: 0;
+    z-index: 1;
+    box-shadow: inset 0 0 5px #888;
+    text-transform: uppercase; /* Capitalize headers */
 }
 
+/* Data Cell Styles */
+td {
+    background-color: #F9F9F9;
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    box-shadow: inset 0 0 5px #ccc;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effects for Data Cells */
+td:hover {
+    background-color: #F1F1F1;
+    color: #000;
+}
+
+/* Row Striping */
+tr:nth-child(even) td {
+    background-color: #fff;
+}
+
+/* Enhanced Image Hover Effect */
 img {
-
-    transition: transform 0.3s ease;
-    /* Add transition effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow around images */
 }
 
-/* Define the rotation effect on hover */
+/* Rotate and Scale Image on Hover */
 img:hover {
-    transform: rotate(360deg);
-    /* Rotate the image 360 degrees when hovered over */
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 </style>

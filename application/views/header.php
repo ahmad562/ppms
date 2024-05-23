@@ -64,38 +64,5 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/pages/data-table/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
-    <style>
-.raised-menu {
-    background-color: #1ABC9C;
-    border: 1px solid yellow;
-    padding: 10px; /* Adjust padding as needed */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
-    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Add a smooth transition effect */
-    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
-}
-
-.raised-menu:hover {
-    background-color: #128C7E; /* Change the background color on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust the hover shadow */
-    transform: translateY(-2px); /* Add a subtle lift effect on hover */
-}
-.hover-effect:hover {
-    color: #fff; /* Change the text color on hover */
-    background-color: #128C7E; /* Change the background color on hover */
-    /* Add any other styles you want to apply on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust the hover shadow */
-    transform: translateY(-2px); /* Add a subtle lift effect on hover */
-}
-.bordered {
-    border: 2px solid ##2c3e50; /* Set the border properties: width, style, and color */
-}
-
-.bordered:hover {
-    color: #fff; /* Change the text color on hover */
-    background-color: #128C7E; /* Change the background color on hover */
-    /* Add any other styles you want to apply on hover */
-    font-size: 20px;
-}
-</style>
-
+  
   </head>

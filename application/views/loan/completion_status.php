@@ -19,7 +19,7 @@
                 <div class="page-body">
                     <div class="row">
                         
-                        <div class="col-sm-12">
+ <div class="col-sm-12">
                             <!-- Zero config.table start -->
                             <div class="card">
                                 <div class="card-header">
@@ -134,10 +134,10 @@ foreach($done as $desig){
 
 
                                                 </tr>
-                                                <tr style="display:none">
+                                                <tr>
                                                     <td>Sub Sub Project</td>
                                                     <td>
-                                                        <select  name="sub_sub_project_id"
+                                                        <select required name="sub_sub_project_id"
                                                             id="sub_sub_project_id" class="form-control" onChange="get_bill(this.value)">
 
                                                             <option value="">Select Sub Sub Project List</option>
@@ -181,7 +181,7 @@ foreach($done as $desig){
                                                     <th>Sectors</th>
                                                     <th>Project</th>
                                                     <th>Sub Project Name</th>
-                                                    <!-- <th>Sub Sub Project Name</th> -->
+                                                    <th>Sub Sub Project Name</th>
                                                     <th>Year</th>
                                                     <th>Month</th>
                                                     <th>Planned</th>
@@ -191,34 +191,12 @@ foreach($done as $desig){
                                             </thead>
                                             <tbody>
                                                 <?php
-
-                $user_data_session = $this->session->userdata();
-                $subproject_check = "";
-                if($user_data_session['groupid']==3){
-                    $query_subproject = $this->db->query("select * from assign_regional where emp_id= '".$user_data_session['empid']."'")->result();
-                    $subproject_check = " and psub.subproject_id ='".$query_subproject[0]->subproject_id."' ";
-                }
-                error_reporting(0);
+			   error_reporting(0);
 			   
                $i=1; 
-               //old query
-            //    $result1 = $this->db->query("SELECT * FROM 
-            //       ppms_completion_status AS pcs,
-            //       ppms_subproject_area AS ppa,
-            //       ppms_subproject AS psub,
-            //       ppms_project AS pp,
-            //       ppms_sector AS ps,
-            //       ppms_output_list AS pol
-                  
-            //       WHERE 
-                  
-            //       pcs.sub_sub_id=ppa.project_area_id
-            //       AND ppa.`subproject_id`=psub.`subproject_id`
-            //       AND psub.`project_id`=pp.`project_id`
-            //       AND pp.`sector_id`=ps.`sector_id`
-            //       AND ps.`output_id`=pol.`output_id`")->result();
                   $result1 = $this->db->query("SELECT * FROM 
                   ppms_completion_status AS pcs,
+                  ppms_subproject_area AS ppa,
                   ppms_subproject AS psub,
                   ppms_project AS pp,
                   ppms_sector AS ps,
@@ -226,10 +204,11 @@ foreach($done as $desig){
                   
                   WHERE 
                   
-                  pcs.sub_project_id=psub.subproject_id
-                  AND psub.`project_id`=pp.`project_id` ".$subproject_check."
+                  pcs.sub_sub_id=ppa.project_area_id
+                  AND ppa.`subproject_id`=psub.`subproject_id`
+                  AND psub.`project_id`=pp.`project_id`
                   AND pp.`sector_id`=ps.`sector_id`
-                  AND ps.`output_id`=pol.`output_id` ")->result();
+                  AND ps.`output_id`=pol.`output_id`")->result();
                   foreach($result1 as $item){?>
                                                 <tr class="gradeX">
                                                     <td><?php echo $i;?></td>
@@ -238,7 +217,7 @@ foreach($done as $desig){
                                                     <td><?php echo $item->project_name;?></td>
                                                     <td><?php echo $item->subproject_name;?></td>
 
-                                                    <!-- <td><?php //echo $item->project_area_name;?></td> -->
+                                                    <td><?php echo $item->project_area_name;?></td>
                                                     <td><?php echo $item->year;?></td>
                                                     <td><?php echo $item->month;?></td>
 

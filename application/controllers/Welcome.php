@@ -1130,7 +1130,7 @@ $x++;
 						   $resultBulkSMS = $client->BulkSmsv2(
 										   array('objBulkSms' => 
 														   array(	'LoginId'=>  '923159749585', //here type your account name
-																   'LoginPassword'=>'Hen@9598', //here type your password
+																   'LoginPassword'=>'Hsenter#4321', //here type your password
 																   'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
 																   'Message'=> $complaint_user_msg,
 																   'UniCode'=>'0',

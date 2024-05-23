@@ -14,7 +14,8 @@
     emp AS e,designation AS d
     WHERE e.designation_id=d.designation_id and e.emp_id=$empID")->row();
    ///echo $this->db->last_query();
-   
+    
+    
     ?>
     <!-- Pre-loader end -->
     <!-- Menu header start -->
@@ -588,7 +589,7 @@ and pa.group_id=$grpID and pa.flag_id=1")->result();
                                     <a href="<?php 
                                     
                                     if($parent->menu_url=='#'){
-                                        echo '#';
+                                        echo 'javascript:';
                                     }else{
                                     echo base_url().$parent->menu_url;
                                     }?>">
@@ -607,7 +608,7 @@ and pa.group_id=$grpID and pa.flag_id=1")->result();
     and pc.group_id=$grpID 
     and mdc.menu_id=pc.menu_id and pc.flag_id=1
     order by sort_order asc")->result();
-                           //echo $this->db->last_query();
+                           ///echo $this->db->last_query();
                            foreach($child as $child){?>
                                            
 											<li >

@@ -87,16 +87,8 @@ public function display_data(){
  }
 /////////////////////////////////////////////
 public function get_sub_projects(){
-    // check for RE account sub project sellection
-    $groupid = $this->session->userdata('groupid');
-    $empid = $this->session->userdata('empid');
-    $query_subproject = $this->db->query("select * from assign_regional where emp_id= '".$empid."'")->result();
-    $subproject_check = $query_subproject[0]->subproject_id;
-
-
     $project_id = $this->input->post('project_id');
     $postData = $this->input->post();
-    $postData['subproject_check_id'] = $subproject_check;
     // load model 
     $this->load->model('dropdown');
     // get data 
@@ -419,7 +411,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                  $resultBulkSMS = $client->BulkSmsv2(
                                  array('objBulkSms' => 
                                                  array(	'LoginId'=>  '923159749585', //here type your account name
-                                                         'LoginPassword'=>'Hen@9598', //here type your password
+                                                         'LoginPassword'=>'Hsenter#4321', //here type your password
                                                          'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                          'Message'=> $complaint_user_msg,
                                                          'UniCode'=>'0',
@@ -517,7 +509,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                  $resultBulkSMS = $client->BulkSmsv2(
                                  array('objBulkSms' => 
                                                  array(	'LoginId'=>  '923159749585', //here type your account name
-                                                         'LoginPassword'=>'Hen@9598', //here type your password
+                                                         'LoginPassword'=>'Hsenter#4321', //here type your password
                                                          'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                          'Message'=> $complaint_user_msg,
                                                          'UniCode'=>'0',
@@ -650,7 +642,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
                  $resultBulkSMS = $client->BulkSmsv2(
                                  array('objBulkSms' => 
                                                  array(	'LoginId'=>  '923159749585', //here type your account name
-                                                         'LoginPassword'=>'Hen@9598', //here type your password
+                                                         'LoginPassword'=>'Hsenter#4321', //here type your password
                                                          'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                          'Message'=> $complaint_user_msg,
                                                          'UniCode'=>'0',
@@ -794,7 +786,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
              $resultBulkSMS = $client->BulkSmsv2(
                              array('objBulkSms' => 
                                              array(	'LoginId'=>  '923159749585', //here type your account name
-                                                     'LoginPassword'=>'Hen@9598', //here type your password
+                                                     'LoginPassword'=>'Hsenter#4321', //here type your password
                                                      'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                      'Message'=> $complaint_user_msg,
                                                      'UniCode'=>'0',
@@ -883,7 +875,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
              $resultBulkSMS = $client->BulkSmsv2(
                              array('objBulkSms' => 
                                              array(	'LoginId'=>  '923159749585', //here type your account name
-                                                     'LoginPassword'=>'Hen@9598', //here type your password
+                                                     'LoginPassword'=>'Hsenter#4321', //here type your password
                                                      'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                      'Message'=> $complaint_user_msg,
                                                      'UniCode'=>'0',
@@ -962,7 +954,7 @@ $complaint_user_msg = "Dear ".$sms->designation_name. " " .$projectName ."-".$su
              $resultBulkSMS = $client->BulkSmsv2(
                              array('objBulkSms' => 
                                              array(	'LoginId'=>  '923159749585', //here type your account name
-                                                     'LoginPassword'=>'Hen@9598', //here type your password
+                                                     'LoginPassword'=>'Hsenter#4321', //here type your password
                                                      'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                      'Message'=> $complaint_user_msg,
                                                      'UniCode'=>'0',
@@ -1499,7 +1491,7 @@ public function back_ward_file(){
              $resultBulkSMS = $client->BulkSmsv2(
                              array('objBulkSms' => 
                                              array(	'LoginId'=>  '923159749585', //here type your account name
-                                                     'LoginPassword'=>'Hen@9598', //here type your password
+                                                     'LoginPassword'=>'Hsenter#4321', //here type your password
                                                      'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                      'Message'=> $complaint_user_msg,
                                                      'UniCode'=>'0',
@@ -1578,7 +1570,7 @@ public function back_ward_file(){
              $resultBulkSMS = $client->BulkSmsv2(
                              array('objBulkSms' => 
                                              array(	'LoginId'=>  '923159749585', //here type your account name
-                                                     'LoginPassword'=>'Hen@9598', //here type your password
+                                                     'LoginPassword'=>'Hsenter#4321', //here type your password
                                                      'Mask'=>'KPCIP', //here set allowed mask against your account or you will get invalid mask
                                                      'Message'=> $complaint_user_msg,
                                                      'UniCode'=>'0',
